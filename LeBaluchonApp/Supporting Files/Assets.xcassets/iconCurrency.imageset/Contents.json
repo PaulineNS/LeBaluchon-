@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "currency.png",
+      "filename" : "iconCurrency.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "currency@2x.png",
+      "filename" : "iconCurrency@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "currency@3x.png",
+      "filename" : "iconCurrency@3x.png",
       "scale" : "3x"
     }
   ],

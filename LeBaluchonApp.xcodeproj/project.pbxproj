@@ -12,6 +12,7 @@
 		565503BB23045EDC00FDDD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565503B923045EDC00FDDD23 /* Main.storyboard */; };
 		565503BD23045EE600FDDD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565503BC23045EE600FDDD23 /* Assets.xcassets */; };
 		565503C023045EE600FDDD23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565503BE23045EE600FDDD23 /* LaunchScreen.storyboard */; };
+		565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503CB2305333A00FDDD23 /* CurrencyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		565503BC23045EE600FDDD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		565503BF23045EE600FDDD23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		565503C123045EE600FDDD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		565503CB2305333A00FDDD23 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		565503C923045F0300FDDD23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				565503CB2305333A00FDDD23 /* CurrencyService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				565503B823045EDC00FDDD23 /* Currency.swift in Sources */,
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
+				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
