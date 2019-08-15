@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.95349866151809692" green="0.5784916877746582" blue="0.19148796796798706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -28,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-835" y="113"/>
         </scene>
-        <!--Item-->
+        <!--Currency-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,11 +55,14 @@
                         <color key="backgroundColor" red="0.95349866151809692" green="0.5784916877746582" blue="0.19148796796798706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="P0r-wj-E8h"/>
+                    <tabBarItem key="tabBarItem" title="Currency" image="icon-Small" id="P0r-wj-E8h"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-Small" width="29" height="29"/>
+    </resources>
 </document>

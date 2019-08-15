@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CurrencyService {
+/* class CurrencyService {
     private static let currencyUrl = URL(string: "http://data.fixer.io/api/convert")! // ?
     
     static func getCurrency(){
@@ -28,4 +28,4 @@ class CurrencyService {
         }
         task.resume()
     }
-}
+} */
