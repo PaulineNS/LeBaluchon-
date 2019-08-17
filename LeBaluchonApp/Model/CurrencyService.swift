@@ -9,14 +9,11 @@
 import Foundation
 
 /* class CurrencyService {
-    private static let currencyUrl = URL(string: "http://data.fixer.io/api/convert")! // ?
+    private static let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=091a2105498b073b04df296f6052d8f3")!
     
-    static func getCurrency(){
+    static func getCurrenci(){
         var request = URLRequest(url: currencyUrl)
         request.httpMethod = "GET"
-        
-        let body = "method=getCurrency&access_key=091a2105498b073b04df296f6052d8f3&from=EUR&to=USD&amount=25"
-        request.httpBody = body.data(using: .utf8)
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -27,5 +24,18 @@ import Foundation
             }
         }
         task.resume()
+    }
+    
+    private static func getImage(callback: @escaping (Bool, CurrrencyStruct?) -> Void) {
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: currencyUrl) { (data, response, error) in
+            if let data = data, error == nil {
+                if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                    if let responseJSON = JSONDecoder().decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##Data#>) {
+                        
+                    }
+                }
+            }
+        }
     }
 } */
