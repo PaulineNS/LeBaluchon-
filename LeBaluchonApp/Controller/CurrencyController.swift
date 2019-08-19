@@ -8,13 +8,15 @@
 
 import UIKit
 
-class Currency: UIViewController {
-
+class CurrencyController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        CurrencyService.getCurrency { (currrency) in
+            print (currrency)
+        }
     }
-
-
+    // Do any additional setup after loading the view.
 }
+
 

@@ -7,7 +7,8 @@
 //
 
 import Foundation
-/*
-struct CurrrencyStruct {
-    //
-} */
+
+struct Currrency: Decodable {
+    var base: String
+    var date: String    
+}
