@@ -8,15 +8,28 @@
 
 import UIKit
 
-class CurrencyController: UIViewController {
+class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        CurrencyService.getCurrency { (currrency) in
-            print (currrency)
-        }
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var resultSymbolsPickerView: UIPickerView!
+    @IBOutlet weak var requestTextField: UITextField!
+    @IBOutlet weak var requestPickerView: UIPickerView!
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    // Do any additional setup after loading the view.
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // return symbolsArray
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // return symbolsArray[row]
+    }
 }
+
+
+
 
 

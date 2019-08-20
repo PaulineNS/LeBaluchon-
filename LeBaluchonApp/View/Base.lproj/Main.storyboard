@@ -52,19 +52,22 @@
                                             </textField>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-cj-c7u">
                                                 <rect key="frame" x="192" y="0.0" width="192" height="218"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="129-8g-jNm"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Qbe-dA-glp"/>
+                                                </connections>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-Bz-tUk">
                                         <rect key="frame" x="0.0" y="218" width="384" height="216"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Result" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ppb-is-nqb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLb-sI-jNl">
                                                 <rect key="frame" x="0.0" y="0.0" width="188" height="216"/>
-                                                <color key="backgroundColor" red="0.95384484529495239" green="0.58174735307693481" blue="0.19255980849266052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                            </textField>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiR-bL-1ld">
                                                 <rect key="frame" x="196" y="0.0" width="188" height="216"/>
                                             </pickerView>
@@ -86,6 +89,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="icon-Small" id="P0r-wj-E8h"/>
+                    <connections>
+                        <outlet property="requestPickerView" destination="ogE-cj-c7u" id="Ta1-JY-KWd"/>
+                        <outlet property="requestTextFielf" destination="AON-Wr-J46" id="aDC-sT-Di3"/>
+                        <outlet property="resultLabel" destination="wLb-sI-jNl" id="YhM-Kj-Xej"/>
+                        <outlet property="resultSymbolsPickerView" destination="DiR-bL-1ld" id="qkS-zg-5Cs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
