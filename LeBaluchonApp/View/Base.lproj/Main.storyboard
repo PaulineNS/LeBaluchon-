@@ -52,10 +52,6 @@
                                             </textField>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-cj-c7u">
                                                 <rect key="frame" x="192" y="0.0" width="192" height="218"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="129-8g-jNm"/>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Qbe-dA-glp"/>
-                                                </connections>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
@@ -68,7 +64,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiR-bL-1ld">
+                                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiR-bL-1ld">
                                                 <rect key="frame" x="196" y="0.0" width="188" height="216"/>
                                             </pickerView>
                                         </subviews>

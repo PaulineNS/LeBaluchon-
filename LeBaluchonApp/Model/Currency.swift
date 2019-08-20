@@ -10,5 +10,6 @@ import Foundation
 
 struct Currrency: Decodable {
     var base: String
-    var date: String    
+    var date: Date
+    var rates: [String: Double]
 }

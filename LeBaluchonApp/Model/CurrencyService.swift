@@ -13,55 +13,33 @@ class CurrencyService {
     private static let symbolUrl = URL(string: "http://data.fixer.io/api/symbols?access_key=091a2105498b073b04df296f6052d8f3")!
 
     
-    static func getCurrency(callback: @escaping (Bool, Currrency?) -> Void) {
+    static func getCurrency(callback: @escaping (Currrency?) -> Void) {
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: currencyUrl) { (data, response, error) in
             
             guard let data = data, error == nil else {
-                callback(false, nil)
+                callback(nil)
                 return
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
-                callback(false, nil)
+                callback(nil)
                 return
             }
             
             guard let responseJSON = try? JSONDecoder().decode(Currrency.self, from: data) else {
-                    callback(false, nil)
+                    callback(nil)
                     return
             }
             
-            let currency = Currrency(base: responseJSON.base, date: responseJSON.date)
-            callback(true, currency)
+            let currency = Currrency(base: responseJSON.base, date: responseJSON.date, rates: responseJSON.rates)
+            callback(currency)
         }
         
         task.resume()
     }
     
-    static func getSymbols(callback: @escaping (Bool, Symbols?) -> Void) {
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: symbolUrl) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                callback(false, nil)
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
-                callback(false, nil)
-                return
-            }
-            
-            guard let responseJSON = try? JSONDecoder().decode(Symbols.self, from: data) else {
-                    callback(false, nil)
-                    return
-            }
-            
-            let symbols = Symbols(symbols: responseJSON.symbols)
-            callback(true, symbols)
-        }
-        
-        task.resume()
+    func convert(from: String, to: String, value: Double) -> Double {
+        return 0.0
     }
 } 
