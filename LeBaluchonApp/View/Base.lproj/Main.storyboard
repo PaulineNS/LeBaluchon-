@@ -49,6 +49,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <connections>
+                                                    <action selector="TappingCurrency:" destination="BYZ-38-t0r" eventType="editingChanged" id="8cG-Dp-5Ng"/>
+                                                </connections>
                                             </textField>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-cj-c7u">
                                                 <rect key="frame" x="192" y="0.0" width="192" height="218"/>
@@ -87,7 +90,7 @@
                     <tabBarItem key="tabBarItem" title="Currency" image="icon-Small" id="P0r-wj-E8h"/>
                     <connections>
                         <outlet property="requestPickerView" destination="ogE-cj-c7u" id="Ta1-JY-KWd"/>
-                        <outlet property="requestTextFielf" destination="AON-Wr-J46" id="aDC-sT-Di3"/>
+                        <outlet property="requestTextField" destination="AON-Wr-J46" id="8yn-O1-PeD"/>
                         <outlet property="resultLabel" destination="wLb-sI-jNl" id="YhM-Kj-Xej"/>
                         <outlet property="resultSymbolsPickerView" destination="DiR-bL-1ld" id="qkS-zg-5Cs"/>
                     </connections>

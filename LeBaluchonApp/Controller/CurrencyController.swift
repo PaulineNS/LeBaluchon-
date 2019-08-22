@@ -12,13 +12,13 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     var currency: Currrency?
     let symbols = ["Euro": "EUR", "Dollar": "USD", "Pounds": "GBP"]
-    var fromSymbol = "EUR"
-    var toSymbol = "USD"
+    var fromSymbol = "EUR" // mis à jour dans le pickerview monnaie sélectionnée
+    var toSymbol = "USD" // mis à jour dans le pickerview monnaie voulue
     
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var resultSymbolsPickerView: UIPickerView!
-    @IBOutlet weak var requestTextField: UITextField!
-    @IBOutlet weak var requestPickerView: UIPickerView!
+    @IBOutlet weak var resultLabel: UILabel! //output
+    @IBOutlet weak var resultSymbolsPickerView: UIPickerView! //pickerview
+    @IBOutlet weak var requestPickerView: UIPickerView! //pickerview
+    @IBOutlet weak var requestTextField: UITextField! //input
     
     override func viewDidLoad() {
         requestPickerView.delegate = self
@@ -27,14 +27,10 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         resultSymbolsPickerView.dataSource = self
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 0 {
-            fromSymbol = Array(symbols.values)[row]
-        } else if pickerView.tag == 1 {
-            toSymbol = Array(symbols.values)[row]
-        }
+    @IBAction func TappingCurrency(_ sender: Any) {
     }
     
+    /// Creating Picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -45,6 +41,14 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Array(symbols.keys)[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 0 {
+            fromSymbol = Array(symbols.values)[row]
+        } else if pickerView.tag == 1 {
+            toSymbol = Array(symbols.values)[row]
+        }
     }
     
     

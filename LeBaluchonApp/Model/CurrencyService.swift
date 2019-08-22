@@ -10,12 +10,14 @@ import Foundation
 
 class CurrencyService {
     private static let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=091a2105498b073b04df296f6052d8f3")!
-    private static let symbolUrl = URL(string: "http://data.fixer.io/api/symbols?access_key=091a2105498b073b04df296f6052d8f3")!
 
-    
-    static func getCurrency(callback: @escaping (Currrency?) -> Void) {
+    var ratesKeys: [String] = []
+    var ratesValues: [Double] = []
+
+    /// Getting Data
+    func getCurrency(callback: @escaping (Currrency?) -> Void) {
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: currencyUrl) { (data, response, error) in
+        let task = session.dataTask(with: CurrencyService.currencyUrl) { (data, response, error) in
             
             guard let data = data, error == nil else {
                 callback(nil)
@@ -32,14 +34,34 @@ class CurrencyService {
                     return
             }
             
+            if let rates = responseJSON.rates as NSDictionary {
+                for (key, value) in rates
+            
             let currency = Currrency(base: responseJSON.base, date: responseJSON.date, rates: responseJSON.rates)
             callback(currency)
+            }
         }
         
         task.resume()
     }
     
-    func convert(from: String, to: String, value: Double) -> Double {
+    func convert(from: String , to: String, value: Double) -> Double { //from: fromsymbol to: tosymbol value: textfielf
+        getCurrency { (currency) in
+            if let currency = currency {
+    
+            }
+        }
+        
+        
+        if from != "EUR" {
+            value = // passer de euro à la monnaie choisis * value
+        }
+        
+        // if from != "EUR" { value = euro -> From
+        
+        // While
+        // il faut que je recupere le rates
+        // result = Double(value) * valeur de rates
         return 0.0
     }
 } 
