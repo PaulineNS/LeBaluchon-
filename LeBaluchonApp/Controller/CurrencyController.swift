@@ -11,7 +11,7 @@ import UIKit
 class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var currency: Currrency?
-    let symbols = ["Euro": "EUR", "Dollar": "USD", "Pounds": "GBP"]
+    let symbols = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
     var fromSymbol = "EUR" // mis à jour dans le pickerview monnaie sélectionnée
     var toSymbol = "USD" // mis à jour dans le pickerview monnaie voulue
     
@@ -40,20 +40,16 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Array(symbols.keys)[row]
+        return Array(symbols.values)[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
-            fromSymbol = Array(symbols.values)[row]
+            fromSymbol = Array(symbols.keys)[row]
         } else if pickerView.tag == 1 {
-            toSymbol = Array(symbols.values)[row]
+            toSymbol = Array(symbols.keys)[row]
         }
-    }
-    
-    
-    
-    
+    } 
 }
 
 
