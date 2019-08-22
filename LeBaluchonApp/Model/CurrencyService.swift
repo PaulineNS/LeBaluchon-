@@ -31,9 +31,8 @@ class CurrencyService {
                     return
             }
             
-            let currency = Currrency(base: responseJSON.base, date: responseJSON.date, rates: responseJSON.rates)
-            callback(currency)
-    
+           // let currency = Currrency(base: responseJSON.base, date: responseJSON.date, rates: responseJSON.rates)
+            callback(responseJSON)
         }
         
         task.resume()
@@ -42,12 +41,13 @@ class CurrencyService {
    func convert(from: String , to: String, value: Double) -> Double {
      //from: fromsymbol to: tosymbol value: textfielf
         getCurrency { (currency) in
-            if let currency = currency {
+            if var currency = currency?.rates.keys {
+                if currency == "EUR" {
+                    
+                }
     
             }
         }
-        
-        
         //if from != "EUR"
         // passer de euro à la monnaie choisis * value
         
