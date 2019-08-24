@@ -12,8 +12,9 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     var currency: Currrency?
     let symbols = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
-    var fromSymbol = "EUR" // mis à jour dans le pickerview monnaie sélectionnée
-    var toSymbol = "EUR" // mis à jour dans le pickerview monnaie voulue
+    var fromSymbol = "EUR"
+    var toSymbol = "EUR"
+    
     
     @IBOutlet weak var resultLabel: UILabel! //output
     @IBOutlet weak var resultSymbolsPickerView: UIPickerView! //pickerview
@@ -22,6 +23,8 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidAppear(_ animated: Bool) {
         requestTextField.becomeFirstResponder()
+        requestPickerView.becomeFirstResponder()
+        resultSymbolsPickerView.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
@@ -34,13 +37,13 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
-    @IBAction func TappingCurrency(_ sender: Any) {
+    fileprivate func convert() {
         if fromSymbol != "EUR" {
-            let value = Double(requestTextField.text!) //Ce que l'utilisateur rentre
-            let devise = Double((currency?.rates[fromSymbol])!)// rates devise autre que euro
-            let convertNewValue = currency?.convertToEuro(value: value ?? 0, devise: devise)
+            let value = Double(requestTextField.text!)
+            let devise = Double((currency?.rates[fromSymbol])!)
+            let valueToEuro = currency?.convertToEuro(value: value ?? 0, devise: devise)
             let devisee = Double((currency?.rates[toSymbol])!)
-            let convertValue = currency?.convertFromEuro(value: convertNewValue ?? 0 , devise: devisee)
+            let convertValue = currency?.convertFromEuro(value: valueToEuro ?? 0 , devise: devisee)
             resultLabel.text = String(convertValue ?? 0)
         } else {
             let value = Double(requestTextField.text!)
@@ -48,6 +51,10 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let convertValue = currency?.convertFromEuro(value: value ?? 0, devise: devise)
             resultLabel.text = String(convertValue ?? 0)
         }
+    }
+    
+    @IBAction func TappingCurrency(_ sender: Any) {
+        convert()
     }
     
     /// Creating Picker view
@@ -71,6 +78,8 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         } else if pickerView.tag == 1 {
             toSymbol = Array(symbols.keys)[row]
         }
+        
+        convert()
     }
 }
 
