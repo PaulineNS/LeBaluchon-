@@ -10,6 +10,16 @@ import Foundation
 
 struct Currrency: Decodable {
     var base: String
-    var date: Date
     var rates: [String: Double]
+    
+    func convertFromEuro(value: Double, devise: Double) -> Double {
+        return value * devise
+    }
+    
+    func convertToEuro(value: Double, devise: Double) -> Double {
+        return value / devise
+    }
 }
+
+
+

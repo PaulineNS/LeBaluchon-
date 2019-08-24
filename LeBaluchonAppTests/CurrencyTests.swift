@@ -11,12 +11,17 @@ import XCTest
 
 class CurrencyTests: XCTestCase {
     
-    let currency = Currrency(base: "EUR", date: Date(), rates: [ "USD" : 1.267, "GBP" : 2.5832])
+    let currency = Currrency(base: "EUR", rates: [ "USD" : 1.106862, "GBP" : 0.906188])
     let currencyService = CurrencyService()
     
     func Given1Eur_WhenConvertToUSD_ThenTheGoodValueReturn() {
-        let result = currencyService.convert(from: "EUR", to: "USD", value: 1.0)
-        XCTAssertEqual(result, 1.267)
+        let result = currency.convert(value: 1.0, devise: 1.106862)
+        XCTAssertEqual(result, 1.106862)
+    }
+    
+    func Given1Eur_WhenConvertToGBP_ThenTheGoodValueReturn(){
+        let result = currency.convert(value: 1.0, devise: 0.906188)
+        XCTAssertEqual(result, 0.906188)
     }
     
     /*

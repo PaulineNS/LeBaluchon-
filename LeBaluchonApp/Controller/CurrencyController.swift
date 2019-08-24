@@ -13,7 +13,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var currency: Currrency?
     let symbols = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
     var fromSymbol = "EUR" // mis à jour dans le pickerview monnaie sélectionnée
-    var toSymbol = "USD" // mis à jour dans le pickerview monnaie voulue
+    var toSymbol = "EUR" // mis à jour dans le pickerview monnaie voulue
     
     @IBOutlet weak var resultLabel: UILabel! //output
     @IBOutlet weak var resultSymbolsPickerView: UIPickerView! //pickerview
@@ -25,9 +25,25 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         requestPickerView.dataSource = self
         resultSymbolsPickerView.delegate = self
         resultSymbolsPickerView.dataSource = self
+        CurrencyService().getCurrency {(currency) in
+            self.currency = currency
+        }
     }
     
     @IBAction func TappingCurrency(_ sender: Any) {
+        if fromSymbol != "EUR" {
+            let value = Double(requestTextField.text!) //Ce que l'utilisateur rentre
+            let devise = Double((currency?.rates[fromSymbol])!)// rates devise autre que euro
+            let convertNewValue = currency?.convertToEuro(value: value ?? 0, devise: devise)
+            let devisee = Double((currency?.rates[toSymbol])!)
+            let convertValue = currency?.convertFromEuro(value: convertNewValue ?? 0 , devise: devisee)
+            resultLabel.text = String(convertValue ?? 0)
+        } else {
+            let value = Double(requestTextField.text!)
+            let devise = Double((currency?.rates[toSymbol])!)
+            let convertValue = currency?.convertFromEuro(value: value ?? 0, devise: devise)
+            resultLabel.text = String(convertValue ?? 0)
+        }
     }
     
     /// Creating Picker view
@@ -44,12 +60,16 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        fromSymbol = Array(symbols.keys)[row]
+        
         if pickerView.tag == 0 {
             fromSymbol = Array(symbols.keys)[row]
         } else if pickerView.tag == 1 {
             toSymbol = Array(symbols.keys)[row]
         }
-    } 
+    }
+    
+
 }
 
 
