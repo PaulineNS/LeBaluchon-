@@ -19,10 +19,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.95349866151809692" green="0.5784916877746582" blue="0.19148796796798706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.64772367477416992" green="0.18777000904083252" blue="0.23412173986434937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="QDV-X1-bPe"/>
+                        <segue destination="6cb-Le-1UH" kind="relationship" relationship="viewControllers" id="g38-Fx-1zT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZd-zW-hBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,7 +49,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="218"/>
                                                 <color key="backgroundColor" red="0.95384484529495239" green="0.58174735307693481" blue="0.19255980849266052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <action selector="TappingCurrency:" destination="BYZ-38-t0r" eventType="editingChanged" id="8cG-Dp-5Ng"/>
@@ -63,7 +65,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLb-sI-jNl">
                                                 <rect key="frame" x="0.0" y="0.0" width="188" height="216"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -79,6 +81,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95349866151809692" green="0.5784916877746582" blue="0.19148796796798706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tKJ-EQ-6yK" secondAttribute="bottom" constant="320" id="7co-Ui-tvv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tKJ-EQ-6yK" secondAttribute="trailing" constant="15" id="GOT-lZ-osY"/>
@@ -86,6 +89,9 @@
                             <constraint firstItem="tKJ-EQ-6yK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="aEQ-al-ujl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ozi-YU-Af3" appends="YES" id="Ydo-ko-U08"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="icon-Small" id="P0r-wj-E8h"/>
                     <connections>
@@ -96,11 +102,146 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ozi-YU-Af3">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="qtY-aa-9ND"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+            <point key="canvasLocation" x="94" y="-544"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="be1-q3-CaF">
+            <objects>
+                <navigationController id="6cb-Le-1UH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6ew-no-h1Y"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cIM-F4-aDF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.68866610527038574" green="0.29729604721069336" blue="0.33908551931381226" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="p7W-Id-uIM" kind="relationship" relationship="rootViewController" id="cXk-qs-hoI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7vD-zf-1u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="113"/>
+        </scene>
+        <!--Translator-->
+        <scene sceneID="QXo-Vn-bp9">
+            <objects>
+                <viewController id="p7W-Id-uIM" userLabel="Translator" customClass="TranslatorController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PiL-mt-BcI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-RR-pLy">
+                                <rect key="frame" x="20" y="108" width="374" height="274"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-F6-PIt">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBo-zp-gRQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="English">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="gB4-hZ-Jpx" kind="presentation" id="Zu8-Qy-LEI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
+                                                <rect key="frame" x="131.5" y="0.0" width="111" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="⇄">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoQ-ys-9B1">
+                                                <rect key="frame" x="262.5" y="0.0" width="111.5" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="French">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter text" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-zd-lHC">
+                                        <rect key="frame" x="0.0" y="107" width="374" height="60"/>
+                                        <color key="backgroundColor" red="0.92599242925643921" green="0.38527670502662659" blue="0.18457049131393433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-xk-wQD">
+                                        <rect key="frame" x="0.0" y="214" width="374" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92582428455352783" green="0.38277056813240051" blue="0.18452736735343933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="SIy-RR-pLy" firstAttribute="top" secondItem="WBF-m9-dJL" secondAttribute="top" constant="20" id="AaY-cU-0KC"/>
+                            <constraint firstItem="WBF-m9-dJL" firstAttribute="trailing" secondItem="SIy-RR-pLy" secondAttribute="trailing" constant="20" id="KC6-lH-cUs"/>
+                            <constraint firstItem="SIy-RR-pLy" firstAttribute="leading" secondItem="WBF-m9-dJL" secondAttribute="leading" constant="20" id="pJY-aK-Ajh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WBF-m9-dJL"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fh4-nv-UVC" appends="YES" id="rXp-Za-xGz"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Translator" image="Speechbubble" id="pJ1-JH-c42"/>
+                    <navigationItem key="navigationItem" id="MCY-Cd-Ydq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILY-KB-Tos" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fh4-nv-UVC">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="p7W-Id-uIM" id="1ia-v1-iAT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="822" y="113"/>
+        </scene>
+        <!--Langages View Controller-->
+        <scene sceneID="NH9-pu-U8R">
+            <objects>
+                <viewController id="gB4-hZ-Jpx" customClass="LangagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dxg-mw-KxJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CG-sj-Jgb">
+                                <rect key="frame" x="364" y="40" width="30" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="fPq-A1-Pwl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92599242925643921" green="0.38527670502662659" blue="0.18457049131393433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8CG-sj-Jgb" firstAttribute="top" secondItem="Dxg-mw-KxJ" secondAttribute="top" constant="40" id="1fa-DC-ceJ"/>
+                            <constraint firstItem="krb-98-wzJ" firstAttribute="trailing" secondItem="8CG-sj-Jgb" secondAttribute="trailing" constant="20" id="cAW-QP-2bc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="krb-98-wzJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8tZ-Nd-mjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595.6521739130435" y="112.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Speechbubble" width="29" height="29"/>
         <image name="icon-Small" width="29" height="29"/>
     </resources>
 </document>

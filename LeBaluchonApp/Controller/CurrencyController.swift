@@ -22,7 +22,6 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var requestTextField: UITextField! //input
     
     override func viewDidAppear(_ animated: Bool) {
-        requestTextField.becomeFirstResponder()
         requestPickerView.becomeFirstResponder()
         resultSymbolsPickerView.becomeFirstResponder()
     }
@@ -55,6 +54,9 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func TappingCurrency(_ sender: Any) {
         convert()
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
     }
     
     /// Creating Picker view

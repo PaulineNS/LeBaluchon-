@@ -15,6 +15,8 @@
 		565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503CB2305333A00FDDD23 /* CurrencyService.swift */; };
 		565503DF2307EE1000FDDD23 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503DE2307EE1000FDDD23 /* Currency.swift */; };
 		565503E9230BF7AE00FDDD23 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503E8230BF7AE00FDDD23 /* CurrencyTests.swift */; };
+		565503F12311460000FDDD23 /* TranslatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F02311460000FDDD23 /* TranslatorController.swift */; };
+		565503F32311B09B00FDDD23 /* LangagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F22311B09B00FDDD23 /* LangagesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		565503E6230BF7AD00FDDD23 /* LeBaluchonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565503E8230BF7AE00FDDD23 /* CurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTests.swift; sourceTree = "<group>"; };
 		565503EA230BF7AE00FDDD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		565503F02311460000FDDD23 /* TranslatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorController.swift; sourceTree = "<group>"; };
+		565503F22311B09B00FDDD23 /* LangagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				565503B723045EDC00FDDD23 /* CurrencyController.swift */,
+				565503F02311460000FDDD23 /* TranslatorController.swift */,
+				565503F22311B09B00FDDD23 /* LangagesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +245,8 @@
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,
+				565503F32311B09B00FDDD23 /* LangagesViewController.swift in Sources */,
+				565503F12311460000FDDD23 /* TranslatorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
