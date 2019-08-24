@@ -20,6 +20,10 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var requestPickerView: UIPickerView! //pickerview
     @IBOutlet weak var requestTextField: UITextField! //input
     
+    override func viewDidAppear(_ animated: Bool) {
+        requestTextField.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         requestPickerView.delegate = self
         requestPickerView.dataSource = self
@@ -68,8 +72,6 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             toSymbol = Array(symbols.keys)[row]
         }
     }
-    
-
 }
 
 
