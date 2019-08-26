@@ -11,32 +11,30 @@ import UIKit
 class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var currency: Currrency?
-    let symbols = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
+    let symbolsDictionnary = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
-    
+
     
     @IBOutlet weak var resultLabel: UILabel! //output
     @IBOutlet weak var resultSymbolsPickerView: UIPickerView! //pickerview
     @IBOutlet weak var requestPickerView: UIPickerView! //pickerview
     @IBOutlet weak var requestTextField: UITextField! //input
-    
-    override func viewDidAppear(_ animated: Bool) {
-        requestPickerView.becomeFirstResponder()
-        resultSymbolsPickerView.becomeFirstResponder()
-    }
+
     
     override func viewDidLoad() {
         requestPickerView.delegate = self
         requestPickerView.dataSource = self
         resultSymbolsPickerView.delegate = self
         resultSymbolsPickerView.dataSource = self
+        requestPickerView.selectRow(1, inComponent: 0, animated: true)
+        resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
         CurrencyService().getCurrency {(currency) in
             self.currency = currency
         }
     }
     
-    fileprivate func convert() {
+    func convert() {
         if fromSymbol != "EUR" {
             let value = Double(requestTextField.text!)
             let devise = Double((currency?.rates[fromSymbol])!)
@@ -66,24 +64,25 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return symbols.count
+        return symbolsDictionnary.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Array(symbols.values)[row]
+        return Array(symbolsDictionnary.values).sorted()[row]
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        fromSymbol = Array(symbols.keys)[row]
         
-        if pickerView.tag == 0 {
-            fromSymbol = Array(symbols.keys)[row]
-        } else if pickerView.tag == 1 {
-            toSymbol = Array(symbols.keys)[row]
+        if pickerView == requestPickerView {
+            fromSymbol = Array(symbolsDictionnary.keys)[row]
+        } else if pickerView == resultSymbolsPickerView {
+            toSymbol = Array(symbolsDictionnary.keys)[row]
         }
         
         convert()
     }
+    
 }
 
 

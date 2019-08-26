@@ -8,15 +8,15 @@
 
 import Foundation
 
-class TranslatorService {
+class TranslationService {
     var textToTranslate: String?
     var sourcelanguage: String?
     var targetlanguage: String?
     
-    let translatorUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyB5vmv70YQ43YEb9wn6HRsDLraH01G1PSs")!
+    let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyB5vmv70YQ43YEb9wn6HRsDLraH01G1PSs")!
     
-    func getTranslation(callback: @escaping (Translator?) -> Void) {
-        var request = URLRequest(url: translatorUrl)
+    func getTranslation(callback: @escaping (Translation?) -> Void) {
+        var request = URLRequest(url: translationUrl)
         request.httpMethod = "POST"
         
         let body = "source=\(sourcelanguage ?? "")&target=\(targetlanguage ??  "")&q=\(textToTranslate ?? "")"
@@ -35,7 +35,7 @@ class TranslatorService {
                 return
             }
             
-            guard let responseJSON = try? JSONDecoder().decode(Translator.self, from: data) else {
+            guard let responseJSON = try? JSONDecoder().decode(Translation.self, from: data) else {
                 callback(nil)
                 return
             }

@@ -75,9 +75,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="bUK-Bz-tUk" firstAttribute="top" secondItem="tKJ-EQ-6yK" secondAttribute="top" constant="218" id="d1o-i2-HCH"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95349866151809692" green="0.5784916877746582" blue="0.19148796796798706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -131,13 +128,13 @@
         <!--Translator-->
         <scene sceneID="QXo-Vn-bp9">
             <objects>
-                <viewController id="p7W-Id-uIM" userLabel="Translator" customClass="TranslatorController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p7W-Id-uIM" userLabel="Translator" customClass="TranslationController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PiL-mt-BcI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-RR-pLy">
-                                <rect key="frame" x="20" y="108" width="374" height="274"/>
+                                <rect key="frame" x="20" y="64" width="374" height="274"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-F6-PIt">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -149,7 +146,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="gB4-hZ-Jpx" kind="presentation" id="Zu8-Qy-LEI"/>
+                                                    <action selector="didTapSourceButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="7bd-3R-Re3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -198,6 +195,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Translator" image="Speechbubble" id="pJ1-JH-c42"/>
                     <navigationItem key="navigationItem" id="MCY-Cd-Ydq"/>
+                    <connections>
+                        <outlet property="sourceLangageButton" destination="hBo-zp-gRQ" id="4SU-TY-ZdZ"/>
+                        <outlet property="targetLangageButton" destination="LoQ-ys-9B1" id="1jl-J0-dGd"/>
+                        <outlet property="textToTranslateTextField" destination="JeC-zd-lHC" id="pQh-N5-4s4"/>
+                        <outlet property="translatedTextLabel" destination="e6g-xk-wQD" id="vLR-ND-FWc"/>
+                        <segue destination="gB4-hZ-Jpx" kind="presentation" identifier="segueFromTranslatorToSource" id="TQd-kq-4ya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILY-KB-Tos" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="fh4-nv-UVC">
@@ -208,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="868" y="113"/>
         </scene>
-        <!--Langages View Controller-->
+        <!--Source Langages View Controller-->
         <scene sceneID="NH9-pu-U8R">
             <objects>
-                <viewController id="gB4-hZ-Jpx" customClass="LangagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gB4-hZ-Jpx" customClass="SourceLangagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dxg-mw-KxJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,7 +239,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="dismiss:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="fPq-A1-Pwl"/>
+                                                    <action selector="dismiss:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="3Dx-ws-KmX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -243,7 +247,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="s16-wH-nL6" userLabel="Allemand">
                                         <rect key="frame" x="0.0" y="128" width="374" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgu-cd-uAF">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgu-cd-uAF" userLabel="AllemandSelected">
                                                 <rect key="frame" x="0.0" y="18" width="28" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="highlightedColor"/>
@@ -254,13 +258,16 @@
                                                 <state key="normal" title="Allemand">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapAllemandButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="PY5-m6-cv0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7xR-Se-Yp2" userLabel="Anglais">
                                         <rect key="frame" x="0.0" y="256" width="374" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-ql-zrM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-ql-zrM" userLabel="AnglaisSelected">
                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="highlightedColor"/>
@@ -271,13 +278,16 @@
                                                 <state key="normal" title="Anglais">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapAnglaisButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="Rfj-Id-WjX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="left" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5OL-kO-Hq3" userLabel="Espagnol">
                                         <rect key="frame" x="0.0" y="384" width="374" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTr-cO-goY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTr-cO-goY" userLabel="EspagnolSelected">
                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="highlightedColor"/>
@@ -288,13 +298,16 @@
                                                 <state key="normal" title="Espagnol">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapEspagnolButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="ZBZ-ie-AjR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-60-sIR" userLabel="Français">
                                         <rect key="frame" x="0.0" y="512" width="374" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAK-Q6-i7h">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAK-Q6-i7h" userLabel="FrançaisSelected">
                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="highlightedColor"/>
@@ -305,13 +318,16 @@
                                                 <state key="normal" title="Français">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapFrançaisButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="NSi-iu-pKw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dlY-Pi-Ht5" userLabel="Italien">
                                         <rect key="frame" x="0.0" y="640" width="374" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hn3-jO-yg7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hn3-jO-yg7" userLabel="ItalienSelected">
                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="highlightedColor"/>
@@ -322,6 +338,9 @@
                                                 <state key="normal" title="Italien">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapItalienButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="mpL-Qk-XWM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -336,14 +355,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="krb-98-wzJ"/>
                     </view>
+                    <connections>
+                        <outletCollection property="selector" destination="Vgu-cd-uAF" collectionClass="NSMutableArray" id="lY6-Vb-R9A"/>
+                        <outletCollection property="selector" destination="CpL-ql-zrM" collectionClass="NSMutableArray" id="I8X-wM-NFK"/>
+                        <outletCollection property="selector" destination="FTr-cO-goY" collectionClass="NSMutableArray" id="rsm-it-Gub"/>
+                        <outletCollection property="selector" destination="WAK-Q6-i7h" collectionClass="NSMutableArray" id="eX5-kC-VKX"/>
+                        <outletCollection property="selector" destination="Hn3-jO-yg7" collectionClass="NSMutableArray" id="drk-0O-c1W"/>
+                        <outletCollection property="langages" destination="LBd-Ey-QN1" collectionClass="NSMutableArray" id="gB8-k7-Imx"/>
+                        <outletCollection property="langages" destination="6bn-6e-c7f" collectionClass="NSMutableArray" id="2sj-Li-1xB"/>
+                        <outletCollection property="langages" destination="Q3M-UF-MNE" collectionClass="NSMutableArray" id="kZ1-iC-fnj"/>
+                        <outletCollection property="langages" destination="mGX-sw-hqw" collectionClass="NSMutableArray" id="bqn-6B-87s"/>
+                        <outletCollection property="langages" destination="T1n-03-toZ" collectionClass="NSMutableArray" id="GTQ-BG-T2Z"/>
+                        <segue destination="p7W-Id-uIM" kind="presentation" identifier="segueFromSourceToTranslator" id="Ju2-9C-s7r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tZ-Nd-mjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589.8550724637682" y="112.5"/>
+            <point key="canvasLocation" x="1704" y="113"/>
         </scene>
     </scenes>
     <resources>
         <image name="Speechbubble" width="29" height="29"/>
         <image name="icon-Small" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ju2-9C-s7r"/>
+    </inferredMetricsTieBreakers>
 </document>
