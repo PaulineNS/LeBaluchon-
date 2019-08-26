@@ -57,6 +57,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        requestTextField.resignFirstResponder()
     }
     
     /// Creating Picker view
