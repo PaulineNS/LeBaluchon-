@@ -10,6 +10,7 @@ import UIKit
 
 class TranslationController: UIViewController {
     
+    var sourceLangageDelegate: LangageSelectedDelegate?
     var selectedSourceLangage: String!
     
     @IBOutlet weak var sourceLangageButton: UIButton!
@@ -22,19 +23,23 @@ class TranslationController: UIViewController {
         setButtonTitle()
     }
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        
-    }
-    
-    @IBAction func didTapSourceButton(_ sender: Any) {
-        performSegue(withIdentifier: "segueFromTranslatorToSource", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueFromTranslatorToSource" {
-            let sourceLangagesVC = segue.destination as! SourceLangagesViewController
-            sourceLangagesVC.selectedSourceLangage = selectedSourceLangage
+    @IBAction func didTapSourceLangageButton(_ sender: Any) {
+        if sourceLangageButton.currentTitle == "Anglais" {
+            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonAnglais)
+        } else if sourceLangageButton.currentTitle == "Allemand" {
+            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonAllemand)
+        } else if sourceLangageButton.currentTitle == "Espagnol" {
+            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonEspagnol)
+        } else if sourceLangageButton.currentTitle == "Italien" {
+            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonItalien)
+        } else if sourceLangageButton.currentTitle == "Français" {
+            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonFrancais)
         }
+    }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textToTranslateTextField.resignFirstResponder()
     }
     
     func setButtonTitle(){
@@ -48,7 +53,7 @@ class TranslationController: UIViewController {
             if let translation = translation {
                 self.update(translation: translation)
             }
-        } // Erreur
+        } // Error
     }
     
     func update(translation: Translation) {

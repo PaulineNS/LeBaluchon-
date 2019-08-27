@@ -146,7 +146,8 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapSourceButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="7bd-3R-Re3"/>
+                                                    <action selector="didTapSourceLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="Xcq-7Q-rxq"/>
+                                                    <segue destination="gB4-hZ-Jpx" kind="presentation" id="XKl-4H-iCs"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -200,7 +201,6 @@
                         <outlet property="targetLangageButton" destination="LoQ-ys-9B1" id="1jl-J0-dGd"/>
                         <outlet property="textToTranslateTextField" destination="JeC-zd-lHC" id="pQh-N5-4s4"/>
                         <outlet property="translatedTextLabel" destination="e6g-xk-wQD" id="vLR-ND-FWc"/>
-                        <segue destination="gB4-hZ-Jpx" kind="presentation" identifier="segueFromTranslatorToSource" id="TQd-kq-4ya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILY-KB-Tos" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,6 +379,7 @@
         <image name="icon-Small" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="XKl-4H-iCs"/>
         <segue reference="Ju2-9C-s7r"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,8 @@
 		565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F42313DFF700FDDD23 /* TranslationService.swift */; };
 		565503F92314050F00FDDD23 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F82314050F00FDDD23 /* Translation.swift */; };
 		565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */; };
+		56FA29BF2315215D00BE92BC /* LangageSelectedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */; };
+		56FA29C1231521CC00BE92BC /* LangagesButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		565503F42313DFF700FDDD23 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		565503F82314050F00FDDD23 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLangagesViewController.swift; sourceTree = "<group>"; };
+		56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LangageSelectedDelegate.swift; path = ../Controller/LangageSelectedDelegate.swift; sourceTree = "<group>"; };
+		56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagesButtonType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 				565503DE2307EE1000FDDD23 /* Currency.swift */,
 				565503F42313DFF700FDDD23 /* TranslationService.swift */,
 				565503F82314050F00FDDD23 /* Translation.swift */,
+				56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */,
+				56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,7 +254,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				565503B823045EDC00FDDD23 /* CurrencyController.swift in Sources */,
+				56FA29BF2315215D00BE92BC /* LangageSelectedDelegate.swift in Sources */,
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
+				56FA29C1231521CC00BE92BC /* LangagesButtonType.swift in Sources */,
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
 				565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */,
 				565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */,

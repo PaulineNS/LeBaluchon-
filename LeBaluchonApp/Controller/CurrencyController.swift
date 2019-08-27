@@ -10,7 +10,7 @@ import UIKit
 
 class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var currency: Currrency?
+    var currencyService = CurrencyService()
     let symbolsDictionnary = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
@@ -29,24 +29,16 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         resultSymbolsPickerView.dataSource = self
         requestPickerView.selectRow(1, inComponent: 0, animated: true)
         resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
-        CurrencyService().getCurrency {(currency) in
-            self.currency = currency
+        currencyService.getCurrency {(currency) in
         }
     }
     
     func convert() {
-        if fromSymbol != "EUR" {
-            let value = Double(requestTextField.text!)
-            let devise = Double((currency?.rates[fromSymbol])!)
-            let valueToEuro = currency?.convertToEuro(value: value ?? 0, devise: devise)
-            let devisee = Double((currency?.rates[toSymbol])!)
-            let convertValue = currency?.convertFromEuro(value: valueToEuro ?? 0 , devise: devisee)
-            resultLabel.text = String(convertValue ?? 0)
-        } else {
-            let value = Double(requestTextField.text!)
-            let devise = Double((currency?.rates[toSymbol])!)
-            let convertValue = currency?.convertFromEuro(value: value ?? 0, devise: devise)
-            resultLabel.text = String(convertValue ?? 0)
+        currencyService.getCurrency {(currency) in
+            if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
+                let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
+                self.resultLabel.text = String(result)
+            }
         }
     }
     
@@ -82,7 +74,6 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         convert()
     }
-    
 }
 
 
