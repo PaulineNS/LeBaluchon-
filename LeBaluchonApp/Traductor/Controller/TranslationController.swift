@@ -10,17 +10,20 @@ import UIKit
 
 class TranslationController: UIViewController {
     
+    var translationService = TranslationService()
     var sourceLangageDelegate: LangageSelectedDelegate?
-    var selectedSourceLangage: String!
+    var selectedTargetLangage: String!
     
     @IBOutlet weak var sourceLangageButton: UIButton!
     @IBOutlet weak var targetLangageButton: UIButton!
     @IBOutlet weak var textToTranslateTextField: UITextField!
     @IBOutlet weak var translatedTextLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setButtonTitle()
+    
+    @IBAction func unwindToTranslator(_ sender: UIStoryboardSegue){}
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textToTranslateTextField.resignFirstResponder()
     }
     
     @IBAction func didTapSourceLangageButton(_ sender: Any) {
@@ -37,27 +40,20 @@ class TranslationController: UIViewController {
         }
     }
     
-    
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        textToTranslateTextField.resignFirstResponder()
+    @IBAction func translate(_ sender: Any) {
+       // translationService.getTranslation { (translation) in
+           // if let translation = translation {
+               // self.update(translation: translation)
+         //   } else {
+             //   self.presentAlert(message: "La traduction n'a pas aboutit")
+       //     }
+      //  }
     }
-    
-    func setButtonTitle(){
-        if let title = selectedSourceLangage {
-            sourceLangageButton.setTitle(title, for: .normal)
-        }
-    }
-    
-    func translate() {
-        TranslationService().getTranslation { (translation) in
-            if let translation = translation {
-                self.update(translation: translation)
-            }
-        } // Error
-    }
-    
-    func update(translation: Translation) {
+
+  /*  func update(translation: Translation) {
         textToTranslateTextField.text = translation.q
+        selectedSourceLangage = translation.source
         translatedTextLabel.text = translation.translatedText
-    }
+        
+    } */
 }

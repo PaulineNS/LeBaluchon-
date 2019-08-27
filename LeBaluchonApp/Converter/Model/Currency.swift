@@ -9,7 +9,7 @@
 import Foundation
 
 struct Currrency: Decodable {
-    var base: String
+
     var rates: [String: Double]
     
     private func convertFromEuro(value: Double, rate: Double) -> Double {

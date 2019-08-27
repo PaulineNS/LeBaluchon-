@@ -15,19 +15,9 @@ class SourceLangagesViewController: UIViewController {
     @IBOutlet var selector: [UILabel]!
     @IBOutlet var langages: [UIButton]!
     
-    
-    
-    @IBAction func dismiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         unselectedButton()
         selector[index].isHidden = false
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     func selectedButton(index: Int) {
@@ -35,27 +25,6 @@ class SourceLangagesViewController: UIViewController {
         unselectedButton()
         selector[index].isHidden = false
         selectedSourceLangage = langages[index].currentTitle
-        performSegue(withIdentifier: "segueFromSourceToTranslator", sender: self)
-    }
-    
-    @IBAction func didTapAllemandButton(_ sender: Any) {
-        selectedButton(index: 0)
-    }
-    
-    @IBAction func didTapAnglaisButton(_ sender: Any) {
-        selectedButton(index: 1)
-    }
-    
-    @IBAction func didTapEspagnolButton(_ sender: Any) {
-        selectedButton(index: 2)
-    }
-    
-    @IBAction func didTapFrançaisButton(_ sender: Any) {
-        selectedButton(index: 3)
-    }
-    
-    @IBAction func didTapItalienButton(_ sender: Any) {
-        selectedButton(index: 4)
     }
     
     private func unselectedButton() {
@@ -63,12 +32,13 @@ class SourceLangagesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueFromSourceToTranslator" {
+        if let button = sender as? UIButton {
             let translationVC = segue.destination as! TranslationController
-            translationVC.selectedSourceLangage = selectedSourceLangage
+            translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
         }
     }
 }
+
 
 extension SourceLangagesViewController: LangageSelectedDelegate{
     func onSelectedLangage(buttonType: LangagesButtonType) {

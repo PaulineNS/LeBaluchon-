@@ -13,4 +13,8 @@ struct Translation: Decodable {
     var target: String
     var q: String
     var translatedText: String
+    
+    func translate(text: String, sourceLangage: String, targetLangage: String){
+    }
 }
+

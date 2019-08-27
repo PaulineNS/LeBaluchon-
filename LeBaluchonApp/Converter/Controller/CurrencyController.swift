@@ -14,13 +14,12 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     let symbolsDictionnary = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
-
     
-    @IBOutlet weak var resultLabel: UILabel! //output
-    @IBOutlet weak var resultSymbolsPickerView: UIPickerView! //pickerview
-    @IBOutlet weak var requestPickerView: UIPickerView! //pickerview
-    @IBOutlet weak var requestTextField: UITextField! //input
-
+    
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var resultSymbolsPickerView: UIPickerView!
+    @IBOutlet weak var requestPickerView: UIPickerView!
+    @IBOutlet weak var requestTextField: UITextField!
     
     override func viewDidLoad() {
         requestPickerView.delegate = self
@@ -29,17 +28,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         resultSymbolsPickerView.dataSource = self
         requestPickerView.selectRow(1, inComponent: 0, animated: true)
         resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
-        currencyService.getCurrency {(currency) in
-        }
-    }
-    
-    func convert() {
-        currencyService.getCurrency {(currency) in
-            if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
-                let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
-                self.resultLabel.text = String(result)
-            }
-        }
+        currencyService.getCurrency {(currency) in }
     }
     
     @IBAction func TappingCurrency(_ sender: Any) {
@@ -73,6 +62,15 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         
         convert()
+    }
+    
+    func convert() {
+        currencyService.getCurrency {(currency) in
+            if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
+                let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
+                self.resultLabel.text = String(result)
+            }
+        }
     }
 }
 

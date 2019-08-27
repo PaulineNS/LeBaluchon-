@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-RR-pLy">
-                                <rect key="frame" x="20" y="64" width="374" height="274"/>
+                                <rect key="frame" x="20" y="108" width="374" height="274"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-F6-PIt">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -147,7 +147,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="didTapSourceLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="Xcq-7Q-rxq"/>
-                                                    <segue destination="gB4-hZ-Jpx" kind="presentation" id="XKl-4H-iCs"/>
+                                                    <segue destination="gB4-hZ-Jpx" kind="show" id="gYA-vY-ova"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -163,6 +163,9 @@
                                                 <state key="normal" title="Français">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="r2v-8E-ZMY" kind="show" id="sXK-DZ-DjK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -172,6 +175,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                        <connections>
+                                            <action selector="translate:" destination="p7W-Id-uIM" eventType="valueChanged" id="G8B-s0-gUS"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-xk-wQD">
                                         <rect key="frame" x="0.0" y="214" width="374" height="60"/>
@@ -212,6 +218,164 @@
             </objects>
             <point key="canvasLocation" x="868" y="113"/>
         </scene>
+        <!--Target Langage View Controller-->
+        <scene sceneID="Up6-J4-D8y">
+            <objects>
+                <viewController id="r2v-8E-ZMY" customClass="TargetLangageViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oiM-f6-6mY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="omd-qi-zo3">
+                                <rect key="frame" x="20" y="128" width="374" height="688"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="cOC-gb-T06" userLabel="Langue Source">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Langue Cible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-aa-6Bn">
+                                                <rect key="frame" x="0.0" y="0.0" width="260.5" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imU-Ew-DdA">
+                                                <rect key="frame" x="292.5" y="0.0" width="81.5" height="48"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="X">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="0dc-m5-ZW6" userLabel="Allemand">
+                                        <rect key="frame" x="0.0" y="128" width="374" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWm-ss-qll" userLabel="AllemandSelected">
+                                                <rect key="frame" x="0.0" y="18" width="28" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-3j-pTL">
+                                                <rect key="frame" x="39" y="6" width="335" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Allemand">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="9OO-gz-hcJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tAV-5e-H7M" userLabel="Anglais">
+                                        <rect key="frame" x="0.0" y="256" width="374" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PED-p5-0RP" userLabel="AnglaisSelected">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ds6-VQ-30T">
+                                                <rect key="frame" x="38" y="0.0" width="336" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Anglais">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="KC0-b8-pIF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="left" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cop-T5-4UZ" userLabel="Espagnol">
+                                        <rect key="frame" x="0.0" y="384" width="374" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mji-pA-Oq0" userLabel="EspagnolSelected">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv9-Bx-30O">
+                                                <rect key="frame" x="38" y="0.0" width="336" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Espagnol">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="uhu-4m-bE8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hsh-ix-Dfy" userLabel="Français">
+                                        <rect key="frame" x="0.0" y="512" width="374" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-s2-kiA" userLabel="FrançaisSelected">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Np7-OY-SAr">
+                                                <rect key="frame" x="38" y="0.0" width="336" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Français">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="lrS-k5-4Y9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oBT-NP-Izt" userLabel="Italien">
+                                        <rect key="frame" x="0.0" y="640" width="374" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-Py-VR5" userLabel="ItalienSelected">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFc-bU-xCP">
+                                                <rect key="frame" x="38" y="0.0" width="336" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Italien">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="7hU-Kv-W6j"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92599242925643921" green="0.38527670502662659" blue="0.18457049131393433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="omd-qi-zo3" firstAttribute="top" secondItem="5tg-wa-Ola" secondAttribute="top" constant="40" id="45j-rV-S0H"/>
+                            <constraint firstItem="omd-qi-zo3" firstAttribute="leading" secondItem="5tg-wa-Ola" secondAttribute="leading" constant="20" id="xNb-bg-dZO"/>
+                            <constraint firstItem="5tg-wa-Ola" firstAttribute="trailing" secondItem="omd-qi-zo3" secondAttribute="trailing" constant="20" id="xyg-AW-kZ5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5tg-wa-Ola"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="selector" destination="oWm-ss-qll" collectionClass="NSMutableArray" id="lsn-3K-wHd"/>
+                        <outletCollection property="selector" destination="PED-p5-0RP" collectionClass="NSMutableArray" id="f4F-wg-1kQ"/>
+                        <outletCollection property="selector" destination="Mji-pA-Oq0" collectionClass="NSMutableArray" id="qCA-xg-bZ2"/>
+                        <outletCollection property="selector" destination="KXN-s2-kiA" collectionClass="NSMutableArray" id="06I-yV-erE"/>
+                        <outletCollection property="selector" destination="fdn-Py-VR5" collectionClass="NSMutableArray" id="out-Jp-cPH"/>
+                        <outletCollection property="langages" destination="mQ4-3j-pTL" collectionClass="NSMutableArray" id="YXK-9j-pG6"/>
+                        <outletCollection property="langages" destination="ds6-VQ-30T" collectionClass="NSMutableArray" id="3nH-1n-aLB"/>
+                        <outletCollection property="langages" destination="Gv9-Bx-30O" collectionClass="NSMutableArray" id="60C-cS-MhL"/>
+                        <outletCollection property="langages" destination="Np7-OY-SAr" collectionClass="NSMutableArray" id="rB7-Lx-y9X"/>
+                        <outletCollection property="langages" destination="pFc-bU-xCP" collectionClass="NSMutableArray" id="zky-wn-Knf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSd-Tm-wra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QfY-A6-ANa" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="-708"/>
+        </scene>
         <!--Source Langages View Controller-->
         <scene sceneID="NH9-pu-U8R">
             <objects>
@@ -221,7 +385,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="lW9-zD-aAz">
-                                <rect key="frame" x="20" y="84" width="374" height="688"/>
+                                <rect key="frame" x="20" y="128" width="374" height="688"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="dja-Lm-IKc" userLabel="Langue Source">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -238,9 +402,6 @@
                                                 <state key="normal" title="X">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="dismiss:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="3Dx-ws-KmX"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -259,7 +420,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapAllemandButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="PY5-m6-cv0"/>
+                                                    <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="LlI-ws-jvt"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -279,7 +440,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapAnglaisButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="Rfj-Id-WjX"/>
+                                                    <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="zBK-6h-cFa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -299,7 +460,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapEspagnolButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="ZBZ-ie-AjR"/>
+                                                    <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="X4w-qN-C8q"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -319,7 +480,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapFrançaisButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="NSi-iu-pKw"/>
+                                                    <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="Fix-U8-KTw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -339,7 +500,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapItalienButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="mpL-Qk-XWM"/>
+                                                    <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="8Gl-CJ-AWA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -366,20 +527,16 @@
                         <outletCollection property="langages" destination="Q3M-UF-MNE" collectionClass="NSMutableArray" id="kZ1-iC-fnj"/>
                         <outletCollection property="langages" destination="mGX-sw-hqw" collectionClass="NSMutableArray" id="bqn-6B-87s"/>
                         <outletCollection property="langages" destination="T1n-03-toZ" collectionClass="NSMutableArray" id="GTQ-BG-T2Z"/>
-                        <segue destination="p7W-Id-uIM" kind="presentation" identifier="segueFromSourceToTranslator" id="Ju2-9C-s7r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tZ-Nd-mjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="emV-qT-JVe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="113"/>
+            <point key="canvasLocation" x="1784" y="113"/>
         </scene>
     </scenes>
     <resources>
         <image name="Speechbubble" width="29" height="29"/>
         <image name="icon-Small" width="29" height="29"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="XKl-4H-iCs"/>
-        <segue reference="Ju2-9C-s7r"/>
-    </inferredMetricsTieBreakers>
 </document>
