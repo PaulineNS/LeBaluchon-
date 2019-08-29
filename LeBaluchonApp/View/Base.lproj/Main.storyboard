@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.64772367477416992" green="0.18777000904083252" blue="0.23412173986434937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -47,7 +47,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AON-Wr-J46">
                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="218"/>
-                                                <color key="backgroundColor" red="0.95384484529495239" green="0.58174735307693481" blue="0.19255980849266052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.72646123170852661" green="0.84451949596405029" blue="0.91568887233734131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -77,7 +77,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.95349866151809692" green="0.5784916877746582" blue="0.19148796796798706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.72646123170852661" green="0.84451949596405029" blue="0.91568887233734131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tKJ-EQ-6yK" secondAttribute="bottom" constant="320" id="7co-Ui-tvv"/>
@@ -115,7 +115,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cIM-F4-aDF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.68866610527038574" green="0.29729604721069336" blue="0.33908551931381226" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="p7W-Id-uIM" kind="relationship" relationship="rootViewController" id="cXk-qs-hoI"/>
@@ -170,7 +170,7 @@
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Saisissez du texte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-zd-lHC">
                                         <rect key="frame" x="0.0" y="107" width="374" height="60"/>
-                                        <color key="backgroundColor" red="0.92599242925643921" green="0.38527670502662659" blue="0.18457049131393433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
@@ -187,7 +187,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92582428455352783" green="0.38277056813240051" blue="0.18452736735343933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="SIy-RR-pLy" firstAttribute="top" secondItem="WBF-m9-dJL" secondAttribute="top" constant="20" id="AaY-cU-0KC"/>
@@ -337,7 +337,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92599242925643921" green="0.38527670502662659" blue="0.18457049131393433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="omd-qi-zo3" firstAttribute="top" secondItem="5tg-wa-Ola" secondAttribute="top" constant="40" id="45j-rV-S0H"/>
                             <constraint firstItem="omd-qi-zo3" firstAttribute="leading" secondItem="5tg-wa-Ola" secondAttribute="leading" constant="20" id="xNb-bg-dZO"/>
@@ -483,7 +483,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92599242925643921" green="0.38527670502662659" blue="0.18457049131393433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lW9-zD-aAz" firstAttribute="leading" secondItem="krb-98-wzJ" secondAttribute="leading" constant="20" id="AZJ-Ra-Aii"/>
                             <constraint firstItem="lW9-zD-aAz" firstAttribute="top" secondItem="krb-98-wzJ" secondAttribute="top" constant="40" id="GS4-CS-Y59"/>
