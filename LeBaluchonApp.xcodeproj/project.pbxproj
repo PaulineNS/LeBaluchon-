@@ -196,10 +196,10 @@
 		56FA29CC2315466D00BE92BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */,
-				56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */,
 				565503F82314050F00FDDD23 /* Translation.swift */,
 				565503F42313DFF700FDDD23 /* TranslationService.swift */,
+				56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */,
+				56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,9 +207,9 @@
 		56FA29CD2315467300BE92BC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */,
 				565503F02311460000FDDD23 /* TranslationController.swift */,
 				56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */,
+				565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

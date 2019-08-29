@@ -10,15 +10,16 @@ import UIKit
 
 class TranslationController: UIViewController {
     
+    //var sourceLangageDelegate: LangageSelectedDelegate?
+    //var selectedTargetLangage: String!
     var translationService = TranslationService()
-    var sourceLangageDelegate: LangageSelectedDelegate?
-    var selectedTargetLangage: String!
-    
+
+    let languagesDictionnary = ["Allemand": "ge", "Anglais": "en", "Espagnol": "es", "Français": "fr", "Italien": "it"]
+
     @IBOutlet weak var sourceLangageButton: UIButton!
     @IBOutlet weak var targetLangageButton: UIButton!
     @IBOutlet weak var textToTranslateTextField: UITextField!
     @IBOutlet weak var translatedTextLabel: UILabel!
-    
     
     @IBAction func unwindToTranslator(_ sender: UIStoryboardSegue){}
     
@@ -26,7 +27,21 @@ class TranslationController: UIViewController {
         textToTranslateTextField.resignFirstResponder()
     }
     
-    @IBAction func didTapSourceLangageButton(_ sender: Any) {
+    @IBAction func translate(_ sender: Any) {
+        translationService.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceLangageButton.currentTitle ?? ""] ?? "", target: languagesDictionnary[targetLangageButton.currentTitle ?? ""] ?? "") { (translation) in
+            if let translation = translation {
+                self.update(data: translation)
+            } else {
+                self.presentAlert(message: "La traduction n'a pas aboutit")
+            }
+        }
+    }
+    
+    func update(data: Data) {
+        translatedTextLabel.text = data.data.translations[0].translatedText
+    }
+    
+   /* @IBAction func didTapSourceLangageButton(_ sender: Any) {
         if sourceLangageButton.currentTitle == "Anglais" {
             sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonAnglais)
         } else if sourceLangageButton.currentTitle == "Allemand" {
@@ -38,22 +53,6 @@ class TranslationController: UIViewController {
         } else if sourceLangageButton.currentTitle == "Français" {
             sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonFrancais)
         }
-    }
-    
-    @IBAction func translate(_ sender: Any) {
-       // translationService.getTranslation { (translation) in
-           // if let translation = translation {
-               // self.update(translation: translation)
-         //   } else {
-             //   self.presentAlert(message: "La traduction n'a pas aboutit")
-       //     }
-      //  }
-    }
-
-  /*  func update(translation: Translation) {
-        textToTranslateTextField.text = translation.q
-        selectedSourceLangage = translation.source
-        translatedTextLabel.text = translation.translatedText
-        
     } */
+    
 }

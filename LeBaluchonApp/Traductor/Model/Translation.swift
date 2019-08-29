@@ -12,9 +12,20 @@ struct Translation: Decodable {
     var source: String
     var target: String
     var q: String
-    var translatedText: String
+    var translatedText: [String: String]
     
-    func translate(text: String, sourceLangage: String, targetLangage: String){
-    }
+    
+}
+
+struct Data: Decodable {
+    var data: Translations
+}
+
+struct Translations: Decodable {
+    var translations: [TranslatedText]
+}
+
+struct TranslatedText: Decodable {
+    var translatedText: String
 }
 

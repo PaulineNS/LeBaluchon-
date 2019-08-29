@@ -146,7 +146,6 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapSourceLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="Xcq-7Q-rxq"/>
                                                     <segue destination="gB4-hZ-Jpx" kind="show" id="gYA-vY-ova"/>
                                                 </connections>
                                             </button>

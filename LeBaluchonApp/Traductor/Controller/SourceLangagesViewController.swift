@@ -39,8 +39,7 @@ class SourceLangagesViewController: UIViewController {
     }
 }
 
-
-extension SourceLangagesViewController: LangageSelectedDelegate{
+/* extension SourceLangagesViewController: LangageSelectedDelegate{
     func onSelectedLangage(buttonType: LangagesButtonType) {
         switch buttonType {
         case .buttonAllemand:
@@ -55,4 +54,4 @@ extension SourceLangagesViewController: LangageSelectedDelegate{
             selectedButton(index: 4)
         }
     }
-}
+} */
