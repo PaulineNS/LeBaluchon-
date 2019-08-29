@@ -9,9 +9,14 @@
 import Foundation
 
 class CurrencyService {
+    static var shared = CurrencyService()
+    private init() {}
+    
     private var currency: Currrency?
     private static let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=091a2105498b073b04df296f6052d8f3")!
 
+    private var task: URLSessionDataTask?
+    
     /// Getting Data
     func getCurrency(callback: @escaping (Currrency?) -> Void) {
         
@@ -21,7 +26,9 @@ class CurrencyService {
         }
         
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: CurrencyService.currencyUrl) { (data, response, error) in
+        
+        task?.cancel()
+        task = session.dataTask(with: CurrencyService.currencyUrl) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(nil)
@@ -43,6 +50,6 @@ class CurrencyService {
             }
         }
         
-        task.resume()
+        task?.resume()
     }
 } 

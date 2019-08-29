@@ -10,7 +10,6 @@ import UIKit
 
 class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var currencyService = CurrencyService()
     let symbolsDictionnary = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
@@ -28,7 +27,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         resultSymbolsPickerView.dataSource = self
         requestPickerView.selectRow(1, inComponent: 0, animated: true)
         resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
-        currencyService.getCurrency {(currency) in }
+        CurrencyService.shared.getCurrency {(currency) in }
     }
     
     @IBAction func TappingCurrency(_ sender: Any) {
@@ -65,7 +64,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func convert() {
-        currencyService.getCurrency {(currency) in
+        CurrencyService.shared.getCurrency {(currency) in
             if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
                 let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
                 self.resultLabel.text = String(result)
