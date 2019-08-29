@@ -10,7 +10,7 @@ import Foundation
 
 class TranslationService {
     
-    let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAsAeyNFUwWfB9jBe")!
+    let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIza")!
     
     func getTranslation(text: String, source: String, target: String, callback: @escaping (Data?) -> Void) {
         var request = URLRequest(url: translationUrl)

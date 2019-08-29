@@ -25,6 +25,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="QDV-X1-bPe"/>
                         <segue destination="6cb-Le-1UH" kind="relationship" relationship="viewControllers" id="g38-Fx-1zT"/>
+                        <segue destination="BCP-eF-vk0" kind="relationship" relationship="viewControllers" id="qhe-be-C4w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZd-zW-hBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,6 +125,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vD-zf-1u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93" y="113"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="Lo5-99-7Sf">
+            <objects>
+                <viewController id="BCP-eF-vk0" customClass="WeatherViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TGd-Tg-iDJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.96747678518295288" green="0.98345106840133667" blue="0.98741453886032104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="lJa-eE-Qg2"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Weather" image="Sun" id="kuq-BT-G2a"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SP9-20-gEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="860"/>
         </scene>
         <!--Translator-->
         <scene sceneID="QXo-Vn-bp9">
@@ -512,6 +529,7 @@
     </scenes>
     <resources>
         <image name="Speechbubble" width="29" height="29"/>
+        <image name="Sun" width="29" height="29"/>
         <image name="icon-Small" width="29" height="29"/>
     </resources>
 </document>
