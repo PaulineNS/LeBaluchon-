@@ -19,6 +19,7 @@ class TargetLangageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         unselectedButton()
         selector[index].isHidden = false
+        // navigationItem.backBarButtonItem = UIBarButtonItem(title: "Traducteur", style: .plain, target: nil, action: nil)
     }
     
     func selectedButton(index: Int) {

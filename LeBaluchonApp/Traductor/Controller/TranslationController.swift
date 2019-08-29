@@ -39,6 +39,7 @@ class TranslationController: UIViewController {
     
     func update(data: Data) {
         translatedTextLabel.text = data.data.translations[0].translatedText
+        print (data.data.translations[0].translatedText)
     }
     
    /* @IBAction func didTapSourceLangageButton(_ sender: Any) {

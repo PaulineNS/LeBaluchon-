@@ -21,25 +21,26 @@ class TranslationService {
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                callback(nil)
-                return
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(nil)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(nil)
+                    return
+                }
+                
+                guard let responseJSON = try? JSONDecoder().decode(Data.self, from: data) else {
+                    callback(nil)
+                    return
+                }
+                
+                callback(responseJSON)
             }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                callback(nil)
-                return
-            }
-            
-            guard let responseJSON = try? JSONDecoder().decode(Data.self, from: data) else {
-                callback(nil)
-                return
-            }
-            
-            callback(responseJSON)
-            
         }
+        
         task.resume()
     }
     

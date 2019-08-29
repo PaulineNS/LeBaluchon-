@@ -168,12 +168,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Saisissez du texte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-zd-lHC">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Saisissez du texte" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-zd-lHC">
                                         <rect key="frame" x="0.0" y="107" width="374" height="60"/>
                                         <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go"/>
                                         <connections>
                                             <action selector="translate:" destination="p7W-Id-uIM" eventType="valueChanged" id="G8B-s0-gUS"/>
                                         </connections>

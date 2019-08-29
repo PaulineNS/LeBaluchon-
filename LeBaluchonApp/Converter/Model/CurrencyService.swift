@@ -22,24 +22,25 @@ class CurrencyService {
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: CurrencyService.currencyUrl) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                callback(nil)
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
-                callback(nil)
-                return
-            }
-            
-            guard let responseJSON = try? JSONDecoder().decode(Currrency.self, from: data) else {
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
                     callback(nil)
                     return
+                }
+                
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
+                    callback(nil)
+                    return
+                }
+                
+                guard let responseJSON = try? JSONDecoder().decode(Currrency.self, from: data) else {
+                    callback(nil)
+                    return
+                }
+                
+                self.currency = responseJSON
+                callback(responseJSON)
             }
-            
-            self.currency = responseJSON
-            callback(responseJSON)
         }
         
         task.resume()
