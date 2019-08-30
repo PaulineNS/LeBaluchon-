@@ -7,27 +7,80 @@
 //
 
 import XCTest
+@testable import LeBaluchonApp
 
 class CurrencyServiceTestCase: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testGetCurrencyShouldPostFailedCallbackIfError(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.errorCurrency))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { (currency) in
+            // Then
+            XCTAssertNil(currency)
+            expectation.fulfill()
         }
+        
+        wait(for: [expectation], timeout: 0.01)
     }
-
+    
+    func testGetCurrencyShouldPostFailedCallbackIfNoData(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { (currency) in
+            // Then
+            XCTAssertNil(currency)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetCurrencyShouldPostFailedCallbackIfIncorrectResponse(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseKO, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { (currency) in
+            // Then
+            XCTAssertNil(currency)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetCurrencyShouldPostFailedCallbackIfIncorrectData(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyIncorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { (currency) in
+            // Then
+            XCTAssertNil(currency)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 0.01)
+    }
 }
+    
+   /* func Given1Eur_WhenConvertToUSD_ThenTheGoodValueReturn() {
+        let currency = Currrency(rates: ["USD" : 1.106862, "GBP" : 0.906188])
+
+        let result = currency.convert(value: 1.0, from: "EUR", to: "USD")
+        XCTAssertEqual(result, 1.106862)
+    }
+    
+    
+    
+    func Given1Eur_WhenConvertToGBP_ThenTheGoodValueReturn(){
+        let currency = Currrency(rates: ["USD" : 1.106862, "GBP" : 0.906188])
+
+        let result = currency.convert(value: 1.0, from: "USD", to: "GBP")
+        XCTAssertEqual(result, 0.906188)
+    } */
+

@@ -14,7 +14,6 @@
 		565503C023045EE600FDDD23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565503BE23045EE600FDDD23 /* LaunchScreen.storyboard */; };
 		565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503CB2305333A00FDDD23 /* CurrencyService.swift */; };
 		565503DF2307EE1000FDDD23 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503DE2307EE1000FDDD23 /* Currency.swift */; };
-		565503E9230BF7AE00FDDD23 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503E8230BF7AE00FDDD23 /* CurrencyTests.swift */; };
 		565503F12311460000FDDD23 /* TranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F02311460000FDDD23 /* TranslationController.swift */; };
 		565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F42313DFF700FDDD23 /* TranslationService.swift */; };
 		565503F92314050F00FDDD23 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F82314050F00FDDD23 /* Translation.swift */; };
@@ -32,13 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		565503EB230BF7AE00FDDD23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 565503AA23045EDC00FDDD23 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 565503B123045EDC00FDDD23;
-			remoteInfo = LeBaluchonApp;
-		};
 		56FA29E8231918B200BE92BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 565503AA23045EDC00FDDD23 /* Project object */;
@@ -58,9 +50,6 @@
 		565503C123045EE600FDDD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565503CB2305333A00FDDD23 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		565503DE2307EE1000FDDD23 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		565503E6230BF7AD00FDDD23 /* LeBaluchonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		565503E8230BF7AE00FDDD23 /* CurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTests.swift; sourceTree = "<group>"; };
-		565503EA230BF7AE00FDDD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565503F02311460000FDDD23 /* TranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationController.swift; sourceTree = "<group>"; };
 		565503F42313DFF700FDDD23 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		565503F82314050F00FDDD23 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -87,13 +76,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		565503E3230BF7AD00FDDD23 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		56FA29E0231918B200BE92BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				565503B423045EDC00FDDD23 /* LeBaluchonApp */,
-				565503E7230BF7AE00FDDD23 /* LeBaluchonAppTests */,
 				56FA29E4231918B200BE92BC /* CurrencyTestCase */,
 				565503B323045EDC00FDDD23 /* Products */,
 			);
@@ -118,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				565503B223045EDC00FDDD23 /* LeBaluchonApp.app */,
-				565503E6230BF7AD00FDDD23 /* LeBaluchonAppTests.xctest */,
 				56FA29E3231918B200BE92BC /* CurrencyTestCase.xctest */,
 			);
 			name = Products;
@@ -153,15 +133,6 @@
 				565503C123045EE600FDDD23 /* Info.plist */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		565503E7230BF7AE00FDDD23 /* LeBaluchonAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				565503E8230BF7AE00FDDD23 /* CurrencyTests.swift */,
-				565503EA230BF7AE00FDDD23 /* Info.plist */,
-			);
-			path = LeBaluchonAppTests;
 			sourceTree = "<group>";
 		};
 		56FA29CA2315466100BE92BC /* Currency */ = {
@@ -278,24 +249,6 @@
 			productReference = 565503B223045EDC00FDDD23 /* LeBaluchonApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		565503E5230BF7AD00FDDD23 /* LeBaluchonAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 565503ED230BF7AE00FDDD23 /* Build configuration list for PBXNativeTarget "LeBaluchonAppTests" */;
-			buildPhases = (
-				565503E2230BF7AD00FDDD23 /* Sources */,
-				565503E3230BF7AD00FDDD23 /* Frameworks */,
-				565503E4230BF7AD00FDDD23 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				565503EC230BF7AE00FDDD23 /* PBXTargetDependency */,
-			);
-			name = LeBaluchonAppTests;
-			productName = LeBaluchonAppTests;
-			productReference = 565503E6230BF7AD00FDDD23 /* LeBaluchonAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		56FA29E2231918B200BE92BC /* CurrencyTestCase */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56FA29EC231918B200BE92BC /* Build configuration list for PBXNativeTarget "CurrencyTestCase" */;
@@ -327,10 +280,6 @@
 					565503B123045EDC00FDDD23 = {
 						CreatedOnToolsVersion = 10.3;
 					};
-					565503E5230BF7AD00FDDD23 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 565503B123045EDC00FDDD23;
-					};
 					56FA29E2231918B200BE92BC = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 565503B123045EDC00FDDD23;
@@ -351,7 +300,6 @@
 			projectRoot = "";
 			targets = (
 				565503B123045EDC00FDDD23 /* LeBaluchonApp */,
-				565503E5230BF7AD00FDDD23 /* LeBaluchonAppTests */,
 				56FA29E2231918B200BE92BC /* CurrencyTestCase */,
 			);
 		};
@@ -365,13 +313,6 @@
 				565503C023045EE600FDDD23 /* LaunchScreen.storyboard in Resources */,
 				565503BD23045EE600FDDD23 /* Assets.xcassets in Resources */,
 				565503BB23045EDC00FDDD23 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		565503E4230BF7AD00FDDD23 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,14 +348,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		565503E2230BF7AD00FDDD23 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				565503E9230BF7AE00FDDD23 /* CurrencyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		56FA29DF231918B200BE92BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,11 +361,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		565503EC230BF7AE00FDDD23 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 565503B123045EDC00FDDD23 /* LeBaluchonApp */;
-			targetProxy = 565503EB230BF7AE00FDDD23 /* PBXContainerItemProxy */;
-		};
 		56FA29E9231918B200BE92BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 565503B123045EDC00FDDD23 /* LeBaluchonApp */;
@@ -610,44 +538,6 @@
 			};
 			name = Release;
 		};
-		565503EE230BF7AE00FDDD23 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = LeBaluchonAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.paulinenomballais.LeBaluchonAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeBaluchonApp.app/LeBaluchonApp";
-			};
-			name = Debug;
-		};
-		565503EF230BF7AE00FDDD23 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = LeBaluchonAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.paulinenomballais.LeBaluchonAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeBaluchonApp.app/LeBaluchonApp";
-			};
-			name = Release;
-		};
 		56FA29EA231918B200BE92BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -703,15 +593,6 @@
 			buildConfigurations = (
 				565503C523045EE600FDDD23 /* Debug */,
 				565503C623045EE600FDDD23 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		565503ED230BF7AE00FDDD23 /* Build configuration list for PBXNativeTarget "LeBaluchonAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				565503EE230BF7AE00FDDD23 /* Debug */,
-				565503EF230BF7AE00FDDD23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,19 +8,20 @@
 
 import Foundation
 
-class FakeCurrencyResponseData {
-    let responseOK = HTTPURLResponse(url: URL(string: "")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-    let responseKO = HTTPURLResponse(url: URL(string: "")!, statusCode: 500, httpVersion: nil, headerFields: nil)!
+class FakeResponseData {
+    
+    static let responseOK = HTTPURLResponse(url: URL(string: "https://openclassrooms.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+    static let responseKO = HTTPURLResponse(url: URL(string: "https://openclassrooms.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)!
     
     class CurrencyError: Error{}
-    let error = CurrencyError()
+    static let errorCurrency = CurrencyError()
     
-    var currencyCorrectData: Data {
-        let bundle = Bundle(for: FakeCurrencyResponseData.self)
+    static var currencyCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Currency", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
     
-    let currencyIncorrectData = "erreur".data(using: .utf8)
+    static let currencyIncorrectData = "erreur".data(using: .utf8)
 }
