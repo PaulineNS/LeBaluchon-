@@ -38,6 +38,16 @@
                ReferencedContainer = "container:LeBaluchonApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "56FA29E2231918B200BE92BC"
+               BuildableName = "CurrencyTestCase.xctest"
+               BlueprintName = "CurrencyTestCase"
+               ReferencedContainer = "container:LeBaluchonApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

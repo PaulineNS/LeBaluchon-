@@ -17,16 +17,18 @@ class CurrencyService {
 
     private var task: URLSessionDataTask?
     
+    private var session = URLSession(configuration: .default)
+    
+    init(session:URLSession) {
+        self.session = session
+    }
+
     /// Getting Data
     func getCurrency(callback: @escaping (Currrency?) -> Void) {
-        
         if let c = currency { //refactoring
             callback(c)
             return
         }
-        
-        let session = URLSession(configuration: .default)
-        
         task?.cancel()
         task = session.dataTask(with: CurrencyService.currencyUrl) { (data, response, error) in
             DispatchQueue.main.async {
