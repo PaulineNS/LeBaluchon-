@@ -40,7 +40,6 @@ class TranslationService {
                 callback(responseJSON)
             }
         }
-        
         task.resume()
     }
     

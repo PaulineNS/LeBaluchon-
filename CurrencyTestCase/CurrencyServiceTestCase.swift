@@ -21,7 +21,6 @@ class CurrencyServiceTestCase: XCTestCase {
             XCTAssertNil(currency)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -35,7 +34,6 @@ class CurrencyServiceTestCase: XCTestCase {
             XCTAssertNil(currency)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -49,7 +47,6 @@ class CurrencyServiceTestCase: XCTestCase {
             XCTAssertNil(currency)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -63,24 +60,40 @@ class CurrencyServiceTestCase: XCTestCase {
             XCTAssertNil(currency)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-}
     
-   /* func Given1Eur_WhenConvertToUSD_ThenTheGoodValueReturn() {
-        let currency = Currrency(rates: ["USD" : 1.106862, "GBP" : 0.906188])
-
-        let result = currency.convert(value: 1.0, from: "EUR", to: "USD")
-        XCTAssertEqual(result, 1.106862)
+    func testGiven1Eur_WhenConvertToUSD_ThenTheGoodValueReturn(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { (currency) in
+            // Then
+            let result = currency?.convert(value: 1.0, from: "EUR", to: "USD")
+            XCTAssertNotNil(currency)
+            XCTAssertEqual(result, 1.103569)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
     
+    func testGiven1Eur_WhenConvertToGBP_ThenTheGoodValueReturn(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { (currency) in
+            // Then
+            let result = currency?.convert(value: 1.0, from: "EUR", to: "GBP")
+            XCTAssertNotNil(currency)
+            XCTAssertEqual(result, 0.90661)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
     
-    
-    func Given1Eur_WhenConvertToGBP_ThenTheGoodValueReturn(){
-        let currency = Currrency(rates: ["USD" : 1.106862, "GBP" : 0.906188])
+    //Other
+}
 
-        let result = currency.convert(value: 1.0, from: "USD", to: "GBP")
-        XCTAssertEqual(result, 0.906188)
-    } */
 
