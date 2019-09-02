@@ -192,7 +192,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go"/>
                                         <connections>
-                                            <action selector="translate:" destination="p7W-Id-uIM" eventType="valueChanged" id="G8B-s0-gUS"/>
+                                            <action selector="didEnterText:" destination="p7W-Id-uIM" eventType="valueChanged" id="tYV-ja-rLY"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-xk-wQD">

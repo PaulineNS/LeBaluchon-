@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "565503E5230BF7AD00FDDD23"
+               BlueprintIdentifier = "56FA29F6231CF53300BE92BC"
                BuildableName = "LeBaluchonAppTests.xctest"
                BlueprintName = "LeBaluchonAppTests"
                ReferencedContainer = "container:LeBaluchonApp.xcodeproj">
@@ -45,6 +45,16 @@
                BlueprintIdentifier = "56FA29E2231918B200BE92BC"
                BuildableName = "CurrencyTestCase.xctest"
                BlueprintName = "CurrencyTestCase"
+               ReferencedContainer = "container:LeBaluchonApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "56FA2A16231D1A1600BE92BC"
+               BuildableName = "TranslationServiceTestsCase.xctest"
+               BlueprintName = "TranslationServiceTestsCase"
                ReferencedContainer = "container:LeBaluchonApp.xcodeproj">
             </BuildableReference>
          </TestableReference>

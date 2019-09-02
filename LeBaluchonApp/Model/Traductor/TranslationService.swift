@@ -9,18 +9,34 @@
 import Foundation
 
 class TranslationService {
+    static var shared = TranslationService()
+    private init() {}
     
-    let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AI")!
+    private static let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AI")!
     
-    func getTranslation(text: String, source: String, target: String, callback: @escaping (Data?) -> Void) {
-        var request = URLRequest(url: translationUrl)
+    private var task: URLSessionDataTask?
+    
+    private var translationSession = URLSession(configuration: .default)
+    
+    init(translationSession: URLSession) {
+        self.translationSession = translationSession
+    }
+    
+    private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest {
+        var request = URLRequest(url: TranslationService.translationUrl)
         request.httpMethod = "POST"
         
         let body = "source=\(source)&target=\(target)&q=\(text)"
         request.httpBody = body.data(using: .utf8)
         
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, response, error) in
+        return request
+    }
+    
+    func getTranslation(text: String, source: String, target: String, callback: @escaping (Data?) -> Void) {
+        let request = createTranslationRequest(text: text, source: source, target: target)
+        
+        task?.cancel()
+        task = translationSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(nil)
@@ -40,7 +56,6 @@ class TranslationService {
                 callback(responseJSON)
             }
         }
-        task.resume()
+        task?.resume()
     }
-    
 }

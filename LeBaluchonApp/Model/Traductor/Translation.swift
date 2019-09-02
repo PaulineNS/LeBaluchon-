@@ -8,15 +8,6 @@
 
 import Foundation
 
-struct Translation: Decodable {
-    var source: String
-    var target: String
-    var q: String
-    var translatedText: [String: String]
-    
-    
-}
-
 struct Data: Decodable {
     var data: Translations
 }

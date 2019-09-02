@@ -12,7 +12,6 @@ class TranslationController: UIViewController {
     
     //var sourceLangageDelegate: LangageSelectedDelegate?
     //var selectedTargetLangage: String!
-    var translationService = TranslationService()
 
     let languagesDictionnary = ["Allemand": "ge", "Anglais": "en", "Espagnol": "es", "Français": "fr", "Italien": "it"]
 
@@ -27,8 +26,13 @@ class TranslationController: UIViewController {
         textToTranslateTextField.resignFirstResponder()
     }
     
-    @IBAction func translate(_ sender: Any) {
-        translationService.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceLangageButton.currentTitle ?? ""] ?? "", target: languagesDictionnary[targetLangageButton.currentTitle ?? ""] ?? "") { (translation) in
+    
+    @IBAction func didEnterText(_ sender: Any) {
+        translate()
+    }
+    
+    func translate() {
+        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceLangageButton.currentTitle ?? ""] ?? "", target: languagesDictionnary[targetLangageButton.currentTitle ?? ""] ?? "") { (translation) in
             if let translation = translation {
                 self.update(data: translation)
             } else {

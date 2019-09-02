@@ -1,17 +1,18 @@
 //
-//  CurrencyTestCase.swift
-//  CurrencyTestCase
+//  CurrencyServiceTests.swift
+//  LeBaluchonAppTests
 //
-//  Created by Pauline Nomballais on 30/08/2019.
+//  Created by Pauline Nomballais on 02/09/2019.
 //  Copyright © 2019 PaulineNomballais. All rights reserved.
 //
 
 import XCTest
 @testable import LeBaluchonApp
 
-class CurrencyServiceTestCase: XCTestCase {
+
+class CurrencyServiceTests: XCTestCase {
     
-    func testGetCurrencyShouldPostFailedCallbackIfError(){
+    func testGetCurrencyShouldPostFailedCallbackIfError() {
         //Given
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.errorCurrency))
         //When
@@ -24,7 +25,7 @@ class CurrencyServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testGetCurrencyShouldPostFailedCallbackIfNoData(){
+    func testGetCurrencyShouldPostFailedCallbackIfNoData() {
         //Given
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
         //When
@@ -94,6 +95,5 @@ class CurrencyServiceTestCase: XCTestCase {
     }
     
     //Other
+
 }
-
-
