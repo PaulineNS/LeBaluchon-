@@ -9,6 +9,7 @@
 import Foundation
 
 class TranslationService {
+    var apiKeys = APIKeys()
     static var shared = TranslationService()
     private init() {}
     
@@ -23,12 +24,10 @@ class TranslationService {
     }
     
     private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest {
-        var request = URLRequest(url: TranslationService.translationUrl)
+        let translationApi = apiKeys.valueForAPIKey(named: "Google")
+        let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(translationApi)&source=\(source)&target=\(target)&q=\(text)")!
+        var request = URLRequest(url: translationUrl)
         request.httpMethod = "POST"
-        
-        let body = "source=\(source)&target=\(target)&q=\(text)"
-        request.httpBody = body.data(using: .utf8)
-        
         return request
     }
     

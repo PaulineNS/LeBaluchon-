@@ -32,6 +32,9 @@
 		56FA2A36231D229200BE92BC /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A35231D229200BE92BC /* URLSessionFake.swift */; };
 		56FA2A38231D22B000BE92BC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A37231D22B000BE92BC /* FakeResponseData.swift */; };
 		56FA2A3A231D22D300BE92BC /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 56FA2A39231D22D300BE92BC /* Currency.json */; };
+		56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A3B231FA16200BE92BC /* Weather.swift */; };
+		56FA2A3E231FAC4000BE92BC /* ApiKeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 56FA2A3D231FAC4000BE92BC /* ApiKeys.json */; };
+		56FA2A40231FAEAE00BE92BC /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		56FA2A35231D229200BE92BC /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		56FA2A37231D22B000BE92BC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		56FA2A39231D22D300BE92BC /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
+		56FA2A3B231FA16200BE92BC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		56FA2A3D231FAC4000BE92BC /* ApiKeys.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ApiKeys.json; sourceTree = "<group>"; };
+		56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,7 @@
 				565503B523045EDC00FDDD23 /* AppDelegate.swift */,
 				565503BC23045EE600FDDD23 /* Assets.xcassets */,
 				565503C123045EE600FDDD23 /* Info.plist */,
+				56FA2A3D231FAC4000BE92BC /* ApiKeys.json */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 				56FA29DC23181B1900BE92BC /* Weather */,
 				56FA29CC2315466D00BE92BC /* Traductor */,
 				56FA29CA2315466100BE92BC /* Currency */,
+				56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
+				56FA2A3B231FA16200BE92BC /* Weather.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -373,6 +382,7 @@
 			files = (
 				565503C023045EE600FDDD23 /* LaunchScreen.storyboard in Resources */,
 				565503BD23045EE600FDDD23 /* Assets.xcassets in Resources */,
+				56FA2A3E231FAC4000BE92BC /* ApiKeys.json in Resources */,
 				565503BB23045EDC00FDDD23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +414,7 @@
 				56FA29BF2315215D00BE92BC /* LangageSelectedDelegate.swift in Sources */,
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
 				56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */,
+				56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */,
 				56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */,
 				56FA29C1231521CC00BE92BC /* LangagesButtonType.swift in Sources */,
 				56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */,
@@ -413,6 +424,7 @@
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,
 				565503F92314050F00FDDD23 /* Translation.swift in Sources */,
 				565503F12311460000FDDD23 /* TranslationController.swift in Sources */,
+				56FA2A40231FAEAE00BE92BC /* APIKeys.swift in Sources */,
 				56FA29D22315654B00BE92BC /* TargetLangageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,6 +31,12 @@ class TranslationController: UIViewController {
         translate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let language1 = UserDefaults.standard.string(forKey: "language1") {
+            sourceLangageButton.setTitle(languagesDictionnary(), for: .normal)
+        }
+    }
+    
     func translate() {
         TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceLangageButton.currentTitle ?? ""] ?? "", target: languagesDictionnary[targetLangageButton.currentTitle ?? ""] ?? "") { (translation) in
             if let translation = translation {
@@ -43,7 +49,6 @@ class TranslationController: UIViewController {
     
     func update(data: Data) {
         translatedTextLabel.text = data.data.translations[0].translatedText
-        print (data.data.translations[0].translatedText)
     }
     
    /* @IBAction func didTapSourceLangageButton(_ sender: Any) {
