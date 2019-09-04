@@ -13,7 +13,6 @@ class CurrencyService {
     private init() {}
     
     private var currency: Currrency?
-    var apiKeys = APIKeys()
     
     private var task: URLSessionDataTask?
     private var session = URLSession(configuration: .default)
@@ -24,7 +23,7 @@ class CurrencyService {
 
     /// Getting Data
     func getCurrency(callback: @escaping (Currrency?) -> Void) {
-        let currencyApi = apiKeys.valueForAPIKey(named: "Fixer")
+        let currencyApi = valueForAPIKey(named: "API_Fixer")
         let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(currencyApi)")!
         
         if let c = currency { //refactoring

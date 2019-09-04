@@ -31,11 +31,11 @@ class TranslationController: UIViewController {
         translate()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    /* override func viewWillAppear(_ animated: Bool) {
         if let language1 = UserDefaults.standard.string(forKey: "language1") {
-            sourceLangageButton.setTitle(languagesDictionnary(), for: .normal)
+            sourceLangageButton.setTitle(languagesDictionnary, for: .normal)
         }
-    }
+    } */
     
     func translate() {
         TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceLangageButton.currentTitle ?? ""] ?? "", target: languagesDictionnary[targetLangageButton.currentTitle ?? ""] ?? "") { (translation) in
