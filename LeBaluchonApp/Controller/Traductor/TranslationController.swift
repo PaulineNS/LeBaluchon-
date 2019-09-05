@@ -9,9 +9,9 @@
 import UIKit
 
 class TranslationController: UIViewController {
-
+    
     let languagesDictionnary = ["ge": "Allemand", "en": "Anglais", "es": "Espagnol", "fr": "Français", "it": "Italien"]
-
+    
     @IBOutlet weak var sourceLangageButton: UIButton!
     @IBOutlet weak var targetLangageButton: UIButton!
     @IBOutlet weak var textToTranslateTextField: UITextField!
@@ -22,6 +22,14 @@ class TranslationController: UIViewController {
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textToTranslateTextField.resignFirstResponder()
     }
+    
+    @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
+        
+        let sourceTitle = sourceLangageButton.currentTitle
+        sourceLangageButton.setTitle(targetLangageButton.currentTitle, for: .normal)
+        targetLangageButton.setTitle(sourceTitle, for: .normal)
+    }
+    
     
     @IBAction func didEnterText(_ sender: Any) {
         translate()
