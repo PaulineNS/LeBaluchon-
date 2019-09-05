@@ -9,11 +9,8 @@
 import UIKit
 
 class TranslationController: UIViewController {
-    
-    //var sourceLangageDelegate: LangageSelectedDelegate?
-    //var selectedTargetLangage: String!
 
-    let languagesDictionnary = ["Allemand": "ge", "Anglais": "en", "Espagnol": "es", "Français": "fr", "Italien": "it"]
+    let languagesDictionnary = ["ge": "Allemand", "en": "Anglais", "es": "Espagnol", "fr": "Français", "it": "Italien"]
 
     @IBOutlet weak var sourceLangageButton: UIButton!
     @IBOutlet weak var targetLangageButton: UIButton!
@@ -26,19 +23,28 @@ class TranslationController: UIViewController {
         textToTranslateTextField.resignFirstResponder()
     }
     
-    
     @IBAction func didEnterText(_ sender: Any) {
         translate()
     }
     
-    /* override func viewWillAppear(_ animated: Bool) {
-        if let language1 = UserDefaults.standard.string(forKey: "language1") {
-            sourceLangageButton.setTitle(languagesDictionnary, for: .normal)
+    // Select the actual SourceLanguage in SourceLanguageViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSourceLanguage" {
+            if let sourceLangageController = segue.destination as? SourceLangagesViewController {
+                sourceLangageController.selectedSourceLangage = sourceLangageButton.currentTitle
+            }
+        } else if segue.identifier == "segueToTargetLanguage" {
+            if let targetLangageController = segue.destination as? TargetLangageViewController {
+                targetLangageController.selectedTargetLangage = targetLangageButton.currentTitle
+            }
         }
-    } */
+    }
     
     func translate() {
-        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceLangageButton.currentTitle ?? ""] ?? "", target: languagesDictionnary[targetLangageButton.currentTitle ?? ""] ?? "") { (translation) in
+        let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? "")
+        let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "")
+        
+        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceIndex!].value, target: languagesDictionnary[targetIndex!].value) { (translation) in
             if let translation = translation {
                 self.update(data: translation)
             } else {
@@ -50,19 +56,4 @@ class TranslationController: UIViewController {
     func update(data: Data) {
         translatedTextLabel.text = data.data.translations[0].translatedText
     }
-    
-   /* @IBAction func didTapSourceLangageButton(_ sender: Any) {
-        if sourceLangageButton.currentTitle == "Anglais" {
-            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonAnglais)
-        } else if sourceLangageButton.currentTitle == "Allemand" {
-            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonAllemand)
-        } else if sourceLangageButton.currentTitle == "Espagnol" {
-            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonEspagnol)
-        } else if sourceLangageButton.currentTitle == "Italien" {
-            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonItalien)
-        } else if sourceLangageButton.currentTitle == "Français" {
-            sourceLangageDelegate?.onSelectedLangage(buttonType: .buttonFrancais)
-        }
-    } */
-    
 }

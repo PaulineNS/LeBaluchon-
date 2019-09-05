@@ -11,14 +11,13 @@ import UIKit
 class TargetLangageViewController: UIViewController {
     
     var index = 0
-    var selectedTargetLangage: String!
+    var selectedTargetLangage: String! 
     @IBOutlet var selector: [UILabel]!
     @IBOutlet var langages: [UIButton]!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         unselectedButton()
-        selector[index].isHidden = false
+        selectTheLangageTarget()
         // navigationItem.backBarButtonItem = UIBarButtonItem(title: "Traducteur", style: .plain, target: nil, action: nil)
     }
     
@@ -26,7 +25,6 @@ class TargetLangageViewController: UIViewController {
         self.index = index
         unselectedButton()
         selector[index].isHidden = false
-        selectedTargetLangage = langages[index].currentTitle
     }
     
     private func unselectedButton() {
@@ -37,6 +35,20 @@ class TargetLangageViewController: UIViewController {
         if let button = sender as? UIButton {
             let translationVC = segue.destination as! TranslationController
             translationVC.targetLangageButton.setTitle(button.currentTitle, for: .normal)
+        }
+    }
+    
+    func selectTheLangageTarget() {
+        if selectedTargetLangage == "Anglais" {
+            selectedButton(index: 1)
+        } else if selectedTargetLangage == "Allemand" {
+            selectedButton(index: 0)
+        } else if selectedTargetLangage == "Espagnol" {
+            selectedButton(index: 2)
+        } else if selectedTargetLangage == "Italien" {
+            selectedButton(index: 4)
+        } else if selectedTargetLangage == "Français" {
+            selectedButton(index: 3)
         }
     }
 }

@@ -163,7 +163,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="gB4-hZ-Jpx" kind="show" id="gYA-vY-ova"/>
+                                                    <segue destination="gB4-hZ-Jpx" kind="show" identifier="segueToSourceLanguage" id="gYA-vY-ova"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -180,7 +180,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="r2v-8E-ZMY" kind="show" id="sXK-DZ-DjK"/>
+                                                    <segue destination="r2v-8E-ZMY" kind="show" identifier="segueToTargetLanguage" id="sXK-DZ-DjK"/>
                                                 </connections>
                                             </button>
                                         </subviews>

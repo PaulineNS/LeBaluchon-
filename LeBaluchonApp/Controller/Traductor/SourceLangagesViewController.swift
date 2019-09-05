@@ -11,48 +11,44 @@ import UIKit
 class SourceLangagesViewController: UIViewController {
     
     var index = 0
-    var selectedSourceLangage: String!
+    var selectedSourceLangage: String! 
     @IBOutlet var selector: [UILabel]!
     @IBOutlet var langages: [UIButton]!
     
     override func viewWillAppear(_ animated: Bool) {
         unselectedButton()
-        selector[index].isHidden = false
-        // navigationItem.backBarButtonItem = UIBarButtonItem(title: "Traducteur", style: .plain, target: nil, action: nil)
+        selectTheLangageSource()
     }
     
     func selectedButton(index: Int) {
         self.index = index
         unselectedButton()
         selector[index].isHidden = false
-        selectedSourceLangage = langages[index].currentTitle
     }
     
     private func unselectedButton() {
         selector.forEach({ $0.isHidden = true })
     }
     
+    // Changing sourceLanguage in TranslationController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let button = sender as? UIButton {
             let translationVC = segue.destination as! TranslationController
             translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
         }
     }
-}
-
-/* extension SourceLangagesViewController: LangageSelectedDelegate{
-    func onSelectedLangage(buttonType: LangagesButtonType) {
-        switch buttonType {
-        case .buttonAllemand:
-            selectedButton(index: 0)
-        case .buttonAnglais:
+    
+    func selectTheLangageSource() {
+        if selectedSourceLangage == "Anglais" {
             selectedButton(index: 1)
-        case .buttonEspagnol:
+        } else if selectedSourceLangage == "Allemand" {
+            selectedButton(index: 0)
+        } else if selectedSourceLangage == "Espagnol" {
             selectedButton(index: 2)
-        case .buttonFrancais:
-            selectedButton(index: 3)
-        case .buttonItalien:
+        } else if selectedSourceLangage == "Italien" {
             selectedButton(index: 4)
+        } else if selectedSourceLangage == "Français" {
+            selectedButton(index: 3)
         }
     }
-} */
+}

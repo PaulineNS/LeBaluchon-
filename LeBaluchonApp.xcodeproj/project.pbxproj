@@ -18,8 +18,6 @@
 		565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F42313DFF700FDDD23 /* TranslationService.swift */; };
 		565503F92314050F00FDDD23 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F82314050F00FDDD23 /* Translation.swift */; };
 		565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */; };
-		56FA29BF2315215D00BE92BC /* LangageSelectedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */; };
-		56FA29C1231521CC00BE92BC /* LangagesButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */; };
 		56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29CF231561B900BE92BC /* ControllerExtension.swift */; };
 		56FA29D22315654B00BE92BC /* TargetLangageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */; };
 		56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29DA23181B0600BE92BC /* WeatherViewController.swift */; };
@@ -68,8 +66,6 @@
 		565503F42313DFF700FDDD23 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		565503F82314050F00FDDD23 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLangagesViewController.swift; sourceTree = "<group>"; };
-		56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangageSelectedDelegate.swift; sourceTree = "<group>"; };
-		56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagesButtonType.swift; sourceTree = "<group>"; };
 		56FA29CF231561B900BE92BC /* ControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
 		56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetLangageViewController.swift; sourceTree = "<group>"; };
 		56FA29DA23181B0600BE92BC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -190,8 +186,6 @@
 			children = (
 				565503F82314050F00FDDD23 /* Translation.swift */,
 				565503F42313DFF700FDDD23 /* TranslationService.swift */,
-				56FA29C0231521CC00BE92BC /* LangagesButtonType.swift */,
-				56FA29BE2315215C00BE92BC /* LangageSelectedDelegate.swift */,
 			);
 			path = Traductor;
 			sourceTree = "<group>";
@@ -200,8 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				565503F02311460000FDDD23 /* TranslationController.swift */,
-				56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */,
 				565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */,
+				56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */,
 			);
 			path = Traductor;
 			sourceTree = "<group>";
@@ -411,12 +405,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				565503B823045EDC00FDDD23 /* CurrencyController.swift in Sources */,
-				56FA29BF2315215D00BE92BC /* LangageSelectedDelegate.swift in Sources */,
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
 				56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */,
 				56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */,
 				56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */,
-				56FA29C1231521CC00BE92BC /* LangagesButtonType.swift in Sources */,
 				56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */,
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
 				565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */,
