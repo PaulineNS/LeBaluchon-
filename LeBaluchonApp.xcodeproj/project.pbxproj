@@ -240,8 +240,8 @@
 		56FA29DC23181B1900BE92BC /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
 				56FA2A3B231FA16200BE92BC /* Weather.swift */,
+				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";

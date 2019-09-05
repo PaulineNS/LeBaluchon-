@@ -24,12 +24,10 @@ class TranslationController: UIViewController {
     }
     
     @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
-        
         let sourceTitle = sourceLangageButton.currentTitle
         sourceLangageButton.setTitle(targetLangageButton.currentTitle, for: .normal)
         targetLangageButton.setTitle(sourceTitle, for: .normal)
     }
-    
     
     @IBAction func didEnterText(_ sender: Any) {
         translate()
@@ -52,7 +50,7 @@ class TranslationController: UIViewController {
         let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? "")
         let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "")
         
-        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceIndex!].value, target: languagesDictionnary[targetIndex!].value) { (translation) in
+        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceIndex!].key, target: languagesDictionnary[targetIndex!].key) { (translation) in
             if let translation = translation {
                 self.update(data: translation)
             } else {

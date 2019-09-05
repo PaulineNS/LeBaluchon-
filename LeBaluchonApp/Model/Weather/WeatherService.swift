@@ -11,7 +11,7 @@ import Foundation
 class WeatherService {
     private let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8fc912efa709857ada8c5ae7ac0cdb87")!
     
-    func getWeather(callback: @escaping (Weather?) -> Void) {
+    func getWeather(callback: @escaping (WeatherStruc?) -> Void) {
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: weatherUrl ) { (data, response, error) in
             
@@ -24,6 +24,13 @@ class WeatherService {
                 callback(nil)
                 return
             }
+            
+            guard let responseJSON = try? JSONDecoder().decode(WeatherStruc.self, from: data) else {
+                callback(nil)
+                return
+            }
+            
+            callback(responseJSON)
         }
         
         task.resume()
