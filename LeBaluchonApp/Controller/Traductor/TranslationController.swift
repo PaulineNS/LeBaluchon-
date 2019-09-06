@@ -10,7 +10,7 @@ import UIKit
 
 class TranslationController: UIViewController {
     
-    let languagesDictionnary = ["ge": "Allemand", "en": "Anglais", "es": "Espagnol", "fr": "Français", "it": "Italien"]
+    let languagesDictionnary = ["Allemand": "ge", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     
     @IBOutlet weak var sourceLangageButton: UIButton!
     @IBOutlet weak var targetLangageButton: UIButton!
@@ -21,6 +21,7 @@ class TranslationController: UIViewController {
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textToTranslateTextField.resignFirstResponder()
+        translate()
     }
     
     @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
@@ -32,6 +33,9 @@ class TranslationController: UIViewController {
     @IBAction func didEnterText(_ sender: Any) {
         translate()
     }
+    
+    
+    
     
     // Select the actual SourceLanguage in SourceLanguageViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,14 +50,22 @@ class TranslationController: UIViewController {
         }
     }
     
+    @IBAction func automaticTranslate(_ sender: Any) {
+        translate()
+    }
+    
     func translate() {
-        let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? "")
-        let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "")
         
-        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceIndex!].key, target: languagesDictionnary[targetIndex!].key) { (translation) in
-            if let translation = translation {
-                self.update(data: translation)
-            } else {
+        guard let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? ""),
+            let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "") else {
+                return
+        }
+        
+        TranslationService.shared.getTranslation(text: textToTranslateTextField.text ?? "", source: languagesDictionnary[sourceIndex].value, target: languagesDictionnary[targetIndex].value) { result in
+            switch result {
+            case let .success(translateString):
+                self.update(data: translateString)
+            case .failure:
                 self.presentAlert(message: "La traduction n'a pas aboutit")
             }
         }

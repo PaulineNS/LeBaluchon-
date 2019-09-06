@@ -195,6 +195,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go"/>
                                         <connections>
+                                            <action selector="automaticTranslate:" destination="p7W-Id-uIM" eventType="editingChanged" id="5Bs-1I-Wrm"/>
                                             <action selector="didEnterText:" destination="p7W-Id-uIM" eventType="valueChanged" id="tYV-ja-rLY"/>
                                         </connections>
                                     </textField>

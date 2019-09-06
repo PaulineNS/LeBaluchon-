@@ -23,6 +23,43 @@ struct List: Decodable {
     let name: String
 }
 
+struct Coord: Codable {
+    let lon, lat: Double?
+}
+
+struct Sys: Decodable {
+    let type, id: Int?
+    let message: Double?
+    let country: String?
+    let sunrise, sunset: Int?
+}
+
+struct Weather: Decodable {
+    let id: Int?
+    let main, description, icon: String?
+}
+
+struct Main: Decodable {
+    let temp: Double?
+    let pressure, humidity: Int?
+    let tempMin, tempMax: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case temp, pressure, humidity
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+    }
+}
+
+struct Wind: Decodable {
+    let speed: Double?
+    let deg: Int?
+}
+
+struct Clouds: Decodable {
+    let all: Int?
+}
+
 // for endpoint with coordinate
 struct GpsWeatherStruc: Decodable {
     let coord: Coord?
@@ -39,39 +76,14 @@ struct GpsWeatherStruc: Decodable {
     let cod: Int?
 }
 
-struct Clouds: Decodable {
-    let all: Int?
-}
 
-struct Coord: Codable {
-    let lon, lat: Double?
-}
 
-struct Main: Decodable {
-    let temp: Double?
-    let pressure, humidity: Int?
-    let tempMin, tempMax: Double?
-    
-    enum CodingKeys: String, CodingKey {
-        case temp, pressure, humidity
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-    }
-}
 
-struct Sys: Decodable {
-    let type, id: Int?
-    let message: Double?
-    let country: String?
-    let sunrise, sunset: Int?
-}
 
-struct Weather: Decodable {
-    let id: Int?
-    let main, description, icon: String?
-}
 
-struct Wind: Decodable {
-    let speed: Double?
-    let deg: Int?
-}
+
+
+
+
+
+

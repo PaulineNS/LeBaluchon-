@@ -23,37 +23,36 @@ class TranslationService {
         self.translationSession = translationSession
     }
     
-    private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest {
+    private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest? {
         let translationApi = valueForAPIKey(named: "API_GoogleTranslation")
-        let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(translationApi)&source=\(source)&target=\(target)&q=\(text)")!
-        var request = URLRequest(url: translationUrl)
-        request.httpMethod = "POST"
+        guard let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(translationApi)&source=\(source)&target=\(target)&q=\(text)".replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespaces)) else { return nil }
+        let request = URLRequest(url: translationUrl)
         return request
     }
     
-    func getTranslation(text: String, source: String, target: String, callback: @escaping (Data?) -> Void) {
-        let request = createTranslationRequest(text: text, source: source, target: target)
+    func getTranslation(text: String, source: String, target: String, callback: @escaping (Result<Data, Error>) -> Void) {
+        guard let request = createTranslationRequest(text: text, source: source, target: target) else { return }
         
         task?.cancel()
         task = translationSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(nil)
-                    return
+                if let error = error {
+                    callback(.failure(error))
+                    return 
                 }
                 
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(nil)
+                guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(.failure(NSError(domain: "Network", code: 0, userInfo: nil)))
                     return
                 }
                 
                 guard let responseJSON = try? JSONDecoder().decode(Data.self, from: data) else {
-                    callback(nil)
+                    callback(.failure(NSError(domain: "Invalid data", code: 0, userInfo: nil)))
                     return
                 }
                 
                 // print(responseJSON)
-                callback(responseJSON)
+                callback(.success(responseJSON))
             }
         }
         task?.resume()
