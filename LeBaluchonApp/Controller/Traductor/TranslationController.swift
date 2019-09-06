@@ -21,7 +21,6 @@ class TranslationController: UIViewController {
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textToTranslateTextField.resignFirstResponder()
-        translate()
     }
     
     @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
@@ -33,9 +32,6 @@ class TranslationController: UIViewController {
     @IBAction func didEnterText(_ sender: Any) {
         translate()
     }
-    
-    
-    
     
     // Select the actual SourceLanguage in SourceLanguageViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,12 +46,7 @@ class TranslationController: UIViewController {
         }
     }
     
-    @IBAction func automaticTranslate(_ sender: Any) {
-        translate()
-    }
-    
     func translate() {
-        
         guard let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? ""),
             let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "") else {
                 return

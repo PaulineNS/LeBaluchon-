@@ -195,8 +195,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go"/>
                                         <connections>
-                                            <action selector="automaticTranslate:" destination="p7W-Id-uIM" eventType="editingChanged" id="5Bs-1I-Wrm"/>
-                                            <action selector="didEnterText:" destination="p7W-Id-uIM" eventType="valueChanged" id="tYV-ja-rLY"/>
+                                            <action selector="didEnterText:" destination="p7W-Id-uIM" eventType="editingChanged" id="kN7-Ga-tfX"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-xk-wQD">
