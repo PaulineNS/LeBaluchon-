@@ -25,7 +25,8 @@ class TranslationService {
     
     private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest? {
         let translationApi = valueForAPIKey(named: "API_GoogleTranslation")
-        guard let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(translationApi)&source=\(source)&target=\(target)&q=\(text)".replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespaces)) else { return nil }
+        let textInUrl = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        guard let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(translationApi)&source=\(source)&target=\(target)&q=\(textInUrl ?? "")&format=text".replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespaces)) else { return nil }
         let request = URLRequest(url: translationUrl)
         return request
     }
