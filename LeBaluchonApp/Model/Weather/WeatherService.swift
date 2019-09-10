@@ -21,7 +21,8 @@ class WeatherService {
     
     // compose url endpoint with cities ids and options
     private func createWeatherRequest() -> URLRequest? {
-        let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8fc912efa709857ada8c5ae7ac0cdb87")!
+        let weatherApi = valueForAPIKey(named: "API_OpenWeatherMap")
+        let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=\(weatherApi)")!
         let request = URLRequest(url: weatherUrl)
         return request
     }
