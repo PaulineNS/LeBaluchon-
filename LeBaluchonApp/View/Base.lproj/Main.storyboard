@@ -130,11 +130,11 @@
         <scene sceneID="Lo5-99-7Sf">
             <objects>
                 <viewController id="BCP-eF-vk0" customClass="WeatherViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TGd-Tg-iDJ">
+                    <view key="view" contentMode="scaleToFill" id="TGd-Tg-iDJ" userLabel="Weather">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View">
                                 <rect key="frame" x="20" y="64" width="374" height="361"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -178,7 +178,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.46095710989999999" green="0.62224793430000003" blue="0.80282467599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View">
                                 <rect key="frame" x="20" y="445" width="374" height="361"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -228,6 +228,20 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="Sun" id="2ra-Y7-0Uf"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="TopCityDate" destination="qDe-oS-dnd" id="ZTv-0E-oyQ"/>
+                        <outlet property="TopCityTemperature" destination="Ips-0W-GRW" id="lfw-hI-Vps"/>
+                        <outlet property="bottomCityCondition" destination="DHB-5j-GRF" id="uHH-d9-gUQ"/>
+                        <outlet property="bottomCityDate" destination="egI-2h-Ohi" id="aoL-V8-tLC"/>
+                        <outlet property="bottomCityIcon" destination="AQC-T0-Gqn" id="H4s-Og-Mxn"/>
+                        <outlet property="bottomCityName" destination="stL-c2-fTe" id="xLm-wS-C5G"/>
+                        <outlet property="bottomCitySearchBar" destination="CVk-nz-CQQ" id="SmB-9d-nLH"/>
+                        <outlet property="bottomCityTemperature" destination="7g6-5k-rJ0" id="czP-cM-8Wg"/>
+                        <outlet property="topCityCondition" destination="7Tb-ha-iXT" id="AwH-D6-lHq"/>
+                        <outlet property="topCityIcon" destination="7EB-Oi-AKg" id="d28-1h-tof"/>
+                        <outlet property="topCityName" destination="gJq-Q7-Gw3" id="lY1-pl-Hvy"/>
+                        <outlet property="topCitySearchBar" destination="RUf-UX-9Is" id="OCN-GS-Nej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SP9-20-gEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
