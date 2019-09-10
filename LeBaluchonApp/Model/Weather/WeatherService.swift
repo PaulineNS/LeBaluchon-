@@ -20,16 +20,16 @@ class WeatherService {
     }
     
     // compose url endpoint with cities ids and options
-    private func createWeatherRequest() -> URLRequest? {
+    private func createWeatherRequest(topCityId: Int, bottomCityId: Int) -> URLRequest? {
         let weatherApi = valueForAPIKey(named: "API_OpenWeatherMap")
-        let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=\(weatherApi)")!
+        let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=\(topCityId),\(bottomCityId)&APPID=\(weatherApi)")!
         let request = URLRequest(url: weatherUrl)
         return request
     }
     
     // request service gpsweather
-    func getWeather(callback: @escaping (WeatherStruc?) -> Void) {
-        guard let request = createWeatherRequest() else { return }
+    func getWeather(topCityId: Int, bottomCityId: Int, callback: @escaping (WeatherStruc?) -> Void) {
+        guard let request = createWeatherRequest(topCityId: topCityId, bottomCityId: bottomCityId) else { return }
         task?.cancel()
         task = weatherSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
