@@ -24,25 +24,31 @@ struct List: Decodable {
 }
 
 struct Coord: Codable {
-    let lon, lat: Double?
+    let lon: Double
+    let lat: Double?
 }
 
 struct Sys: Decodable {
     let type, id: Int?
     let message: Double?
     let country: String?
-    let sunrise, sunset: Int?
+    let sunrise: Int?
+    let sunset: Int?
 }
 
 struct Weather: Decodable {
     let id: Int?
-    let main, description, icon: String?
+    let main: String
+    let description: String?
+    let icon: String?
 }
 
 struct Main: Decodable {
     let temp: Double?
-    let pressure, humidity: Int?
-    let tempMin, tempMax: Double?
+    let pressure: Int?
+    let humidity: Int?
+    let tempMin: Double?
+    let tempMax: Double?
     
     enum CodingKeys: String, CodingKey {
         case temp, pressure, humidity
