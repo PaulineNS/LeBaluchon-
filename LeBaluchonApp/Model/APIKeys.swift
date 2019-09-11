@@ -8,10 +8,24 @@
 
 import Foundation
 
-func valueForAPIKey(named keyname:String) -> String {
-    let filePath = Bundle.main.path(forResource: "ApiKeys", ofType: "plist")
-    let plist = NSDictionary(contentsOfFile: filePath!)
-    let value = plist?.object(forKey: keyname) as! String
-    return value
+class APIKey {
+    static var openWeatherMap: String {
+        return APIKey.valueForAPIKey(named: "API_OpenWeatherMap")
+    }
+    
+    static var fixer: String {
+        return APIKey.valueForAPIKey(named: "API_Fixer")
+    }
+    
+    static var googleTranslation: String {
+        return APIKey.valueForAPIKey(named: "API_GoogleTranslation")
+    }
+    
+    private static func valueForAPIKey(named keyname:String) -> String {
+        let filePath = Bundle.main.path(forResource: "ApiKeys", ofType: "plist")
+        let plist = NSDictionary(contentsOfFile: filePath!)
+        let value = plist?.object(forKey: keyname) as! String
+        return value
+    }
 }
 

@@ -23,8 +23,7 @@ class CurrencyService {
 
     /// Getting Data
     func getCurrency(callback: @escaping (Currrency?) -> Void) {
-        let currencyApi = valueForAPIKey(named: "API_Fixer")
-        let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(currencyApi)")!
+        let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(APIKey.fixer)")!
         
         if let c = currency { //refactoring
             callback(c)

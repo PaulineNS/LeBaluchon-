@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561185762327D133005222F1 /* ErrorCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561185752327D133005222F1 /* ErrorCases.swift */; };
+		5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611857B2328E1F2005222F1 /* WeatherGrid.swift */; };
+		5611857E2328E2ED005222F1 /* WeatherGrid.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611857D2328E2ED005222F1 /* WeatherGrid.xib */; };
 		565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503B523045EDC00FDDD23 /* AppDelegate.swift */; };
 		565503B823045EDC00FDDD23 /* CurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503B723045EDC00FDDD23 /* CurrencyController.swift */; };
 		565503BB23045EDC00FDDD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565503B923045EDC00FDDD23 /* Main.storyboard */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		561185752327D133005222F1 /* ErrorCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCases.swift; sourceTree = "<group>"; };
+		5611857B2328E1F2005222F1 /* WeatherGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGrid.swift; sourceTree = "<group>"; };
+		5611857D2328E2ED005222F1 /* WeatherGrid.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherGrid.xib; sourceTree = "<group>"; };
 		565503B223045EDC00FDDD23 /* LeBaluchonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		565503B523045EDC00FDDD23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		565503B723045EDC00FDDD23 /* CurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyController.swift; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 			children = (
 				565503B923045EDC00FDDD23 /* Main.storyboard */,
 				565503BE23045EE600FDDD23 /* LaunchScreen.storyboard */,
+				5611857D2328E2ED005222F1 /* WeatherGrid.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 				56FA29CC2315466D00BE92BC /* Traductor */,
 				56FA29CA2315466100BE92BC /* Currency */,
 				56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */,
+				561185752327D133005222F1 /* ErrorCases.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			children = (
 				56FA2A3B231FA16200BE92BC /* Weather.swift */,
 				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
+				5611857B2328E1F2005222F1 /* WeatherGrid.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565503C023045EE600FDDD23 /* LaunchScreen.storyboard in Resources */,
+				5611857E2328E2ED005222F1 /* WeatherGrid.xib in Resources */,
 				565503BD23045EE600FDDD23 /* Assets.xcassets in Resources */,
 				565503BB23045EDC00FDDD23 /* Main.storyboard in Resources */,
 				56FA2A422320291600BE92BC /* ApiKeys.plist in Resources */,
@@ -406,11 +416,13 @@
 			files = (
 				565503B823045EDC00FDDD23 /* CurrencyController.swift in Sources */,
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
+				5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */,
 				56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */,
 				56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */,
 				56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */,
 				56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */,
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
+				561185762327D133005222F1 /* ErrorCases.swift in Sources */,
 				565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */,
 				565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */,
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,
@@ -605,7 +617,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.paulinenomballais.LeBaluchonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -622,7 +634,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.paulinenomballais.LeBaluchonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if (UserDefaults.standard.string(forKey: "language1") == nil) {
+        if (UserDefaults.standard.string(forKey: "languageSource") == nil) {
             UserDefaults.standard.set("en", forKey: "languageSource")
         }
         
-        if (UserDefaults.standard.string(forKey: "language2") == nil) {
+        if (UserDefaults.standard.string(forKey: "languageTarget") == nil) {
             UserDefaults.standard.set("fr", forKey: "languageTarget")
         }
         

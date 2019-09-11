@@ -24,7 +24,7 @@ struct List: Decodable {
     let name: String
 }
 
-struct Coord: Codable {
+struct Coord: Decodable {
     let lon: Double
     let lat: Double?
 }
