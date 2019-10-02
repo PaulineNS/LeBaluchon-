@@ -52,5 +52,33 @@ class WeatherService {
         task?.resume()
         
     }
+    
+    func getCity(callback: @escaping (WeatherStruc?) -> Void) {
+        let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=&APPID=\(APIKey.openWeatherMap)")!
+        
+        task?.cancel()
+        task = weatherSession.dataTask(with: weatherUrl) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(nil)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
+                    callback(nil)
+                    return
+                }
+                
+                guard let responseJSON = try? JSONDecoder().decode(WeatherStruc.self, from: data) else {
+                    callback(nil)
+                    return
+                }
+                
+                callback(responseJSON)
+            }
+        }
+        
+        task?.resume()
+    }
 }
 

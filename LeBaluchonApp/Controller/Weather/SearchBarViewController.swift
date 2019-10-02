@@ -10,10 +10,14 @@ import UIKit
 
 class SearchBarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var list = [List]()
-
+   private var list = [List]()
+    
+    @IBOutlet weak var cityTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityTableView.dataSource = self
+        self.cityTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,16 +25,10 @@ class SearchBarViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
+        let cell = cityTableView.dequeueReusableCell(withIdentifier: "cell")
+        cell?.textLabel?.text = list[indexPath.row].name
         
-        let cityList = list[indexPath.row]
-        
-        cell.textLabel?.text = cityList.name
-        
-        return cell
+        return cell!
     }
-    
-    
-
-
 }
+
