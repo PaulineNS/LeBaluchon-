@@ -42,7 +42,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01d" translatesAutoresizingMaskIntoConstraints="NO" id="Fl8-v0-Dyn">
-                            <rect key="frame" x="17.5" y="248" width="50" height="49.5"/>
+                            <rect key="frame" x="34.5" y="248" width="16" height="49.5"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVY-zU-0hi">
                             <rect key="frame" x="24.5" y="330.5" width="36" height="49.5"/>

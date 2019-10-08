@@ -38,6 +38,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
-
