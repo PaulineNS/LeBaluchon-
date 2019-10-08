@@ -161,7 +161,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <state key="normal" title="Button1"/>
                                                 <connections>
-                                                    <segue destination="9vD-nk-Nfp" kind="show" id="PFb-ze-wMD"/>
+                                                    <segue destination="9vD-nk-Nfp" kind="show" id="PB2-7C-MLA"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -177,7 +177,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <state key="normal" title="Button2"/>
                                                 <connections>
-                                                    <segue destination="9vD-nk-Nfp" kind="show" id="6QD-VQ-mlX"/>
+                                                    <segue destination="9vD-nk-Nfp" kind="show" id="Hqm-ka-6PL"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -597,57 +597,40 @@
             </objects>
             <point key="canvasLocation" x="1784" y="113"/>
         </scene>
-        <!--Search Bar View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="Emw-hA-jU6">
             <objects>
-                <viewController id="9vD-nk-Nfp" customClass="SearchBarViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9vD-nk-Nfp" customClass="TableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vtc-vc-8ec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eMk-qJ-vgd">
-                                <rect key="frame" x="0.0" y="108" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2I4-kX-p08">
-                                <rect key="frame" x="0.0" y="164" width="414" height="649"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-mb-59i">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Jn4-t2-SOU" style="IBUITableViewCellStyleDefault" id="BXv-7Q-F9V" customClass="TableViewCell" customModule="LeBaluchonApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="MyCell" id="ReY-E6-F1P">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BXv-7Q-F9V" id="5v7-KH-hfN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ReY-E6-F1P" id="l8c-2r-ZzD">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jn4-t2-SOU">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eMk-qJ-vgd" firstAttribute="top" secondItem="W9B-CK-6yW" secondAttribute="top" constant="20" id="9ev-Rx-pWa"/>
-                            <constraint firstAttribute="trailing" secondItem="eMk-qJ-vgd" secondAttribute="trailing" id="DUU-fe-RJE"/>
-                            <constraint firstItem="2I4-kX-p08" firstAttribute="leading" secondItem="W9B-CK-6yW" secondAttribute="leading" id="Mt0-jJ-gGj"/>
-                            <constraint firstItem="2I4-kX-p08" firstAttribute="top" secondItem="eMk-qJ-vgd" secondAttribute="bottom" id="PdK-aE-WRt"/>
-                            <constraint firstItem="2I4-kX-p08" firstAttribute="trailing" secondItem="W9B-CK-6yW" secondAttribute="trailing" id="YyH-cK-d8l"/>
-                            <constraint firstItem="eMk-qJ-vgd" firstAttribute="leading" secondItem="Vtc-vc-8ec" secondAttribute="leading" id="kf6-ws-9xb"/>
-                            <constraint firstItem="2I4-kX-p08" firstAttribute="bottom" secondItem="W9B-CK-6yW" secondAttribute="bottom" id="qGW-Ef-ozK"/>
+                            <constraint firstItem="tyX-mb-59i" firstAttribute="leading" secondItem="W9B-CK-6yW" secondAttribute="leading" id="E70-CG-HNL"/>
+                            <constraint firstItem="W9B-CK-6yW" firstAttribute="bottom" secondItem="tyX-mb-59i" secondAttribute="bottom" id="LvS-fg-Gey"/>
+                            <constraint firstItem="tyX-mb-59i" firstAttribute="top" secondItem="W9B-CK-6yW" secondAttribute="top" id="eh2-x6-8fx"/>
+                            <constraint firstItem="W9B-CK-6yW" firstAttribute="trailing" secondItem="tyX-mb-59i" secondAttribute="trailing" id="w5y-Fw-ORM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W9B-CK-6yW"/>
                     </view>
                     <connections>
-                        <outlet property="cityTableView" destination="2I4-kX-p08" id="wf7-vs-v58"/>
+                        <outlet property="citiesTableView" destination="tyX-mb-59i" id="Se4-ni-c8J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttN-xr-0T2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -661,6 +644,6 @@
         <image name="icon-Small" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PFb-ze-wMD"/>
+        <segue reference="Hqm-ka-6PL"/>
     </inferredMetricsTieBreakers>
 </document>
