@@ -164,10 +164,13 @@
 			isa = PBXGroup;
 			children = (
 				565503CA23045F0500FDDD23 /* Supporting Files */,
-				56FA29D72318159200BE92BC /* Model */,
-				565503C823045F0100FDDD23 /* View */,
-				56FA29D8231815CB00BE92BC /* Controller */,
+				56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */,
+				561185752327D133005222F1 /* ErrorCases.swift */,
 				56FA29CE2315602300BE92BC /* Extension */,
+				565503C823045F0100FDDD23 /* View */,
+				56B26BA4234C7B3000091F5E /* Currency */,
+				56B26BA5234C7B3D00091F5E /* Traductor */,
+				56B26BA6234C7BA400091F5E /* Weather */,
 			);
 			path = LeBaluchonApp;
 			sourceTree = "<group>";
@@ -177,7 +180,6 @@
 			children = (
 				565503B923045EDC00FDDD23 /* Main.storyboard */,
 				565503BE23045EE600FDDD23 /* LaunchScreen.storyboard */,
-				5611857D2328E2ED005222F1 /* WeatherGrid.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,40 +204,95 @@
 			path = WeatherServiceTestsCase;
 			sourceTree = "<group>";
 		};
-		56FA29CA2315466100BE92BC /* Currency */ = {
+		56B26BA4234C7B3000091F5E /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				565503DE2307EE1000FDDD23 /* Currency.swift */,
-				565503CB2305333A00FDDD23 /* CurrencyService.swift */,
+				56B26BAC234C7BF900091F5E /* Model */,
+				56B26BAB234C7BF700091F5E /* Controller */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
 		};
-		56FA29CB2315466600BE92BC /* Currency */ = {
+		56B26BA5234C7B3D00091F5E /* Traductor */ = {
+			isa = PBXGroup;
+			children = (
+				56B26BAA234C7BEB00091F5E /* Model */,
+				56B26BA9234C7BE900091F5E /* Controller */,
+			);
+			path = Traductor;
+			sourceTree = "<group>";
+		};
+		56B26BA6234C7BA400091F5E /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				56B26BA8234C7BDF00091F5E /* Model */,
+				56B26BAD234C7D4300091F5E /* View */,
+				56B26BA7234C7BDC00091F5E /* Controller */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		56B26BA7234C7BDC00091F5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56FA29DA23181B0600BE92BC /* WeatherViewController.swift */,
+				566D481823291D3700612DA7 /* SearchBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		56B26BA8234C7BDF00091F5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
+				56FA2A3B231FA16200BE92BC /* Weather.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56B26BA9234C7BE900091F5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */,
+				565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */,
+				565503F02311460000FDDD23 /* TranslationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		56B26BAA234C7BEB00091F5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				565503F42313DFF700FDDD23 /* TranslationService.swift */,
+				565503F82314050F00FDDD23 /* Translation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56B26BAB234C7BF700091F5E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				565503B723045EDC00FDDD23 /* CurrencyController.swift */,
 			);
-			path = Currency;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		56FA29CC2315466D00BE92BC /* Traductor */ = {
+		56B26BAC234C7BF900091F5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				565503F82314050F00FDDD23 /* Translation.swift */,
-				565503F42313DFF700FDDD23 /* TranslationService.swift */,
+				565503CB2305333A00FDDD23 /* CurrencyService.swift */,
+				565503DE2307EE1000FDDD23 /* Currency.swift */,
 			);
-			path = Traductor;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		56FA29CD2315467300BE92BC /* Traductor */ = {
+		56B26BAD234C7D4300091F5E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				565503F02311460000FDDD23 /* TranslationController.swift */,
-				565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */,
-				56FA29D12315654B00BE92BC /* TargetLangageViewController.swift */,
+				5611857D2328E2ED005222F1 /* WeatherGrid.xib */,
+				5611857B2328E1F2005222F1 /* WeatherGrid.swift */,
 			);
-			path = Traductor;
+			path = View;
 			sourceTree = "<group>";
 		};
 		56FA29CE2315602300BE92BC /* Extension */ = {
@@ -244,47 +301,6 @@
 				56FA29CF231561B900BE92BC /* ControllerExtension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		56FA29D72318159200BE92BC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				56FA29CA2315466100BE92BC /* Currency */,
-				56FA29CC2315466D00BE92BC /* Traductor */,
-				56FA29DC23181B1900BE92BC /* Weather */,
-				56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */,
-				561185752327D133005222F1 /* ErrorCases.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		56FA29D8231815CB00BE92BC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				56FA29CB2315466600BE92BC /* Currency */,
-				56FA29CD2315467300BE92BC /* Traductor */,
-				56FA29D923181AEC00BE92BC /* Weather */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		56FA29D923181AEC00BE92BC /* Weather */ = {
-			isa = PBXGroup;
-			children = (
-				56FA29DA23181B0600BE92BC /* WeatherViewController.swift */,
-				566D481823291D3700612DA7 /* SearchBarViewController.swift */,
-			);
-			path = Weather;
-			sourceTree = "<group>";
-		};
-		56FA29DC23181B1900BE92BC /* Weather */ = {
-			isa = PBXGroup;
-			children = (
-				56FA2A3B231FA16200BE92BC /* Weather.swift */,
-				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
-				5611857B2328E1F2005222F1 /* WeatherGrid.swift */,
-			);
-			path = Weather;
 			sourceTree = "<group>";
 		};
 		56FA2A18231D1A1600BE92BC /* TranslationServiceTestsCase */ = {

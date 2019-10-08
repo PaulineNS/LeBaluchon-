@@ -27,7 +27,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         resultSymbolsPickerView.dataSource = self
         requestPickerView.selectRow(1, inComponent: 0, animated: true)
         resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
-        CurrencyService.shared.getCurrency {(currency) in }
+        CurrencyService.shared.getCurrency {_ in }
     }
     
     @IBAction func TappingCurrency(_ sender: Any) {
