@@ -44,14 +44,14 @@ class WeatherViewController: UIViewController {
             topCityView.weatherImageView.image = UIImage(named: topCityIcon)
         }
         topCityView.cityNameLabel.text = data.list[0].name
-        topCityView.conditionLabel.text = data.list[0].weather[0].description
+        topCityView.conditionLabel.text = data.list[0].weather[0].weatherDescription
         
         if let bottomCityTemperature = data.list[0].main.temp, let bottomCityIcon = data.list[0].weather[0].icon {
             bottomCityGrid.temperatureLabel.text = String(bottomCityTemperature) + "°C"
             bottomCityGrid.weatherImageView.image = UIImage(named: bottomCityIcon)
         }
         bottomCityGrid.cityNameLabel.text = data.list[0].name
-        bottomCityGrid.conditionLabel.text = data.list[0].weather[0].description
+        bottomCityGrid.conditionLabel.text = data.list[0].weather[0].weatherDescription
     }
 }
 
