@@ -12,7 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
             <connections>
+                <outlet property="cityNameLabel" destination="9MO-Bt-SGm" id="wmF-0E-l7H"/>
+                <outlet property="conditionLabel" destination="6Ld-pv-gEm" id="tPI-Y1-bfF"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="u3A-GL-pUr"/>
+                <outlet property="dateLabel" destination="mVY-zU-0hi" id="EWP-ve-EST"/>
+                <outlet property="temperatureLabel" destination="KKK-mn-sAg" id="Y1m-tL-gGq"/>
+                <outlet property="weatherImageView" destination="Fl8-v0-Dyn" id="vXV-Z3-glp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

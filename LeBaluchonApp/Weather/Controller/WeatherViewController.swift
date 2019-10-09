@@ -20,14 +20,40 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayWeatherData(nameTopCity: "Paris", nameBottomCity: "New York")
     }
     
-    func displayWeatherData() {
-        if let idTopCity = citiesDictionnary[topCityName], let idBottomCity = citiesDictionnary[topCityName] {
-            WeatherService.shared.getWeather(topCityId: idTopCity, bottomCityId: idBottomCity) { (weatherStruc) in
-                <#code#>
+    func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
+        guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity /*topCityName*/), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity /*bottomCityName*/) else {
+            return
+        }
+        
+        WeatherService.shared.getWeather(topCityId: citiesDictionnary[topCityIndex].value, bottomCityId: citiesDictionnary[bottomCityIndex].value) { result in
+            switch result {
+            case let .success(weatherData):
+                self.updateWeather(data: weatherData)
+            case .failure:
+                self.presentAlert(message: "La météo n'a pas aboutit")
             }
-            
         }
     }
+    
+    func updateWeather(data: WeatherStruc) {
+        if let topCityTemperature = data.list[0].main.temp, let topCityIcon = data.list[0].weather[0].icon {
+            topCityView.temperatureLabel.text = String(topCityTemperature) + "°C"
+            topCityView.weatherImageView.image = UIImage(named: topCityIcon)
+        }
+        topCityView.cityNameLabel.text = data.list[0].name
+        topCityView.conditionLabel.text = data.list[0].weather[0].description
+        
+        if let bottomCityTemperature = data.list[0].main.temp, let bottomCityIcon = data.list[0].weather[0].icon {
+            bottomCityGrid.temperatureLabel.text = String(bottomCityTemperature) + "°C"
+            bottomCityGrid.weatherImageView.image = UIImage(named: bottomCityIcon)
+        }
+        bottomCityGrid.cityNameLabel.text = data.list[0].name
+        bottomCityGrid.conditionLabel.text = data.list[0].weather[0].description
+    }
 }
+
+
+

@@ -33,16 +33,19 @@ class WeatherService {
                 
                 if let error = error {
                     callback(.failure(error))
+                    print ("erreur")
                     return
                 }
                 
                 guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(.failure(NSError(domain: "Network", code: 0, userInfo: nil)))
+                    print ("pas de data")
                     return
                 }
                 
                 guard let responseJSON = try? JSONDecoder().decode(WeatherStruc.self, from: data) else {
                     callback(.failure(NSError(domain: "Invalid Data", code: 0, userInfo: nil)))
+                    print ("pas de json")
                     return
                 }
                 
