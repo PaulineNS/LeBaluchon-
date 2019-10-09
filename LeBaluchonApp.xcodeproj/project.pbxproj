@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5608F3A5234E6643008A8BA4 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608F3A4234E6643008A8BA4 /* URLSessionFake.swift */; };
+		5608F3A7234E6666008A8BA4 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608F3A6234E6666008A8BA4 /* FakeResponseData.swift */; };
 		561185762327D133005222F1 /* ErrorCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561185752327D133005222F1 /* ErrorCases.swift */; };
 		5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611857B2328E1F2005222F1 /* WeatherGrid.swift */; };
 		5611857E2328E2ED005222F1 /* WeatherGrid.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611857D2328E2ED005222F1 /* WeatherGrid.xib */; };
@@ -66,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5608F3A4234E6643008A8BA4 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		5608F3A6234E6666008A8BA4 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		561185752327D133005222F1 /* ErrorCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCases.swift; sourceTree = "<group>"; };
 		5611857B2328E1F2005222F1 /* WeatherGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGrid.swift; sourceTree = "<group>"; };
 		5611857D2328E2ED005222F1 /* WeatherGrid.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherGrid.xib; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 			children = (
 				566D48222344B51300612DA7 /* WeatherServiceTestsCase.swift */,
 				566D48242344B51300612DA7 /* Info.plist */,
+				5608F3A4234E6643008A8BA4 /* URLSessionFake.swift */,
+				5608F3A6234E6666008A8BA4 /* FakeResponseData.swift */,
 			);
 			path = WeatherServiceTestsCase;
 			sourceTree = "<group>";
@@ -521,6 +527,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				566D48232344B51300612DA7 /* WeatherServiceTestsCase.swift in Sources */,
+				5608F3A5234E6643008A8BA4 /* URLSessionFake.swift in Sources */,
+				5608F3A7234E6666008A8BA4 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
