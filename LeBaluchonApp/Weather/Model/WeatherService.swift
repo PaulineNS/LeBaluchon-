@@ -25,27 +25,28 @@ class WeatherService {
         return request
     }
     
-    func getWeather(topCityId: Int, bottomCityId: Int, callback: @escaping (WeatherStruc?) -> Void) {
+    func getWeather(topCityId: Int, bottomCityId: Int, callback: @escaping (Result <WeatherStruc, Error>) -> Void) {
         guard let request = createWeatherRequest(topCityId: topCityId, bottomCityId: bottomCityId) else { return }
         task?.cancel()
         task = weatherSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(nil)
+                
+                if let error = error {
+                    callback(.failure(error))
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
-                    callback(nil)
+                guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(.failure(NSError(domain: "Network", code: 0, userInfo: nil)))
                     return
                 }
                 
                 guard let responseJSON = try? JSONDecoder().decode(WeatherStruc.self, from: data) else {
-                    callback(nil)
+                    callback(.failure(NSError(domain: "Invalid Data", code: 0, userInfo: nil)))
                     return
                 }
                 
-                callback(responseJSON)
+                callback(.success(responseJSON))
             }
         }
         
