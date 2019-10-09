@@ -28,8 +28,6 @@ class WeatherViewController: UIViewController {
             return
         }
         
-        print ("\(citiesDictionnary[topCityIndex].value)")
-        print("\(citiesDictionnary[bottomCityIndex].value)")
         WeatherService.shared.getWeather(topCityId: citiesDictionnary[topCityIndex].value, bottomCityId: citiesDictionnary[bottomCityIndex].value) { result in
             switch result {
             case let .success(weatherData):
@@ -50,9 +48,7 @@ class WeatherViewController: UIViewController {
         
         if let bottomCityTemperature = data.list[1].main.temp, let bottomCityIcon = data.list[1].weather[0].icon {
             bottomCityGrid.temperatureLabel.text = String(bottomCityTemperature) + "°C"
-            print("\(bottomCityTemperature)")
             bottomCityGrid.weatherImageView.image = UIImage(named: bottomCityIcon)
-            print(bottomCityIcon)
         }
         bottomCityGrid.cityNameLabel.text = data.list[1].name
         bottomCityGrid.conditionLabel.text = data.list[1].weather[0].weatherDescription

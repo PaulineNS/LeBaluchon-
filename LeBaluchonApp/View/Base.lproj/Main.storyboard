@@ -159,7 +159,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-qx-qSq">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                                <state key="normal" title="Button1"/>
+                                                <state key="normal" title="France 🔍 ">
+                                                    <color key="titleColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="9vD-nk-Nfp" kind="show" id="PB2-7C-MLA"/>
                                                 </connections>
@@ -175,9 +177,11 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-2b-Qry">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                                <state key="normal" title="Button2"/>
+                                                <state key="normal" title="Etats Unis 🔍 ">
+                                                    <color key="titleColor" red="0.37030965089797974" green="0.49928468465805054" blue="0.64378422498703003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
-                                                    <segue destination="9vD-nk-Nfp" kind="show" id="Hqm-ka-6PL"/>
+                                                    <segue destination="UVZ-9Y-qjf" kind="show" id="2JJ-UU-HWQ"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -597,10 +601,10 @@
             </objects>
             <point key="canvasLocation" x="1784" y="113"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Top Table View Controller-->
         <scene sceneID="Emw-hA-jU6">
             <objects>
-                <viewController id="9vD-nk-Nfp" customClass="TableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9vD-nk-Nfp" customClass="TopTableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vtc-vc-8ec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -630,12 +634,52 @@
                         <viewLayoutGuide key="safeArea" id="W9B-CK-6yW"/>
                     </view>
                     <connections>
-                        <outlet property="citiesTableView" destination="tyX-mb-59i" id="Se4-ni-c8J"/>
+                        <outlet property="frenchCitiesTableView" destination="tyX-mb-59i" id="Nss-1c-BNC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttN-xr-0T2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1783" y="873"/>
+        </scene>
+        <!--Bottom Table View Controller-->
+        <scene sceneID="icM-xD-qz6">
+            <objects>
+                <viewController id="UVZ-9Y-qjf" customClass="BottomTableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XfD-Rh-Coe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UfI-nf-p6r">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="FC0-E8-IR7">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FC0-E8-IR7" id="PSY-Tk-guB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="als-cK-evl" firstAttribute="trailing" secondItem="UfI-nf-p6r" secondAttribute="trailing" id="M5n-YO-9fc"/>
+                            <constraint firstItem="als-cK-evl" firstAttribute="bottom" secondItem="UfI-nf-p6r" secondAttribute="bottom" id="XpL-37-6Xv"/>
+                            <constraint firstItem="UfI-nf-p6r" firstAttribute="leading" secondItem="als-cK-evl" secondAttribute="leading" id="fzZ-4u-I5F"/>
+                            <constraint firstItem="UfI-nf-p6r" firstAttribute="top" secondItem="als-cK-evl" secondAttribute="top" id="mLK-aJ-CqA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="als-cK-evl"/>
+                    </view>
+                    <connections>
+                        <outlet property="americanCitiesTableView" destination="UfI-nf-p6r" id="Qvp-Z2-Bgr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qe0-qG-MY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="1604"/>
         </scene>
     </scenes>
     <resources>
@@ -643,7 +687,4 @@
         <image name="Sun" width="29" height="29"/>
         <image name="icon-Small" width="29" height="29"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Hqm-ka-6PL"/>
-    </inferredMetricsTieBreakers>
 </document>

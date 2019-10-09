@@ -1,23 +1,23 @@
 //
-//  SearchBarViewController.swift
+//  BottomTableViewController.swift
 //  LeBaluchonApp
 //
-//  Created by Pauline Nomballais on 11/09/2019.
+//  Created by Pauline Nomballais on 09/10/2019.
 //  Copyright © 2019 PaulineNomballais. All rights reserved.
 //
 
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BottomTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var americanCitiesTableView: UITableView!
     
-    @IBOutlet weak var citiesTableView: UITableView!
-    
-    let citiesArray = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille", "New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "San Diego", "Dallas", "Phoenix", "San Antonio", "San José"]
+    let citiesArray = ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "San Diego", "Dallas", "Phoenix", "San Antonio", "San José"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        citiesTableView.delegate = self
-        citiesTableView.dataSource = self
+        americanCitiesTableView.delegate = self
+        americanCitiesTableView.dataSource = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +39,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
         if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController {
-            vc.topCityName = citiesArray[indexPath.row]
+            vc.bottomCityName = citiesArray[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
