@@ -24,13 +24,14 @@ class WeatherViewController: UIViewController {
     }
     
     @IBAction func didTapFrenchCitiesButton(_ sender: Any) {
+        UserDefaults.standard.set(bottomCityName, forKey: "savedBottomCityName")
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
     }
     
     @IBAction func didTapUsCitiesButton(_ sender: Any) {
+        UserDefaults.standard.set(topCityName, forKey: "savedTopCityName")
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromWeatherVcToTableViewVc" {
@@ -76,6 +77,12 @@ class WeatherViewController: UIViewController {
         }
         bottomCityGrid.cityNameLabel.text = data.list[1].name
         bottomCityGrid.conditionLabel.text = data.list[1].weather[0].weatherDescription
+    }
+    
+    func saveData() {
+        let userDefault = UserDefaults.standard
+        userDefault.set(topCityName, forKey: "savedTopCityName")
+        
     }
 }
 

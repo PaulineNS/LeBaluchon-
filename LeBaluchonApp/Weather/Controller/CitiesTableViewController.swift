@@ -60,8 +60,10 @@ class CitiesTableViewController: UIViewController, UITableViewDataSource, UITabl
         if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController {
             if titleLabel.text == "Villes Françaises" {
                 vc.topCityName = frenchCitiesArray[indexPath.row]
+                vc.bottomCityName = UserDefaults.standard.value(forKey: "savedBottomCityName") as! String
             } else if titleLabel.text == "Villes Américaines" {
                 vc.bottomCityName = americanCitiesArray[indexPath.row]
+                vc.topCityName = UserDefaults.standard.value(forKey: "savedTopCityName") as! String
             }
             self.navigationController?.pushViewController(vc, animated: true)
         }
