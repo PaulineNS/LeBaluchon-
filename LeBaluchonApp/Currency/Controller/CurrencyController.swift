@@ -66,8 +66,22 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         CurrencyService.shared.getCurrency {(currency) in
             if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
                 let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
-                self.resultLabel.text = String(result)
+                self.checkingDecimalNumber(result: result)
+                //self.resultLabel.text = String(result)
             }
+        }
+    }
+    
+    /// Checking if the result in Int is eaqul to the result in Double. Remove the decimal if yes.
+    /// Replace the first index of the operation by the result.
+    func checkingDecimalNumber(result: Double){
+        let integerValue = floor(result)
+        
+        if integerValue == result {
+            let resultToInt = Int(result)
+            self.resultLabel.text = "\(resultToInt)"
+        } else {
+            self.resultLabel.text = "\(result)"
         }
     }
 }
