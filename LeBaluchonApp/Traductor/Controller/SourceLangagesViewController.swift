@@ -8,16 +8,22 @@
 
 import UIKit
 
-class SourceLangagesViewController: UIViewController {
+class LangagesViewController: UIViewController {
     
+    var labelTitle: String? = ""
     var index = 0
-    var selectedSourceLangage: String! 
+    var selectedLangage: String! 
     @IBOutlet var selector: [UILabel]!
     @IBOutlet var langages: [UIButton]!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    override func viewDidLoad() {
+        titleLabel.text = labelTitle
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         unselectedButton()
-        selectTheLangageSource()
+        selectTheLangage()
     }
     
     func selectedButton(index: Int) {
@@ -30,24 +36,28 @@ class SourceLangagesViewController: UIViewController {
         selector.forEach({ $0.isHidden = true })
     }
     
-    // Changing sourceLanguage in TranslationController
+    // Changing sourceLanguage and targetLanguage in TranslationController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let button = sender as? UIButton {
             let translationVC = segue.destination as! TranslationController
-            translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
+            if titleLabel.text == "Langue Source" {
+                translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
+            } else if titleLabel.text == "Langue Cible" {
+                translationVC.targetLangageButton.setTitle(button.currentTitle, for: .normal)
+            }
         }
     }
     
-    func selectTheLangageSource() {
-        if selectedSourceLangage == "Anglais" {
+    func selectTheLangage() {
+        if selectedLangage == "Anglais" {
             selectedButton(index: 1)
-        } else if selectedSourceLangage == "Allemand" {
+        } else if selectedLangage == "Allemand" {
             selectedButton(index: 0)
-        } else if selectedSourceLangage == "Espagnol" {
+        } else if selectedLangage == "Espagnol" {
             selectedButton(index: 2)
-        } else if selectedSourceLangage == "Italien" {
+        } else if selectedLangage == "Italien" {
             selectedButton(index: 4)
-        } else if selectedSourceLangage == "Français" {
+        } else if selectedLangage == "Français" {
             selectedButton(index: 3)
         }
     }

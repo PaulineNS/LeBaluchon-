@@ -22,7 +22,6 @@ class TranslationController: UIViewController, UITextViewDelegate {
         sourceText.resignFirstResponder()
     }
     
-    
     @IBAction func didTapClearButton(_ sender: Any) {
         sourceText.text = "Saisissez du texte"
         sourceText.textColor = UIColor.lightGray
@@ -35,22 +34,34 @@ class TranslationController: UIViewController, UITextViewDelegate {
         targetLangageButton.setTitle(sourceTitle, for: .normal)
     }
     
+    @IBAction func didTapSourceLangageButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
+    }
+    
+    @IBAction func didTapTargetLangageButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromTraductorToLangagesController" {
+            if let button = sender as? UIButton {
+                let vcDestination = segue.destination as? LangagesViewController
+                if button.tag == 1 {
+                    vcDestination?.selectedLangage = button.currentTitle
+                    vcDestination?.labelTitle = "Langue Source"
+                } else if button.tag == 2 {
+                    vcDestination?.selectedLangage = button.currentTitle
+                    vcDestination?.labelTitle = "Langue Cible"
+                }
+            } else {
+                print("Error")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         sourceText.delegate = self
         targetText.isEditable = false
-    }
-    
-    // Select the actual SourceLanguage in SourceLanguageViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToSourceLanguage" {
-            if let sourceLangageController = segue.destination as? SourceLangagesViewController {
-                sourceLangageController.selectedSourceLangage = sourceLangageButton.currentTitle
-            }
-        } else if segue.identifier == "segueToTargetLanguage" {
-            if let targetLangageController = segue.destination as? TargetLangageViewController {
-                targetLangageController.selectedTargetLangage = targetLangageButton.currentTitle
-            }
-        }
     }
     
     func textViewDidChange(_ textView: UITextView) {

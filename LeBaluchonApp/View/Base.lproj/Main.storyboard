@@ -275,7 +275,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-F6-PIt">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBo-zp-gRQ">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBo-zp-gRQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="118" height="60"/>
                                                 <color key="backgroundColor" red="0.72629863023757935" green="0.8448062539100647" blue="0.91950350999832153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -288,7 +288,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="gB4-hZ-Jpx" kind="show" identifier="segueToSourceLanguage" id="gYA-vY-ova"/>
+                                                    <action selector="didTapSourceLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="W7j-7H-jlL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -301,7 +301,7 @@
                                                     <action selector="didTapExchangeLangagesButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="pr2-Fc-u4g"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoQ-ys-9B1">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoQ-ys-9B1">
                                                 <rect key="frame" x="256" y="0.0" width="118" height="60"/>
                                                 <color key="backgroundColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -314,7 +314,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="r2v-8E-ZMY" kind="show" identifier="segueToTargetLanguage" id="sXK-DZ-DjK"/>
+                                                    <action selector="didTapTargetLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="5jT-l2-bmY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -373,6 +373,7 @@
                         <outlet property="sourceText" destination="Hy0-ab-wOq" id="i8B-cK-cjW"/>
                         <outlet property="targetLangageButton" destination="LoQ-ys-9B1" id="1jl-J0-dGd"/>
                         <outlet property="targetText" destination="PoV-3A-0sl" id="Vcf-q2-dvd"/>
+                        <segue destination="gB4-hZ-Jpx" kind="show" identifier="fromTraductorToLangagesController" id="ENb-CJ-O3s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILY-KB-Tos" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,246 +385,10 @@
             </objects>
             <point key="canvasLocation" x="868" y="113"/>
         </scene>
-        <!--Target Langage View Controller-->
-        <scene sceneID="Up6-J4-D8y">
-            <objects>
-                <viewController id="r2v-8E-ZMY" customClass="TargetLangageViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oiM-f6-6mY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="omd-qi-zo3">
-                                <rect key="frame" x="20" y="128" width="374" height="766"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Langue Cible" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-aa-6Bn">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-Ps-4ZV">
-                                        <rect key="frame" x="0.0" y="66" width="374" height="700"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-x2-zaI" userLabel="AllemandView">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="0dc-m5-ZW6" userLabel="Allemand">
-                                                        <rect key="frame" x="15" y="0.0" width="344" height="128"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-3j-pTL">
-                                                                <rect key="frame" x="0.0" y="43" width="305" height="42"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <state key="normal" title="Allemand">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="9OO-gz-hcJ"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWm-ss-qll" userLabel="AllemandSelected">
-                                                                <rect key="frame" x="316" y="49" width="28" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.25608491897583008" green="0.59608638286590576" blue="0.84659320116043091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="0dc-m5-ZW6" firstAttribute="leading" secondItem="JSp-x2-zaI" secondAttribute="leading" constant="15" id="Hep-rU-lVL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="0dc-m5-ZW6" secondAttribute="trailing" constant="15" id="Uuv-RG-O0v"/>
-                                                    <constraint firstItem="0dc-m5-ZW6" firstAttribute="top" secondItem="JSp-x2-zaI" secondAttribute="top" id="VMb-9J-07y"/>
-                                                    <constraint firstAttribute="bottom" secondItem="0dc-m5-ZW6" secondAttribute="bottom" id="XSw-5w-OdN"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swb-qd-J2z" userLabel="AnglaisView">
-                                                <rect key="frame" x="0.0" y="143" width="374" height="128"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tAV-5e-H7M" userLabel="Anglais">
-                                                        <rect key="frame" x="15" y="0.0" width="344" height="128"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ds6-VQ-30T">
-                                                                <rect key="frame" x="0.0" y="43" width="306" height="42"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <state key="normal" title="Anglais">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="KC0-b8-pIF"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PED-p5-0RP" userLabel="AnglaisSelected">
-                                                                <rect key="frame" x="316" y="49" width="28" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.72629863023757935" green="0.8448062539100647" blue="0.91950350999832153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="tAV-5e-H7M" secondAttribute="bottom" id="Mk2-mW-eTE"/>
-                                                    <constraint firstItem="tAV-5e-H7M" firstAttribute="top" secondItem="swb-qd-J2z" secondAttribute="top" id="N9Q-1C-T0Q"/>
-                                                    <constraint firstAttribute="trailing" secondItem="tAV-5e-H7M" secondAttribute="trailing" constant="15" id="u9k-vh-6YY"/>
-                                                    <constraint firstItem="tAV-5e-H7M" firstAttribute="leading" secondItem="swb-qd-J2z" secondAttribute="leading" constant="15" id="xgP-c5-pIB"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8Y-Ds-tGq" userLabel="EspagnolView">
-                                                <rect key="frame" x="0.0" y="286" width="374" height="128"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="left" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cop-T5-4UZ" userLabel="Espagnol">
-                                                        <rect key="frame" x="15" y="0.0" width="344" height="128"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv9-Bx-30O">
-                                                                <rect key="frame" x="0.0" y="43" width="306" height="42"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <state key="normal" title="Espagnol">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="uhu-4m-bE8"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mji-pA-Oq0" userLabel="EspagnolSelected">
-                                                                <rect key="frame" x="316" y="49" width="28" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.53262490034103394" green="0.67114454507827759" blue="0.82331663370132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="Cop-T5-4UZ" firstAttribute="leading" secondItem="D8Y-Ds-tGq" secondAttribute="leading" constant="15" id="7JS-TQ-YeW"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Cop-T5-4UZ" secondAttribute="bottom" id="O00-fX-sBO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Cop-T5-4UZ" secondAttribute="trailing" constant="15" id="gir-a2-Hxq"/>
-                                                    <constraint firstItem="Cop-T5-4UZ" firstAttribute="top" secondItem="D8Y-Ds-tGq" secondAttribute="top" id="wB0-NV-U61"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KF-DR-wvR" userLabel="FrançaisView">
-                                                <rect key="frame" x="0.0" y="429" width="374" height="128"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hsh-ix-Dfy" userLabel="Français">
-                                                        <rect key="frame" x="15" y="0.0" width="344" height="128"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Np7-OY-SAr">
-                                                                <rect key="frame" x="0.0" y="43" width="306" height="42"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <state key="normal" title="Français">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="lrS-k5-4Y9"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-s2-kiA" userLabel="FrançaisSelected">
-                                                                <rect key="frame" x="316" y="49" width="28" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="hsh-ix-Dfy" firstAttribute="leading" secondItem="6KF-DR-wvR" secondAttribute="leading" constant="15" id="0Z7-mw-Uio"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hsh-ix-Dfy" secondAttribute="trailing" constant="15" id="Et8-bS-KUU"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hsh-ix-Dfy" secondAttribute="bottom" id="TTY-sz-0ZB"/>
-                                                    <constraint firstItem="hsh-ix-Dfy" firstAttribute="top" secondItem="6KF-DR-wvR" secondAttribute="top" id="qN2-km-iw0"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHt-QX-5Zl" userLabel="ItalienView">
-                                                <rect key="frame" x="0.0" y="572" width="374" height="128"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oBT-NP-Izt" userLabel="Italien">
-                                                        <rect key="frame" x="15" y="0.0" width="344" height="128"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFc-bU-xCP">
-                                                                <rect key="frame" x="0.0" y="43" width="306" height="42"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <state key="normal" title="Italien">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="QfY-A6-ANa" kind="unwind" unwindAction="unwindToTranslator:" id="7hU-Kv-W6j"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-Py-VR5" userLabel="ItalienSelected">
-                                                                <rect key="frame" x="316" y="49" width="28" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.19547820091247559" green="0.46115809679031372" blue="0.55677348375320435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="oBT-NP-Izt" firstAttribute="leading" secondItem="eHt-QX-5Zl" secondAttribute="leading" constant="15" id="Oia-xI-JDO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="oBT-NP-Izt" secondAttribute="trailing" constant="15" id="Ybn-bj-jWB"/>
-                                                    <constraint firstItem="oBT-NP-Izt" firstAttribute="top" secondItem="eHt-QX-5Zl" secondAttribute="top" id="b3N-d4-omy"/>
-                                                    <constraint firstAttribute="bottom" secondItem="oBT-NP-Izt" secondAttribute="bottom" id="eyr-ZW-QlS"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="omd-qi-zo3" firstAttribute="top" secondItem="5tg-wa-Ola" secondAttribute="top" constant="40" id="45j-rV-S0H"/>
-                            <constraint firstItem="omd-qi-zo3" firstAttribute="leading" secondItem="5tg-wa-Ola" secondAttribute="leading" constant="20" id="xNb-bg-dZO"/>
-                            <constraint firstItem="5tg-wa-Ola" firstAttribute="trailing" secondItem="omd-qi-zo3" secondAttribute="trailing" constant="20" id="xyg-AW-kZ5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="5tg-wa-Ola"/>
-                    </view>
-                    <connections>
-                        <outletCollection property="selector" destination="oWm-ss-qll" collectionClass="NSMutableArray" id="lsn-3K-wHd"/>
-                        <outletCollection property="langages" destination="mQ4-3j-pTL" collectionClass="NSMutableArray" id="YXK-9j-pG6"/>
-                        <outletCollection property="selector" destination="PED-p5-0RP" collectionClass="NSMutableArray" id="f4F-wg-1kQ"/>
-                        <outletCollection property="langages" destination="ds6-VQ-30T" collectionClass="NSMutableArray" id="3nH-1n-aLB"/>
-                        <outletCollection property="selector" destination="Mji-pA-Oq0" collectionClass="NSMutableArray" id="qCA-xg-bZ2"/>
-                        <outletCollection property="langages" destination="Gv9-Bx-30O" collectionClass="NSMutableArray" id="60C-cS-MhL"/>
-                        <outletCollection property="selector" destination="KXN-s2-kiA" collectionClass="NSMutableArray" id="06I-yV-erE"/>
-                        <outletCollection property="langages" destination="Np7-OY-SAr" collectionClass="NSMutableArray" id="rB7-Lx-y9X"/>
-                        <outletCollection property="langages" destination="pFc-bU-xCP" collectionClass="NSMutableArray" id="zky-wn-Knf"/>
-                        <outletCollection property="selector" destination="fdn-Py-VR5" collectionClass="NSMutableArray" id="out-Jp-cPH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hSd-Tm-wra" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="QfY-A6-ANa" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1783" y="-544"/>
-        </scene>
-        <!--Source Langages View Controller-->
+        <!--Langages View Controller-->
         <scene sceneID="NH9-pu-U8R">
             <objects>
-                <viewController id="gB4-hZ-Jpx" customClass="SourceLangagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gB4-hZ-Jpx" customClass="LangagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dxg-mw-KxJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -839,6 +604,7 @@
                         <viewLayoutGuide key="safeArea" id="krb-98-wzJ"/>
                     </view>
                     <connections>
+                        <outlet property="titleLabel" destination="J4l-cL-6eV" id="4KO-ys-iyf"/>
                         <outletCollection property="langages" destination="LBd-Ey-QN1" collectionClass="NSMutableArray" id="gB8-k7-Imx"/>
                         <outletCollection property="selector" destination="Vgu-cd-uAF" collectionClass="NSMutableArray" id="lY6-Vb-R9A"/>
                         <outletCollection property="selector" destination="CpL-ql-zrM" collectionClass="NSMutableArray" id="I8X-wM-NFK"/>
