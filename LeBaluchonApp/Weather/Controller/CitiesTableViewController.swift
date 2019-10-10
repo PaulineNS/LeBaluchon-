@@ -40,6 +40,13 @@ class CitiesTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
+        
+        if(indexPath.row % 2 == 0) {
+            cell.backgroundColor = #colorLiteral(red: 0.8373811841, green: 0.9011436105, blue: 0.9491865039, alpha: 1)
+        } else {
+            cell.backgroundColor = #colorLiteral(red: 0.5326249003, green: 0.6711445451, blue: 0.8233166337, alpha: 1)
+        }
+        
         if titleLabel.text == "Villes Françaises" {
             cell.textLabel?.text = frenchCitiesArray[indexPath.row]
         } else if titleLabel.text == "Villes Américaines" {

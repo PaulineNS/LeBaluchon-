@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="-835" y="113"/>
         </scene>
-        <!--Currency-->
+        <!--Convertisseur-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CurrencyController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,7 +128,7 @@
                             <outletCollection property="gestureRecognizers" destination="ozi-YU-Af3" appends="YES" id="Ydo-ko-U08"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Currency" image="icon-Small" id="P0r-wj-E8h"/>
+                    <tabBarItem key="tabBarItem" title="Convertisseur" image="icon-Small" id="P0r-wj-E8h"/>
                     <connections>
                         <outlet property="requestPickerView" destination="ogE-cj-c7u" id="Ta1-JY-KWd"/>
                         <outlet property="requestTextField" destination="AON-Wr-J46" id="8yn-O1-PeD"/>
@@ -180,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="93" y="873"/>
         </scene>
-        <!--Weather-->
+        <!--Météo-->
         <scene sceneID="Lo5-99-7Sf">
             <objects>
                 <viewController storyboardIdentifier="WeatherViewController" id="BCP-eF-vk0" customClass="WeatherViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -249,8 +249,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lJa-eE-Qg2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="Sun" id="2ra-Y7-0Uf"/>
-                    <navigationItem key="navigationItem" id="JiX-4Z-Hdj"/>
+                    <tabBarItem key="tabBarItem" title="Météo" image="Sun" id="2ra-Y7-0Uf"/>
+                    <navigationItem key="navigationItem" id="JiX-4Z-Hdj">
+                        <barButtonItem key="backBarButtonItem" title="Retour" id="iiY-OD-nQQ"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomCityGrid" destination="4uC-ek-KOE" id="ARh-wM-eTC"/>
@@ -367,8 +369,10 @@
                             <outletCollection property="gestureRecognizers" destination="fh4-nv-UVC" appends="YES" id="rXp-Za-xGz"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Translator" image="Speechbubble" id="pJ1-JH-c42"/>
-                    <navigationItem key="navigationItem" id="MCY-Cd-Ydq"/>
+                    <tabBarItem key="tabBarItem" title="Traducteur" image="Speechbubble" id="pJ1-JH-c42"/>
+                    <navigationItem key="navigationItem" id="MCY-Cd-Ydq">
+                        <barButtonItem key="backBarButtonItem" title="Retour" id="Ahv-dP-2GR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="sourceLangageButton" destination="hBo-zp-gRQ" id="4SU-TY-ZdZ"/>
                         <outlet property="sourceText" destination="Hy0-ab-wOq" id="i8B-cK-cjW"/>
@@ -631,16 +635,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-mb-59i">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-mb-59i">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.53262490034103394" green="0.67114454507827759" blue="0.82331663370132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="d9v-OM-hKj">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Villes Françaises" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-rH-alH">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
