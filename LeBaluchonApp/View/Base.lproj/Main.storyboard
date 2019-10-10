@@ -194,13 +194,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-oq-dbV">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="333.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-qx-qSq">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-qx-qSq">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <state key="normal" title="France 🔍 ">
                                                     <color key="titleColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="9vD-nk-Nfp" kind="show" id="PB2-7C-MLA"/>
+                                                    <action selector="didTapFrenchCitiesButton:" destination="BCP-eF-vk0" eventType="touchUpInside" id="4Zo-vX-piz"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -217,13 +217,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="54r-Bx-MaE">
                                         <rect key="frame" x="0.0" y="351.5" width="374" height="333.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-2b-Qry">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-2b-Qry">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <state key="normal" title="Etats Unis 🔍 ">
                                                     <color key="titleColor" red="0.37030965089797974" green="0.49928468465805054" blue="0.64378422498703003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="UVZ-9Y-qjf" kind="show" id="2JJ-UU-HWQ"/>
+                                                    <action selector="didTapUsCitiesButton:" destination="BCP-eF-vk0" eventType="touchUpInside" id="aNn-mA-zOn"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -255,6 +255,7 @@
                     <connections>
                         <outlet property="bottomCityGrid" destination="4uC-ek-KOE" id="ARh-wM-eTC"/>
                         <outlet property="topCityView" destination="GMc-Hp-gHL" id="pEJ-bF-yDU"/>
+                        <segue destination="9vD-nk-Nfp" kind="show" identifier="fromWeatherVcToTableViewVc" id="qdC-jN-fd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SP9-20-gEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -622,10 +623,10 @@
             </objects>
             <point key="canvasLocation" x="1784" y="113"/>
         </scene>
-        <!--Top Table View Controller-->
+        <!--Cities Table View Controller-->
         <scene sceneID="Emw-hA-jU6">
             <objects>
-                <viewController id="9vD-nk-Nfp" customClass="TopTableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9vD-nk-Nfp" customClass="CitiesTableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vtc-vc-8ec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -633,9 +634,28 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-mb-59i">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="d9v-OM-hKj">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Villes Françaises" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-rH-alH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.53262490034103394" green="0.67114454507827759" blue="0.82331663370132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="k5N-rH-alH" firstAttribute="leading" secondItem="d9v-OM-hKj" secondAttribute="leading" id="3E3-Ri-0iP"/>
+                                        <constraint firstAttribute="bottom" secondItem="k5N-rH-alH" secondAttribute="bottom" id="Wec-Z3-Dx3"/>
+                                        <constraint firstAttribute="trailing" secondItem="k5N-rH-alH" secondAttribute="trailing" id="XbK-z5-fqw"/>
+                                        <constraint firstItem="k5N-rH-alH" firstAttribute="top" secondItem="d9v-OM-hKj" secondAttribute="top" id="hDa-9p-SmM"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="ReY-E6-F1P">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ReY-E6-F1P" id="l8c-2r-ZzD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -655,52 +675,13 @@
                         <viewLayoutGuide key="safeArea" id="W9B-CK-6yW"/>
                     </view>
                     <connections>
-                        <outlet property="frenchCitiesTableView" destination="tyX-mb-59i" id="Nss-1c-BNC"/>
+                        <outlet property="citiesTableView" destination="tyX-mb-59i" id="Nss-1c-BNC"/>
+                        <outlet property="titleLabel" destination="k5N-rH-alH" id="qEY-i3-TEy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttN-xr-0T2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1783" y="873"/>
-        </scene>
-        <!--Bottom Table View Controller-->
-        <scene sceneID="icM-xD-qz6">
-            <objects>
-                <viewController id="UVZ-9Y-qjf" customClass="BottomTableViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XfD-Rh-Coe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UfI-nf-p6r">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="FC0-E8-IR7">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FC0-E8-IR7" id="PSY-Tk-guB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="als-cK-evl" firstAttribute="trailing" secondItem="UfI-nf-p6r" secondAttribute="trailing" id="M5n-YO-9fc"/>
-                            <constraint firstItem="als-cK-evl" firstAttribute="bottom" secondItem="UfI-nf-p6r" secondAttribute="bottom" id="XpL-37-6Xv"/>
-                            <constraint firstItem="UfI-nf-p6r" firstAttribute="leading" secondItem="als-cK-evl" secondAttribute="leading" id="fzZ-4u-I5F"/>
-                            <constraint firstItem="UfI-nf-p6r" firstAttribute="top" secondItem="als-cK-evl" secondAttribute="top" id="mLK-aJ-CqA"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="als-cK-evl"/>
-                    </view>
-                    <connections>
-                        <outlet property="americanCitiesTableView" destination="UfI-nf-p6r" id="Qvp-Z2-Bgr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qe0-qG-MY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1783" y="1604"/>
         </scene>
     </scenes>
     <resources>

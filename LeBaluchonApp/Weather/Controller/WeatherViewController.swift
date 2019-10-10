@@ -23,6 +23,30 @@ class WeatherViewController: UIViewController {
         displayWeatherData(nameTopCity: topCityName, nameBottomCity: bottomCityName)
     }
     
+    @IBAction func didTapFrenchCitiesButton(_ sender: Any) {
+        performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
+    }
+    
+    @IBAction func didTapUsCitiesButton(_ sender: Any) {
+        performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromWeatherVcToTableViewVc" {
+            if let button = sender as? UIButton {
+                let vcDestination = segue.destination as? CitiesTableViewController
+                if button.tag == 1 {
+                    vcDestination?.labelTitle = "Villes Françaises"
+                } else if button.tag == 2 {
+                    vcDestination?.labelTitle = "Villes Américaines"
+                }
+            } else {
+                print("Error")
+            }
+        }
+    }
+    
     func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
         guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
             return
