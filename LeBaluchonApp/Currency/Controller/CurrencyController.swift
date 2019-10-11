@@ -31,6 +31,9 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func TappingCurrency(_ sender: Any) {
+        if requestTextField.text == "" {
+            resultLabel.text = ""
+        }
         convert()
     }
     
@@ -50,7 +53,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Array(symbolsDictionnary.values).sorted()[row]
     }
-        
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == requestPickerView {
