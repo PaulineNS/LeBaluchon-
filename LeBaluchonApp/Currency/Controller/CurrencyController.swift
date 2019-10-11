@@ -67,7 +67,6 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
                 let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
                 self.checkingDecimalNumber(result: result)
-                //self.resultLabel.text = String(result)
             }
         }
     }
@@ -79,9 +78,9 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         if integerValue == result {
             let resultToInt = Int(result)
-            self.resultLabel.text = "\(resultToInt)"
+            resultLabel.text = "\(resultToInt)"
         } else {
-            self.resultLabel.text = "\(result)"
+            resultLabel.text = "\(result)"
         }
     }
 }

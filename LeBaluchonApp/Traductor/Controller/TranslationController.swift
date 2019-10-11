@@ -12,6 +12,7 @@ class TranslationController: UIViewController, UITextViewDelegate {
     
     let languagesDictionnary = ["Allemand": "ge", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var sourceText: UITextView!
     @IBOutlet weak var targetText: UITextView!
     @IBOutlet weak var sourceLangageButton: UIButton!
@@ -23,6 +24,7 @@ class TranslationController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func didTapClearButton(_ sender: Any) {
+        errorLabel.isHidden = true
         sourceText.text = "Saisissez du texte"
         sourceText.textColor = UIColor.lightGray
         targetText.text = ""
@@ -60,6 +62,7 @@ class TranslationController: UIViewController, UITextViewDelegate {
     }
     
     override func viewDidLoad() {
+        errorLabel.isHidden = true
         sourceText.delegate = self
         targetText.isEditable = false
     }
@@ -83,9 +86,10 @@ class TranslationController: UIViewController, UITextViewDelegate {
         TranslationService.shared.getTranslation(text: sourceText.text ?? "", source: languagesDictionnary[sourceIndex].value, target: languagesDictionnary[targetIndex].value) { result in
             switch result {
             case let .success(translateString):
+                self.errorLabel.isHidden = true
                 self.update(data: translateString)
             case .failure:
-                self.presentAlert(message: "La traduction n'a pas aboutit")
+                self.errorLabel.isHidden = false
             }
         }
     }
