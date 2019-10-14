@@ -93,7 +93,7 @@ class TranslationController: UIViewController, UITextViewDelegate {
         
         TranslationService.shared.getTranslation(text: sourceText.text ?? "", source: languagesDictionnary[sourceIndex].value, target: languagesDictionnary[targetIndex].value) { result in
             switch result {
-            case let .success(translateString):
+            case .success(let translateString):
                 self.errorLabel.isHidden = true
                 self.update(data: translateString)
             case .failure:

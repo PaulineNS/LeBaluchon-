@@ -55,7 +55,7 @@ class WeatherViewController: UIViewController {
         
         WeatherService.shared.getWeather(topCityId: citiesDictionnary[topCityIndex].value, bottomCityId: citiesDictionnary[bottomCityIndex].value) { result in
             switch result {
-            case let .success(weatherData):
+            case .success(let weatherData):
                 self.updateWeather(data: weatherData)
             case .failure:
                 self.presentAlert(message: "La météo n'a pas aboutit")
@@ -91,7 +91,7 @@ class WeatherViewController: UIViewController {
         let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
         return dateFormatter.string(from: weatherDate as Date)
     }

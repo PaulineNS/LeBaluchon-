@@ -28,24 +28,24 @@ class TranslationService {
         return request
     }
     
-    func getTranslation(text: String, source: String, target: String, callback: @escaping (Result<Data, Error>) -> Void) {
+    func getTranslation(text: String, source: String, target: String, callback: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let request = createTranslationRequest(text: text, source: source, target: target) else { return }
         
         task?.cancel()
         task = translationSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
-                if let error = error {
-                    callback(.failure(error))
+                if error != nil {
+                    callback(.failure(.badUrl))
                     return 
                 }
                 
                 guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(.failure(NSError(domain: "Network", code: 0, userInfo: nil)))
+                    callback(.failure(.network))
                     return
                 }
                 
                 guard let responseJSON = try? JSONDecoder().decode(Data.self, from: data) else {
-                    callback(.failure(NSError(domain: "Invalid data", code: 0, userInfo: nil)))
+                    callback(.failure(.invalidData))
                     return
                 }
                 

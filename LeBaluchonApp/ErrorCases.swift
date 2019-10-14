@@ -9,6 +9,8 @@
 import Foundation
 
 /// Enumeration of error cases
-enum ErrorCases: Error {
+enum NetworkError: Error {
+    case badUrl
     case invalidData
+    case network
 }
