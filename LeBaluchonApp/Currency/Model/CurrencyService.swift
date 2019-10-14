@@ -22,34 +22,34 @@ class CurrencyService {
     }
 
     /// Getting Data
-    func getCurrency(callback: @escaping (Currrency?) -> Void) {
+    func getCurrency(callback: @escaping (Result<Currrency, NetworkError>) -> Void) {
         let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(APIKey.fixer)")!
         
         if let c = currency { 
-            callback(c)
+            callback(.success(c))
             return
         }
         
         task?.cancel()
         task = session.dataTask(with: currencyUrl) { (data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(nil)
+                if error != nil {
+                    callback(.failure(.badUrl))
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
-                    callback(nil)
+                guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(.failure(.network))
                     return
                 }
                 
                 guard let responseJSON = try? JSONDecoder().decode(Currrency.self, from: data) else {
-                    callback(nil)
+                    callback(.failure(.invalidData))
                     return
                 }
-                
+            
                 self.currency = responseJSON
-                callback(responseJSON)
+                callback(.success(responseJSON))
             }
         }
     

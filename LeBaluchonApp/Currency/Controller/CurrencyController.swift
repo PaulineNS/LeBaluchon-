@@ -66,10 +66,16 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func convert() {
-        CurrencyService.shared.getCurrency {(currency) in
-            if let c = currency, let text = self.requestTextField.text, let value = Double(text) {
-                let result = c.convert(value: value, from: self.fromSymbol, to: self.toSymbol)
-                self.checkingDecimalNumber(result: result)
+        guard let text = self.requestTextField.text, let value = Double(text) else {
+            return
+        }
+        
+        CurrencyService.shared.getCurrency {result in
+            switch result {
+            case .success(let currency):
+                self.checkingDecimalNumber(result: currency.convert(value: value, from: self.fromSymbol, to: self.toSymbol))
+            case .failure:
+                self.presentAlert(message: "La conversion n'a pas aboutit")
             }
         }
     }
