@@ -10,7 +10,7 @@ import UIKit
 
 class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let symbolsDictionnary = ["EUR": "Euro", "USD": "Dollar", "GBP": "Pounds"]
+    let symbolsDictionnary = ["EUR": "€", "USD": "$", "GBP": "£"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
     
