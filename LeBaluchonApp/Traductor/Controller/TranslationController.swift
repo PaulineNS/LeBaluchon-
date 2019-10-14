@@ -10,7 +10,7 @@ import UIKit
 
 class TranslationController: UIViewController, UITextViewDelegate {
     
-    let languagesDictionnary = ["Allemand": "ge", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
+    let languagesDictionnary = ["Allemand": "de", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var sourceText: UITextView!

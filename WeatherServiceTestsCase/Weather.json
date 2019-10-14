@@ -1,0 +1,81 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": 2.35,
+                "lat": 48.86
+            },
+            "sys": {
+                "country": "FR",
+                "timezone": 7200,
+                "sunrise": 1571033314,
+                "sunset": 1571072670
+            },
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ],
+            "main": {
+                "temp": 296.6,
+                "pressure": 1004,
+                "humidity": 53,
+                "temp_min": 295.93,
+                "temp_max": 297.15
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 6.2,
+                "deg": 130
+            },
+            "clouds": {
+                "all": 0
+            },
+            "dt": 1571065875,
+            "id": 6455259,
+            "name": "Paris"
+        },
+        {
+            "coord": {
+                "lon": -75.5,
+                "lat": 43
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1571051629,
+                "sunset": 1571091716
+            },
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ],
+            "main": {
+                "temp": 286.83,
+                "pressure": 1014,
+                "humidity": 76,
+                "temp_min": 285.37,
+                "temp_max": 288.15
+            },
+            "visibility": 16093,
+            "wind": {
+                "speed": 2.6,
+                "deg": 130
+            },
+            "clouds": {
+                "all": 1
+            },
+            "dt": 1571065659,
+            "id": 5128638,
+            "name": "New York"
+        }
+    ]
+}
