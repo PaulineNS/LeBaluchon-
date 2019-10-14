@@ -49,16 +49,18 @@ class LangagesViewController: UIViewController {
     }
     
     func selectTheLangage() {
-        if selectedLangage == "Anglais" {
+        switch selectedLangage {
+        case "Anglais":
             selectedButton(index: 1)
-        } else if selectedLangage == "Allemand" {
+        case "Allemand":
             selectedButton(index: 0)
-        } else if selectedLangage == "Espagnol" {
+        case "Espagnol":
             selectedButton(index: 2)
-        } else if selectedLangage == "Italien" {
+        case "Italien":
             selectedButton(index: 4)
-        } else if selectedLangage == "Français" {
+        case "Français":
             selectedButton(index: 3)
+        default: break
         }
     }
 }

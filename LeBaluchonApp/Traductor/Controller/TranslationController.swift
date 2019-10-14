@@ -32,10 +32,12 @@ class TranslationController: UIViewController, UITextViewDelegate {
     
     @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
         let sourceTitle = sourceLangageButton.currentTitle
-        targetText.text = ""
-        sourceText.text = ""
         sourceLangageButton.setTitle(targetLangageButton.currentTitle, for: .normal)
         targetLangageButton.setTitle(sourceTitle, for: .normal)
+        
+        if sourceText.text != "Saisissez du texte"{
+            translate()
+        }
     }
     
     @IBAction func didTapSourceLangageButton(_ sender: UIButton) {

@@ -22,7 +22,7 @@
 		565503F12311460000FDDD23 /* TranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F02311460000FDDD23 /* TranslationController.swift */; };
 		565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F42313DFF700FDDD23 /* TranslationService.swift */; };
 		565503F92314050F00FDDD23 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F82314050F00FDDD23 /* Translation.swift */; };
-		565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */; };
+		565503FB23142AED00FDDD23 /* LangagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503FA23142AED00FDDD23 /* LangagesViewController.swift */; };
 		566D481923291D3700612DA7 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D481823291D3700612DA7 /* CitiesTableViewController.swift */; };
 		566D48232344B51300612DA7 /* WeatherServiceTestsCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D48222344B51300612DA7 /* WeatherServiceTestsCase.swift */; };
 		56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29CF231561B900BE92BC /* ControllerExtension.swift */; };
@@ -83,7 +83,7 @@
 		565503F02311460000FDDD23 /* TranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationController.swift; sourceTree = "<group>"; };
 		565503F42313DFF700FDDD23 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		565503F82314050F00FDDD23 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
-		565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLangagesViewController.swift; sourceTree = "<group>"; };
+		565503FA23142AED00FDDD23 /* LangagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangagesViewController.swift; sourceTree = "<group>"; };
 		566D481823291D3700612DA7 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
 		566D48202344B50F00612DA7 /* WeatherServiceTestsCase.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherServiceTestsCase.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		566D48222344B51300612DA7 /* WeatherServiceTestsCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTestsCase.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				565503F02311460000FDDD23 /* TranslationController.swift */,
-				565503FA23142AED00FDDD23 /* SourceLangagesViewController.swift */,
+				565503FA23142AED00FDDD23 /* LangagesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -505,7 +505,7 @@
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
 				566D481923291D3700612DA7 /* CitiesTableViewController.swift in Sources */,
 				561185762327D133005222F1 /* ErrorCases.swift in Sources */,
-				565503FB23142AED00FDDD23 /* SourceLangagesViewController.swift in Sources */,
+				565503FB23142AED00FDDD23 /* LangagesViewController.swift in Sources */,
 				565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */,
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,
 				565503F92314050F00FDDD23 /* Translation.swift in Sources */,
