@@ -70,10 +70,12 @@ class WeatherViewController: UIViewController {
         }
         topCityView.cityNameLabel.text = data.list[0].name
         topCityView.conditionLabel.text = data.list[0].weather[0].weatherDescription
+        topCityView.dateLabel.text = convertDateFromUnix(unixTime: data.list[0].dt)
         
         if let bottomCityTemperature = data.list[1].main.temp, let bottomCityIcon = data.list[1].weather[0].icon {
             bottomCityGrid.temperatureLabel.text = String(bottomCityTemperature) + "°C"
             bottomCityGrid.weatherImageView.image = UIImage(named: bottomCityIcon)
+            bottomCityGrid.dateLabel.text = convertDateFromUnix(unixTime: data.list[1].dt)
         }
         bottomCityGrid.cityNameLabel.text = data.list[1].name
         bottomCityGrid.conditionLabel.text = data.list[1].weather[0].weatherDescription
@@ -83,6 +85,15 @@ class WeatherViewController: UIViewController {
         let userDefault = UserDefaults.standard
         userDefault.set(topCityName, forKey: "savedTopCityName")
         
+    }
+    
+    func convertDateFromUnix(unixTime: Int) -> String {
+        let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        
+        return dateFormatter.string(from: weatherDate as Date)
     }
 }
 

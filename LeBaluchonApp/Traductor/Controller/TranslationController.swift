@@ -67,6 +67,10 @@ class TranslationController: UIViewController, UITextViewDelegate {
         errorLabel.isHidden = true
         sourceText.delegate = self
         targetText.isEditable = false
+        
+        if sourceText.text != "Saisissez du texte"{
+            translate()
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
