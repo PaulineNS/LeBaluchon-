@@ -10,14 +10,10 @@ import Foundation
 
 class TranslationService {
 
-    static var shared = TranslationService()
-    private init() {}
-    
     private var task: URLSessionDataTask?
+    private var translationSession: URLSession
     
-    private var translationSession = URLSession(configuration: .default)
-    
-    init(translationSession: URLSession) {
+    init(translationSession: URLSession = URLSession(configuration: .default)) {
         self.translationSession = translationSession
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 final class TranslationController: UIViewController, UITextViewDelegate {
     
+    let translationService = TranslationService()
     let languagesDictionnary = ["Allemand": "de", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     
     @IBOutlet weak var errorLabel: UILabel!
@@ -91,7 +92,7 @@ final class TranslationController: UIViewController, UITextViewDelegate {
                 return
         }
         
-        TranslationService.shared.getTranslation(text: sourceText.text ?? "", source: languagesDictionnary[sourceIndex].value, target: languagesDictionnary[targetIndex].value) { result in
+        translationService.getTranslation(text: sourceText.text ?? "", source: languagesDictionnary[sourceIndex].value, target: languagesDictionnary[targetIndex].value) { result in
             switch result {
             case .success(let translateString):
                 self.errorLabel.isHidden = true
