@@ -38,7 +38,7 @@
 		56FA2A38231D22B000BE92BC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A37231D22B000BE92BC /* FakeResponseData.swift */; };
 		56FA2A3A231D22D300BE92BC /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 56FA2A39231D22D300BE92BC /* Currency.json */; };
 		56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A3B231FA16200BE92BC /* Weather.swift */; };
-		56FA2A40231FAEAE00BE92BC /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */; };
+		56FA2A40231FAEAE00BE92BC /* ApiKeyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A3F231FAEAE00BE92BC /* ApiKeyExtractor.swift */; };
 		56FA2A422320291600BE92BC /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56FA2A412320291600BE92BC /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +106,7 @@
 		56FA2A37231D22B000BE92BC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		56FA2A39231D22D300BE92BC /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
 		56FA2A3B231FA16200BE92BC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		56FA2A3F231FAEAE00BE92BC /* ApiKeyExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyExtractor.swift; sourceTree = "<group>"; };
 		56FA2A412320291600BE92BC /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				565503CA23045F0500FDDD23 /* Supporting Files */,
-				56FA2A3F231FAEAE00BE92BC /* APIKeys.swift */,
+				56FA2A3F231FAEAE00BE92BC /* ApiKeyExtractor.swift */,
 				561185752327D133005222F1 /* ErrorCases.swift */,
 				56FA29CE2315602300BE92BC /* Extension */,
 				565503C823045F0100FDDD23 /* View */,
@@ -514,7 +514,7 @@
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,
 				565503F92314050F00FDDD23 /* Translation.swift in Sources */,
 				565503F12311460000FDDD23 /* TranslationController.swift in Sources */,
-				56FA2A40231FAEAE00BE92BC /* APIKeys.swift in Sources */,
+				56FA2A40231FAEAE00BE92BC /* ApiKeyExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

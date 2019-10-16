@@ -20,7 +20,7 @@ final class WeatherService {
     }
     
     private func createWeatherRequest(topCityId: Int, bottomCityId: Int) -> URLRequest? {
-        let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/group?id=\(topCityId),\(bottomCityId)&units=metric&lang=fr&APPID=\(APIKey.openWeatherMap)")!
+        guard let apiKey = ApiKeyExtractor().apiKey, let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/group?id=\(topCityId),\(bottomCityId)&units=metric&lang=fr&APPID=\(apiKey.openWeatherMap)") else { return nil }
         let request = URLRequest(url: weatherUrl)
         return request
     }

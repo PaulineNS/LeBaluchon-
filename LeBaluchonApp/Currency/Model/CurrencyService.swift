@@ -21,9 +21,8 @@ final class CurrencyService {
 
     /// Getting Data
     func getCurrency(callback: @escaping (Result<Currrency, NetworkError>) -> Void) {
-        guard let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(APIKey.fixer)") else {
-            return
-        }
+        guard let apiKey = ApiKeyExtractor().apiKey else { return }
+        guard let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(apiKey.fixer)") else { return }
         
         if let c = currency { 
             callback(.success(c))
