@@ -16,13 +16,16 @@ class TranslationServiceTestsCase: XCTestCase {
         let translationService = TranslationService(translationSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.errorTranslation))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { (data) in
-            // Then
-            XCTAssertNotNil(NetworkError.network)
-            // XCTAssertNil(data)
-            expectation.fulfill()
+        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
+            switch result {
+            case .success(let translation):
+                XCTAssertNil(translation)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -31,26 +34,35 @@ class TranslationServiceTestsCase: XCTestCase {
         let translationService = TranslationService(translationSession: URLSessionFake(data: nil, response: nil, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { (data) in
-            // Then
-            XCTAssertNil(data)
-            expectation.fulfill()
+        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
+            switch result {
+            case .success(let translation):
+                XCTAssertNil(translation)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
+
     
     func testGetTranslationShouldPostFailedCallbackIfIncorrectResponse() {
         // Given
         let translationService = TranslationService(translationSession: URLSessionFake(data: FakeResponseData.translationCorrectData, response: FakeResponseData.responseKO, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { (data) in
-            // Then
-            XCTAssertNil(data)
-            expectation.fulfill()
+        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
+            switch result {
+            case .success(let translation):
+                XCTAssertNil(translation)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -59,12 +71,16 @@ class TranslationServiceTestsCase: XCTestCase {
         let translationService = TranslationService(translationSession: URLSessionFake(data: FakeResponseData.translationIncorrectData, response: FakeResponseData.responseOK, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { (data) in
-            // Then
-            XCTAssertNil(data)
-            expectation.fulfill()
+        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
+            switch result {
+            case .success(let translation):
+                XCTAssertNil(translation)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
