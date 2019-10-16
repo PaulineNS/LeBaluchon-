@@ -14,9 +14,9 @@ final class LangagesViewController: UIViewController {
     var index = 0
     var selectedLangage: String?
     
-    @IBOutlet var selector: [UILabel]!
-    @IBOutlet var langages: [UIButton]!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private var selector: [UILabel]!
+    @IBOutlet private var langages: [UIButton]!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         titleLabel.text = labelTitle

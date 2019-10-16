@@ -11,8 +11,8 @@ import UIKit
 final class CitiesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var labelTitle: String? = ""
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var citiesTableView: UITableView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var citiesTableView: UITableView!
     
     let frenchCitiesArray = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille"]
     
