@@ -58,12 +58,12 @@ final class CitiesTableViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
         if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController {
-            if titleLabel.text == "Villes Françaises" {
+            if titleLabel.text == "Villes Françaises", let userDefaults = UserDefaults.standard.value(forKey: "savedBottomCityName") as? String {
                 vc.topCityName = frenchCitiesArray[indexPath.row]
-                vc.bottomCityName = UserDefaults.standard.value(forKey: "savedBottomCityName") as! String
-            } else if titleLabel.text == "Villes Américaines" {
+                vc.bottomCityName = userDefaults
+            } else if titleLabel.text == "Villes Américaines", let userDefault = UserDefaults.standard.value(forKey: "savedTopCityName") as? String  {
                 vc.bottomCityName = americanCitiesArray[indexPath.row]
-                vc.topCityName = UserDefaults.standard.value(forKey: "savedTopCityName") as! String
+                vc.topCityName = userDefault 
             }
             self.navigationController?.pushViewController(vc, animated: true)
         }

@@ -12,7 +12,8 @@ final class LangagesViewController: UIViewController {
     
     var labelTitle: String? = ""
     var index = 0
-    var selectedLangage: String! 
+    var selectedLangage: String?
+    
     @IBOutlet var selector: [UILabel]!
     @IBOutlet var langages: [UIButton]!
     @IBOutlet weak var titleLabel: UILabel!
@@ -39,11 +40,12 @@ final class LangagesViewController: UIViewController {
     // Changing sourceLanguage and targetLanguage in TranslationController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let button = sender as? UIButton {
-            let translationVC = segue.destination as! TranslationController
-            if titleLabel.text == "Langue Source" {
-                translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
-            } else if titleLabel.text == "Langue Cible" {
-                translationVC.targetLangageButton.setTitle(button.currentTitle, for: .normal)
+            if let translationVC = segue.destination as? TranslationController {
+                if titleLabel.text == "Langue Source" {
+                    translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
+                } else if titleLabel.text == "Langue Cible" {
+                    translationVC.targetLangageButton.setTitle(button.currentTitle, for: .normal)
+                }
             }
         }
     }

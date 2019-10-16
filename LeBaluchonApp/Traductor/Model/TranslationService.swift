@@ -49,7 +49,6 @@ class TranslationService {
                     return
                 }
                 
-                // print(responseJSON)
                 callback(.success(responseJSON))
             }
         }

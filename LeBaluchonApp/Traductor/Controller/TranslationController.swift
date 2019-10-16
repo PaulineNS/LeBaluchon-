@@ -70,7 +70,7 @@ final class TranslationController: UIViewController, UITextViewDelegate {
         sourceText.delegate = self
         targetText.isEditable = false
         
-        if sourceText.text != "Saisissez du texte"{
+        if sourceText.text != "Saisissez du texte" {
             translate()
         }
     }
@@ -80,7 +80,7 @@ final class TranslationController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if sourceText.text == "Saisissez du texte"{
+        if sourceText.text == "Saisissez du texte" {
             sourceText.text = ""
         }
     }
