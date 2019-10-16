@@ -9,7 +9,7 @@
 @testable import LeBaluchonApp
 import XCTest
 
-class WeatherServiceTestsCase: XCTestCase {
+final class WeatherServiceTestsCase: XCTestCase {
     
     func testGetWeatherShouldPostFailedCallbackIfError() {
         //Given

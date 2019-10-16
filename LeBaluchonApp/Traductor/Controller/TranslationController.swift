@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TranslationController: UIViewController, UITextViewDelegate {
+final class TranslationController: UIViewController, UITextViewDelegate {
     
     let languagesDictionnary = ["Allemand": "de", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     

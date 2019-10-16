@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TranslationService {
+final class TranslationService {
 
     static var shared = TranslationService()
     private init() {}

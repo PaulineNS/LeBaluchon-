@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CitiesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class CitiesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var labelTitle: String? = ""
     @IBOutlet weak var titleLabel: UILabel!

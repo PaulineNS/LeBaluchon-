@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIKey {
+final class APIKey {
     static var openWeatherMap: String {
         return APIKey.valueForAPIKey(named: "API_OpenWeatherMap")
     }

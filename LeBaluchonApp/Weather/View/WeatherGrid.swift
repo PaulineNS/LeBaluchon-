@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherGrid: UIView {
+final class WeatherGrid: UIView {
     
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!

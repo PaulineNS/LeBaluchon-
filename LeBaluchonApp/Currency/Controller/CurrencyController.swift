@@ -8,17 +8,17 @@
 
 import UIKit
 
-class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let symbolsDictionnary = ["EUR": "€", "USD": "$", "GBP": "£"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
+    let currencyService = CurrencyService()
     
-    
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var resultSymbolsPickerView: UIPickerView!
-    @IBOutlet weak var requestPickerView: UIPickerView!
-    @IBOutlet weak var requestTextField: UITextField!
+    @IBOutlet private weak var resultLabel: UILabel!
+    @IBOutlet private weak var resultSymbolsPickerView: UIPickerView!
+    @IBOutlet private weak var requestPickerView: UIPickerView!
+    @IBOutlet private weak var requestTextField: UITextField!
     
     override func viewDidLoad() {
         requestPickerView.delegate = self
@@ -27,10 +27,10 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         resultSymbolsPickerView.dataSource = self
         requestPickerView.selectRow(1, inComponent: 0, animated: true)
         resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
-        CurrencyService.shared.getCurrency {_ in }
+        currencyService.getCurrency {_ in }
     }
     
-    @IBAction func TappingCurrency(_ sender: Any) {
+    @IBAction private func tappingCurrency(_ sender: Any) {
         if requestTextField.text == "" {
             resultLabel.text = ""
         }
@@ -70,7 +70,7 @@ class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             return
         }
         
-        CurrencyService.shared.getCurrency {result in
+        currencyService.getCurrency {result in
             switch result {
             case .success(let currency):
                 self.checkingDecimalNumber(result: currency.convert(value: value, from: self.fromSymbol, to: self.toSymbol))

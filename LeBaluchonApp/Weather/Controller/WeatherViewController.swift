@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
     @IBOutlet weak var topCityView: WeatherGrid!
     @IBOutlet weak var bottomCityGrid: WeatherGrid!
@@ -91,6 +91,7 @@ class WeatherViewController: UIViewController {
         let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
         
         let dateFormatter = DateFormatter()
+        // dateFormatter.locale =
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
         return dateFormatter.string(from: weatherDate as Date)

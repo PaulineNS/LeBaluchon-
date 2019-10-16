@@ -8,22 +8,22 @@
 
 import Foundation
 
-class CurrencyService {
-    static var shared = CurrencyService()
-    private init() {}
+final class CurrencyService {
     
     private var currency: Currrency?
     
     private var task: URLSessionDataTask?
-    private var session = URLSession(configuration: .default)
+    private var session: URLSession
     
-    init(session:URLSession) {
+    init(session:URLSession = URLSession(configuration: .default)) {
         self.session = session
     }
 
     /// Getting Data
     func getCurrency(callback: @escaping (Result<Currrency, NetworkError>) -> Void) {
-        let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(APIKey.fixer)")!
+        guard let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(APIKey.fixer)") else {
+            return
+        }
         
         if let c = currency { 
             callback(.success(c))

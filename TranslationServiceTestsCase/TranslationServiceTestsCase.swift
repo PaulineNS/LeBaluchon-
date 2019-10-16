@@ -9,7 +9,7 @@
 @testable import LeBaluchonApp
 import XCTest
 
-class TranslationServiceTestsCase: XCTestCase {
+final class TranslationServiceTestsCase: XCTestCase {
     
     func testGetTranslationShouldPostFailedCallbackIfError() {
         // Given

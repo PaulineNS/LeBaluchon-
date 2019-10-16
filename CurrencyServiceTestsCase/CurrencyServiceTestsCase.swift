@@ -8,7 +8,7 @@
 @testable import LeBaluchonApp
 import XCTest
 
-class CurrencyServiceTestsCase: XCTestCase {
+final class CurrencyServiceTestsCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCallbackIfError() {
         //Given

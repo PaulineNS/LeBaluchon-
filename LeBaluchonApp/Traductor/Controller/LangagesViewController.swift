@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LangagesViewController: UIViewController {
+final class LangagesViewController: UIViewController {
     
     var labelTitle: String? = ""
     var index = 0
