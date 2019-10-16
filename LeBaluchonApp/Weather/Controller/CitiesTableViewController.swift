@@ -8,14 +8,13 @@
 
 import UIKit
 
-final class CitiesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class CitiesTableViewController: UIViewController {
     
     var labelTitle: String? = ""
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var citiesTableView: UITableView!
     
     let frenchCitiesArray = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille"]
-    
     let americanCitiesArray = ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "San Diego", "Dallas", "Phoenix", "San Antonio"]
     
     override func viewDidLoad() {
@@ -24,7 +23,9 @@ final class CitiesTableViewController: UIViewController, UITableViewDataSource, 
         citiesTableView.delegate = self
         citiesTableView.dataSource = self
     }
-    
+}
+
+extension CitiesTableViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -63,9 +64,12 @@ final class CitiesTableViewController: UIViewController, UITableViewDataSource, 
                 vc.bottomCityName = userDefaults
             } else if titleLabel.text == "Villes Américaines", let userDefault = UserDefaults.standard.value(forKey: "savedTopCityName") as? String  {
                 vc.bottomCityName = americanCitiesArray[indexPath.row]
-                vc.topCityName = userDefault 
+                vc.topCityName = userDefault
             }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+
 }
+    

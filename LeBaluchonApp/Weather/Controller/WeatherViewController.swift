@@ -17,7 +17,9 @@ final class WeatherViewController: UIViewController {
     let citiesDictionnary = ["Paris": 6455259, "Marseille": 2995469, "Lyon": 6454573, "Toulouse": 6453974, "Nice": 2990440, "Nantes": 6434483, "Montpellier": 6454034, "Strasbourg": 2973783, "Bordeaux": 6455058, "Lille": 6454414, "New York": 5128638, "Los Angeles": 5368361, "Chicago": 4887398, "Houston": 4391354, "Philadelphia": 4440906, "San Diego": 4726311, "Dallas": 4684888, "Phoenix": 4905873, "San Antonio": 4726206]
     var topCityName = "Paris"
     var bottomCityName = "New York"
-    
+}
+
+extension WeatherViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayWeatherData(nameTopCity: topCityName, nameBottomCity: bottomCityName)
@@ -32,7 +34,9 @@ final class WeatherViewController: UIViewController {
         UserDefaults.standard.set(topCityName, forKey: "savedTopCityName")
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
     }
-    
+}
+
+extension WeatherViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromWeatherVcToTableViewVc" {
             if let button = sender as? UIButton {
@@ -47,7 +51,9 @@ final class WeatherViewController: UIViewController {
             }
         }
     }
-    
+}
+
+extension WeatherViewController {
     func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
         guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
             return
@@ -80,11 +86,12 @@ final class WeatherViewController: UIViewController {
         bottomCityGrid.cityNameLabel.text = data.list[1].name
         bottomCityGrid.conditionLabel.text = data.list[1].weather[0].weatherDescription
     }
-    
+}
+
+extension WeatherViewController{
     func saveData() {
         let userDefault = UserDefaults.standard
         userDefault.set(topCityName, forKey: "savedTopCityName")
-        
     }
     
     func convertDateFromUnix(unixTime: Int, abbreviation: String) -> String {
@@ -97,6 +104,13 @@ final class WeatherViewController: UIViewController {
         return dateFormatter.string(from: weatherDate as Date)
     }
 }
+
+
+
+
+
+
+
 
 
 

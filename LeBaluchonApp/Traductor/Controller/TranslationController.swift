@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TranslationController: UIViewController, UITextViewDelegate {
+final class TranslationController: UIViewController {
     
     let translationService = TranslationService()
     let languagesDictionnary = ["Allemand": "de", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
@@ -18,7 +18,19 @@ final class TranslationController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var targetText: UITextView!
     @IBOutlet weak var sourceLangageButton: UIButton!
     @IBOutlet weak var targetLangageButton: UIButton!
-    @IBAction func unwindToTranslator(_ sender: UIStoryboardSegue){}
+}
+
+extension TranslationController {
+    
+    override func viewDidLoad() {
+        errorLabel.isHidden = true
+        sourceText.delegate = self
+        targetText.isEditable = false
+        
+        if sourceText.text != "Saisissez du texte" {
+            translate()
+        }
+    }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sourceText.resignFirstResponder()
@@ -48,6 +60,11 @@ final class TranslationController: UIViewController, UITextViewDelegate {
     @IBAction func didTapTargetLangageButton(_ sender: UIButton) {
         performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
     }
+}
+
+extension TranslationController{
+    
+    @IBAction func unwindToTranslator(_ sender: UIStoryboardSegue){}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromTraductorToLangagesController" {
@@ -65,17 +82,9 @@ final class TranslationController: UIViewController, UITextViewDelegate {
             }
         }
     }
-    
-    override func viewDidLoad() {
-        errorLabel.isHidden = true
-        sourceText.delegate = self
-        targetText.isEditable = false
-        
-        if sourceText.text != "Saisissez du texte" {
-            translate()
-        }
-    }
-    
+}
+
+extension TranslationController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         translate()
     }
@@ -85,7 +94,9 @@ final class TranslationController: UIViewController, UITextViewDelegate {
             sourceText.text = ""
         }
     }
-    
+}
+
+extension TranslationController {
     func translate() {
         guard let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? ""),
             let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "") else {
@@ -108,3 +119,6 @@ final class TranslationController: UIViewController, UITextViewDelegate {
         targetText.text = data.data.translations[0].translatedText
     }
 }
+
+
+

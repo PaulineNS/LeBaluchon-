@@ -17,6 +17,9 @@ final class LangagesViewController: UIViewController {
     @IBOutlet private var selector: [UILabel]!
     @IBOutlet private var langages: [UIButton]!
     @IBOutlet private weak var titleLabel: UILabel!
+}
+
+extension LangagesViewController {
     
     override func viewDidLoad() {
         titleLabel.text = labelTitle
@@ -26,6 +29,9 @@ final class LangagesViewController: UIViewController {
         unselectedButton()
         selectTheLangage()
     }
+}
+
+extension LangagesViewController {
     
     func selectedButton(index: Int) {
         self.index = index
@@ -35,19 +41,6 @@ final class LangagesViewController: UIViewController {
     
     private func unselectedButton() {
         selector.forEach({ $0.isHidden = true })
-    }
-    
-    // Changing sourceLanguage and targetLanguage in TranslationController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let button = sender as? UIButton {
-            if let translationVC = segue.destination as? TranslationController {
-                if titleLabel.text == "Langue Source" {
-                    translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
-                } else if titleLabel.text == "Langue Cible" {
-                    translationVC.targetLangageButton.setTitle(button.currentTitle, for: .normal)
-                }
-            }
-        }
     }
     
     func selectTheLangage() {
@@ -66,3 +59,21 @@ final class LangagesViewController: UIViewController {
         }
     }
 }
+
+extension LangagesViewController {
+    
+    // Changing sourceLanguage and targetLanguage in TranslationController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let button = sender as? UIButton {
+            if let translationVC = segue.destination as? TranslationController {
+                if titleLabel.text == "Langue Source" {
+                    translationVC.sourceLangageButton.setTitle(button.currentTitle, for: .normal)
+                } else if titleLabel.text == "Langue Cible" {
+                    translationVC.targetLangageButton.setTitle(button.currentTitle, for: .normal)
+                }
+            }
+        }
+    }
+}
+
+

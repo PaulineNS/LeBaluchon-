@@ -46,13 +46,10 @@ final class WeatherService {
                     print ("pas de json")
                     return
                 }
-                
                 callback(.success(responseJSON))
             }
         }
-        
         task?.resume()
-        
     }
 }
 

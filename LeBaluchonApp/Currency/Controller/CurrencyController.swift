@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+final class CurrencyController: UIViewController {
     
     let symbolsDictionnary = ["EUR": "€", "USD": "$", "GBP": "£"]
     var fromSymbol = "EUR"
@@ -20,6 +20,9 @@ final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet private weak var requestPickerView: UIPickerView!
     @IBOutlet private weak var requestTextField: UITextField!
     
+}
+
+extension CurrencyController {
     override func viewDidLoad() {
         requestPickerView.delegate = self
         requestPickerView.dataSource = self
@@ -39,7 +42,9 @@ final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         requestTextField.resignFirstResponder()
     }
-    
+}
+
+extension CurrencyController: UIPickerViewDelegate, UIPickerViewDataSource {
     /// Creating Picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -63,7 +68,9 @@ final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPicker
         
         convert()
     }
-    
+}
+
+extension CurrencyController {
     func convert() {
         guard let text = requestTextField.text, let value = Double(text) else {
             return
@@ -92,6 +99,8 @@ final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
 }
+
+
 
 
 

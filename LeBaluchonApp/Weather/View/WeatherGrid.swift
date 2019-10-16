@@ -8,15 +8,13 @@
 
 import UIKit
 
-final class WeatherGrid: UIView {
+class WeatherGrid: UIView {
     
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    
-    
     @IBOutlet var contentView: UIView!
     
     // GridHandler Initialisation
