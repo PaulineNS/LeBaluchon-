@@ -66,7 +66,7 @@ final class CurrencyController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func convert() {
-        guard let text = self.requestTextField.text, let value = Double(text) else {
+        guard let text = requestTextField.text, let value = Double(text) else {
             return
         }
         
