@@ -9,9 +9,7 @@
 import Foundation
 
 final class CurrencyService {
-    
-    private var currency: Currrency?
-    
+        
     private var task: URLSessionDataTask?
     private var session: URLSession
     
@@ -23,11 +21,6 @@ final class CurrencyService {
     func getCurrency(callback: @escaping (Result<Currrency, NetworkError>) -> Void) {
         guard let apiKey = ApiKeyExtractor().apiKey else { return }
         guard let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(apiKey.fixer)") else { return }
-        
-        if let c = currency { 
-            callback(.success(c))
-            return
-        }
         
         task?.cancel()
         task = session.dataTask(with: currencyUrl) { (data, response, error) in
@@ -47,7 +40,6 @@ final class CurrencyService {
                     return
                 }
             
-                self.currency = responseJSON
                 callback(.success(responseJSON))
             }
         }
