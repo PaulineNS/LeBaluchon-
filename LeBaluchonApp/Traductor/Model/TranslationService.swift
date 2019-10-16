@@ -9,7 +9,7 @@
 import Foundation
 
 class TranslationService {
-
+    
     private var task: URLSessionDataTask?
     private var translationSession: URLSession
     
