@@ -18,7 +18,7 @@ class TranslationServiceTestsCase: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { (data) in
             // Then
-            XCTAssertEqual(failure, throw NetworkError.network)
+            XCTAssertNotNil(NetworkError.network)
             // XCTAssertNil(data)
             expectation.fulfill()
         }

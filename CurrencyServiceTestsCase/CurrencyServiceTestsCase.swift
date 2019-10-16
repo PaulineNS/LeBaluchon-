@@ -15,10 +15,15 @@ class CurrencyServiceTestsCase: XCTestCase {
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.errorCurrency))
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        currencyService.getCurrency { (currency) in
-            // Then
-            XCTAssertNil(currency)
-            expectation.fulfill()
+        currencyService.getCurrency { result in
+            switch result {
+            case .success(let currency):
+                XCTAssertNil(currency)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -28,10 +33,15 @@ class CurrencyServiceTestsCase: XCTestCase {
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        currencyService.getCurrency { (currency) in
-            // Then
-            XCTAssertNil(currency)
-            expectation.fulfill()
+        currencyService.getCurrency { result in
+            switch result {
+            case .success(let currency):
+                XCTAssertNil(currency)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -41,10 +51,15 @@ class CurrencyServiceTestsCase: XCTestCase {
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseKO, error: nil))
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        currencyService.getCurrency { (currency) in
-            // Then
-            XCTAssertNil(currency)
-            expectation.fulfill()
+        currencyService.getCurrency { result in
+            switch result {
+            case .success(let currency):
+                XCTAssertNil(currency)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -54,10 +69,15 @@ class CurrencyServiceTestsCase: XCTestCase {
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyIncorrectData, response: FakeResponseData.responseOK, error: nil))
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        currencyService.getCurrency { (currency) in
-            // Then
-            XCTAssertNil(currency)
-            expectation.fulfill()
+        currencyService.getCurrency { result in
+            switch result {
+            case .success(let currency):
+                XCTAssertNil(currency)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -67,12 +87,15 @@ class CurrencyServiceTestsCase: XCTestCase {
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        currencyService.getCurrency { (currency) in
-            // Then
-            let result = currency?.convert(value: 1.0, from: "EUR", to: "USD")
-            XCTAssertNotNil(currency)
-            XCTAssertEqual(result, 1.103569)
-            expectation.fulfill()
+        currencyService.getCurrency { result in
+            switch result {
+            case .success(let currency):
+                XCTAssertEqual(currency.convert(value: 1.0, from: "EUR", to: "USD"), 1.103569)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNil(error)
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -82,12 +105,15 @@ class CurrencyServiceTestsCase: XCTestCase {
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        currencyService.getCurrency { (currency) in
-            // Then
-            let result = currency?.convert(value: 1.0, from: "EUR", to: "GBP")
-            XCTAssertNotNil(currency)
-            XCTAssertEqual(result, 0.90661)
-            expectation.fulfill()
+        currencyService.getCurrency { result in
+            switch result {
+            case .success(let currency):
+                XCTAssertEqual(currency.convert(value: 1.0, from: "EUR", to: "GBP"), 0.90661)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssertNil(error)
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
