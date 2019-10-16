@@ -188,14 +188,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Sae-rY-7NF">
-                                <rect key="frame" x="20" y="108" width="374" height="685"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sae-rY-7NF">
+                                <rect key="frame" x="10" y="93" width="394" height="715"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-oq-dbV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="333.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-oq-dbV">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="355"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-qx-qSq">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
                                                 <state key="normal" title="France 🔍 ">
                                                     <color key="titleColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -204,7 +204,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="374" height="287.5"/>
+                                                <rect key="frame" x="0.0" y="32" width="394" height="323"/>
                                                 <color key="backgroundColor" red="0.46095710989999999" green="0.62224793430000003" blue="0.80282467599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -214,11 +214,11 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="54r-Bx-MaE">
-                                        <rect key="frame" x="0.0" y="351.5" width="374" height="333.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="54r-Bx-MaE">
+                                        <rect key="frame" x="0.0" y="360" width="394" height="355"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-2b-Qry">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
                                                 <state key="normal" title="Etats Unis 🔍 ">
                                                     <color key="titleColor" red="0.37030965089797974" green="0.49928468465805054" blue="0.64378422498703003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -227,7 +227,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="36.5" width="374" height="297"/>
+                                                <rect key="frame" x="0.0" y="32" width="394" height="323"/>
                                                 <color key="backgroundColor" red="0.72646123169999999" green="0.84451949599999998" blue="0.91568887229999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -242,10 +242,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96747678518295288" green="0.98345106840133667" blue="0.98741453886032104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sae-rY-7NF" firstAttribute="leading" secondItem="lJa-eE-Qg2" secondAttribute="leading" constant="20" id="Gex-5b-SCQ"/>
-                            <constraint firstItem="lJa-eE-Qg2" firstAttribute="trailing" secondItem="Sae-rY-7NF" secondAttribute="trailing" constant="20" id="PLQ-VA-WnZ"/>
-                            <constraint firstItem="lJa-eE-Qg2" firstAttribute="bottom" secondItem="Sae-rY-7NF" secondAttribute="bottom" constant="20" id="SUL-N0-ULJ"/>
-                            <constraint firstItem="Sae-rY-7NF" firstAttribute="top" secondItem="lJa-eE-Qg2" secondAttribute="top" constant="20" id="lmk-6x-NgT"/>
+                            <constraint firstItem="Sae-rY-7NF" firstAttribute="leading" secondItem="lJa-eE-Qg2" secondAttribute="leading" constant="10" id="Gex-5b-SCQ"/>
+                            <constraint firstItem="lJa-eE-Qg2" firstAttribute="trailing" secondItem="Sae-rY-7NF" secondAttribute="trailing" constant="10" id="PLQ-VA-WnZ"/>
+                            <constraint firstItem="lJa-eE-Qg2" firstAttribute="bottom" secondItem="Sae-rY-7NF" secondAttribute="bottom" constant="5" id="SUL-N0-ULJ"/>
+                            <constraint firstItem="Sae-rY-7NF" firstAttribute="top" secondItem="lJa-eE-Qg2" secondAttribute="top" constant="5" id="lmk-6x-NgT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lJa-eE-Qg2"/>
                     </view>

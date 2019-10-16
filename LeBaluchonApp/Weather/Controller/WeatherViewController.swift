@@ -62,29 +62,22 @@ extension WeatherViewController {
         weatherService.getWeather(topCityId: citiesDictionnary[topCityIndex].value, bottomCityId: citiesDictionnary[bottomCityIndex].value) { result in
             switch result {
             case .success(let weatherData):
-                self.updateWeather(data: weatherData)
+                self.updateWeather(data: weatherData, cityView: self.topCityView, cityIndex: 0, abbreviation: "CET")
+                self.updateWeather(data: weatherData, cityView: self.bottomCityGrid, cityIndex: 1, abbreviation: "EDT")
             case .failure:
                 self.presentAlert(message: "La météo n'a pas aboutit")
             }
         }
     }
     
-    func updateWeather(data: WeatherStruc) {
-        if let topCityTemperature = data.list[0].main.temp, let topCityIcon = data.list[0].weather[0].icon {
-            topCityView.temperatureLabel.text = String(topCityTemperature) + "°C"
-            topCityView.weatherImageView.image = UIImage(named: topCityIcon)
+    func updateWeather(data: WeatherStruc, cityView: WeatherGrid, cityIndex: Int, abbreviation: String) {
+        if let cityTemperature = data.list[cityIndex].main.temp, let cityIcon = data.list[cityIndex].weather[0].icon {
+            cityView.temperatureLabel.text = String(cityTemperature) + "°C"
+            cityView.weatherImageView.image = UIImage(named: cityIcon)
         }
-        topCityView.cityNameLabel.text = data.list[0].name
-        topCityView.conditionLabel.text = data.list[0].weather[0].weatherDescription
-        topCityView.dateLabel.text = convertDateFromUnix(unixTime: data.list[0].dt, abbreviation: "CET")
-        
-        if let bottomCityTemperature = data.list[1].main.temp, let bottomCityIcon = data.list[1].weather[0].icon {
-            bottomCityGrid.temperatureLabel.text = String(bottomCityTemperature) + "°C"
-            bottomCityGrid.weatherImageView.image = UIImage(named: bottomCityIcon)
-            bottomCityGrid.dateLabel.text = convertDateFromUnix(unixTime: data.list[1].dt, abbreviation: "EDT")
-        }
-        bottomCityGrid.cityNameLabel.text = data.list[1].name
-        bottomCityGrid.conditionLabel.text = data.list[1].weather[0].weatherDescription
+        cityView.cityNameLabel.text = data.list[cityIndex].name
+        cityView.conditionLabel.text = data.list[cityIndex].weather[0].weatherDescription
+        cityView.dateLabel.text = convertDateFromUnix(unixTime: data.list[cityIndex].dt, abbreviation: abbreviation)
     }
 }
 
