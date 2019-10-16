@@ -1,8 +1,8 @@
 //
 //  URLSessionFake.swift
-//  CurrencyServiceTestsCase
+//  LeBaluchonAppTests
 //
-//  Created by Pauline Nomballais on 02/09/2019.
+//  Created by Pauline Nomballais on 16/10/2019.
 //  Copyright © 2019 PaulineNomballais. All rights reserved.
 //
 
@@ -51,4 +51,3 @@ class URLSessionDataTaskFake: URLSessionDataTask {
     
     override func cancel() {}
 }
-
