@@ -10,12 +10,10 @@ import Foundation
 
 final class WeatherService {
     
-    static var shared = WeatherService()
-    private init() {}
-    
     private var task: URLSessionDataTask?
-    private var weatherSession = URLSession(configuration: .default)
-    init(weatherSession: URLSession) {
+    private var weatherSession: URLSession
+    
+    init(weatherSession: URLSession = URLSession(configuration: .default)) {
         self.weatherSession = weatherSession
     }
     
