@@ -17,14 +17,12 @@ class CurrencyServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result in
-            switch result {
-            case .success(let currency):
-                XCTAssertNil(currency)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -35,14 +33,12 @@ class CurrencyServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result in
-            switch result {
-            case .success(let currency):
-                XCTAssertNil(currency)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -53,14 +49,12 @@ class CurrencyServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result in
-            switch result {
-            case .success(let currency):
-                XCTAssertNil(currency)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -71,14 +65,12 @@ class CurrencyServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result in
-            switch result {
-            case .success(let currency):
-                XCTAssertNil(currency)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -89,14 +81,13 @@ class CurrencyServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result in
-            switch result {
-            case .success(let currency):
-                XCTAssertEqual(currency.convert(value: 1.0, from: "EUR", to: "USD"), 1.103569)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNil(error)
-                expectation.fulfill()
+            guard case .success(let currencyResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            
+            XCTAssertEqual(currencyResult.convert(value: 1.0, from: "EUR", to: "USD"), 1.103569)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -107,14 +98,13 @@ class CurrencyServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result in
-            switch result {
-            case .success(let currency):
-                XCTAssertEqual(currency.convert(value: 1.0, from: "EUR", to: "GBP"), 0.90661)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNil(error)
-                expectation.fulfill()
+            guard case .success(let currencyResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            
+            XCTAssertEqual(currencyResult.convert(value: 1.0, from: "EUR", to: "GBP"), 0.90661)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }

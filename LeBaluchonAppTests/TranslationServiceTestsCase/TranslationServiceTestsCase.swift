@@ -17,14 +17,12 @@ class TranslationServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
-            switch result {
-            case .success(let translation):
-                XCTAssertNil(translation)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -35,14 +33,12 @@ class TranslationServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
-            switch result {
-            case .success(let translation):
-                XCTAssertNil(translation)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -54,14 +50,12 @@ class TranslationServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
-            switch result {
-            case .success(let translation):
-                XCTAssertNil(translation)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -72,26 +66,28 @@ class TranslationServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
-            switch result {
-            case .success(let translation):
-                XCTAssertNil(translation)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
-    
+                
     func testGetTranslationShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
         let translationService = TranslationService(translationSession: URLSessionFake(data: FakeResponseData.translationCorrectData, response: FakeResponseData.responseOK, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { (data) in
-            // Then
-            XCTAssertNotNil(data)
+        translationService.getTranslation(text: "Bonjour", source: "fr", target: "en") { result in
+            guard case .success(let translationResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
+            XCTAssertEqual(translationResult.data.translations[0].translatedText, "Hello")
+           
             expectation.fulfill()
         }
         

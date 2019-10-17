@@ -17,14 +17,12 @@ class WeatherServiceTestsCase: XCTestCase {
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         weatherService.getWeather(topCityId: 6455259, bottomCityId: 5128638) { result in
-            switch result {
-            case .success(let weather):
-                XCTAssertNil(weather)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
@@ -36,17 +34,16 @@ class WeatherServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         weatherService.getWeather(topCityId: 6455259, bottomCityId: 5128638) { result in
-            switch result {
-            case .success(let weather):
-                XCTAssertNil(weather)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
+            
     
     func testGetWeatherShouldPostFailedCallbackIfIncorrectResponse() {
         // Given
@@ -54,17 +51,16 @@ class WeatherServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         weatherService.getWeather(topCityId: 6455259, bottomCityId: 5128638) { result in
-            switch result {
-            case .success(let weather):
-                XCTAssertNil(weather)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
+            
     
     func testGetWeatherShouldPostFailedCallbackIfIncorrectData() {
         // Given
@@ -72,26 +68,32 @@ class WeatherServiceTestsCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         weatherService.getWeather(topCityId: 6455259, bottomCityId: 5128638) { result in
-            switch result {
-            case .success(let weather):
-                XCTAssertNil(weather)
-                expectation.fulfill()
-            case .failure(let error):
-                XCTAssertNotNil(error)
-                expectation.fulfill()
+            guard case .failure(let error) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
             }
+            XCTAssertNotNil(error)
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
+            
     
      func testGetTranslationShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
         let weatherService = WeatherService(weatherSession: URLSessionFake(data: FakeResponseData.weatherCorrectData, response: FakeResponseData.responseOK, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        weatherService.getWeather(topCityId: 6455259, bottomCityId: 5128638) { (data) in
+        weatherService.getWeather(topCityId: 6455259, bottomCityId: 5128638) { result in
+            guard case .success(let weatherResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
             // Then
-            XCTAssertNotNil(data)
+            XCTAssertEqual(weatherResult.list[0].name, "Paris")
+            XCTAssertEqual(weatherResult.list[1].name, "New York")
+            XCTAssertEqual(weatherResult.list[0].weather[0].weatherDescription, "clear sky")
+            XCTAssertEqual(weatherResult.list[1].weather[0].weatherDescription, "clear sky")
             expectation.fulfill()
         }
         
