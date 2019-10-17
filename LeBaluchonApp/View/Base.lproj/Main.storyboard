@@ -189,10 +189,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sae-rY-7NF">
-                                <rect key="frame" x="10" y="93" width="394" height="715"/>
+                                <rect key="frame" x="10" y="98" width="394" height="705"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-oq-dbV">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="355"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="350"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-qx-qSq">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
@@ -204,7 +204,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="32" width="394" height="323"/>
+                                                <rect key="frame" x="0.0" y="32" width="394" height="318"/>
                                                 <color key="backgroundColor" red="0.46095710989999999" green="0.62224793430000003" blue="0.80282467599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -215,7 +215,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="54r-Bx-MaE">
-                                        <rect key="frame" x="0.0" y="360" width="394" height="355"/>
+                                        <rect key="frame" x="0.0" y="355" width="394" height="350"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-2b-Qry">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
@@ -227,7 +227,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="32" width="394" height="323"/>
+                                                <rect key="frame" x="0.0" y="32" width="394" height="318"/>
                                                 <color key="backgroundColor" red="0.72646123169999999" green="0.84451949599999998" blue="0.91568887229999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -240,12 +240,12 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96747678518295288" green="0.98345106840133667" blue="0.98741453886032104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93594288830000005" green="0.93608003849999999" blue="0.93591207269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Sae-rY-7NF" firstAttribute="leading" secondItem="lJa-eE-Qg2" secondAttribute="leading" constant="10" id="Gex-5b-SCQ"/>
                             <constraint firstItem="lJa-eE-Qg2" firstAttribute="trailing" secondItem="Sae-rY-7NF" secondAttribute="trailing" constant="10" id="PLQ-VA-WnZ"/>
-                            <constraint firstItem="lJa-eE-Qg2" firstAttribute="bottom" secondItem="Sae-rY-7NF" secondAttribute="bottom" constant="5" id="SUL-N0-ULJ"/>
-                            <constraint firstItem="Sae-rY-7NF" firstAttribute="top" secondItem="lJa-eE-Qg2" secondAttribute="top" constant="5" id="lmk-6x-NgT"/>
+                            <constraint firstItem="lJa-eE-Qg2" firstAttribute="bottom" secondItem="Sae-rY-7NF" secondAttribute="bottom" constant="10" id="SUL-N0-ULJ"/>
+                            <constraint firstItem="Sae-rY-7NF" firstAttribute="top" secondItem="lJa-eE-Qg2" secondAttribute="top" constant="10" id="lmk-6x-NgT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lJa-eE-Qg2"/>
                     </view>
@@ -646,23 +646,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-mb-59i">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-mb-59i">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.53262490034103394" green="0.67114454507827759" blue="0.82331663370132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="d9v-OM-hKj">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Villes Françaises" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-rH-alH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <color key="backgroundColor" red="0.46095710989999999" green="0.62224793430000003" blue="0.80282467599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.53262490034103394" green="0.67114454507827759" blue="0.82331663370132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="k5N-rH-alH" firstAttribute="leading" secondItem="d9v-OM-hKj" secondAttribute="leading" id="3E3-Ri-0iP"/>
                                         <constraint firstAttribute="bottom" secondItem="k5N-rH-alH" secondAttribute="bottom" id="Wec-Z3-Dx3"/>
@@ -671,15 +669,51 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="MyCell" id="ReY-E6-F1P">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="MyCell" rowHeight="90" id="ReY-E6-F1P" customClass="CitiesTableViewCell" customModule="LeBaluchonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ReY-E6-F1P" id="l8c-2r-ZzD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sp-el-4BI">
+                                                    <rect key="frame" x="15" y="15" width="384" height="60"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unh-OP-O7b">
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="60"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.46095710989999999" green="0.62224793430000003" blue="0.80282467599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="unh-OP-O7b" secondAttribute="trailing" id="aIt-4c-8Wg"/>
+                                                        <constraint firstItem="unh-OP-O7b" firstAttribute="top" secondItem="5Sp-el-4BI" secondAttribute="top" id="dKV-BR-KOL"/>
+                                                        <constraint firstItem="unh-OP-O7b" firstAttribute="leading" secondItem="5Sp-el-4BI" secondAttribute="leading" id="gXm-m4-6gR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="unh-OP-O7b" secondAttribute="bottom" id="tcQ-57-egW"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="5Sp-el-4BI" firstAttribute="top" secondItem="l8c-2r-ZzD" secondAttribute="top" constant="15" id="4np-hy-AWA"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Sp-el-4BI" secondAttribute="bottom" constant="15" id="9yE-y2-zHW"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Sp-el-4BI" secondAttribute="trailing" constant="15" id="bqQ-mc-0ut"/>
+                                                <constraint firstItem="5Sp-el-4BI" firstAttribute="leading" secondItem="l8c-2r-ZzD" secondAttribute="leading" constant="15" id="fgb-Kp-6cq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="unh-OP-O7b" id="jk5-Zp-O1f"/>
+                                            <outlet property="whiteView" destination="5Sp-el-4BI" id="zts-w2-pIq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

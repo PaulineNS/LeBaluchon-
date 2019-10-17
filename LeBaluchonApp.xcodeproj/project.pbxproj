@@ -15,6 +15,7 @@
 		5608F3C723575FF1008A8BA4 /* Translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608F3C623575FF0008A8BA4 /* Translation.json */; };
 		5608F3C923576015008A8BA4 /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608F3C823576015008A8BA4 /* Currency.json */; };
 		5608F3CB2357602F008A8BA4 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608F3CA2357602F008A8BA4 /* Weather.json */; };
+		5608F3D12358B895008A8BA4 /* CitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */; };
 		561185762327D133005222F1 /* ErrorCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561185752327D133005222F1 /* ErrorCases.swift */; };
 		5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611857B2328E1F2005222F1 /* WeatherGrid.swift */; };
 		5611857E2328E2ED005222F1 /* WeatherGrid.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611857D2328E2ED005222F1 /* WeatherGrid.xib */; };
@@ -59,6 +60,7 @@
 		5608F3C623575FF0008A8BA4 /* Translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translation.json; sourceTree = "<group>"; };
 		5608F3C823576015008A8BA4 /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
 		5608F3CA2357602F008A8BA4 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewCell.swift; sourceTree = "<group>"; };
 		561185752327D133005222F1 /* ErrorCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCases.swift; sourceTree = "<group>"; };
 		5611857B2328E1F2005222F1 /* WeatherGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGrid.swift; sourceTree = "<group>"; };
 		5611857D2328E2ED005222F1 /* WeatherGrid.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherGrid.xib; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				5611857D2328E2ED005222F1 /* WeatherGrid.xib */,
 				5611857B2328E1F2005222F1 /* WeatherGrid.swift */,
+				5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				566D481923291D3700612DA7 /* CitiesTableViewController.swift in Sources */,
 				561185762327D133005222F1 /* ErrorCases.swift in Sources */,
 				565503FB23142AED00FDDD23 /* LangagesViewController.swift in Sources */,
+				5608F3D12358B895008A8BA4 /* CitiesTableViewCell.swift in Sources */,
 				565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */,
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,
 				565503F92314050F00FDDD23 /* Translation.swift in Sources */,
