@@ -82,10 +82,6 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController{
-    func saveData() {
-        let userDefault = UserDefaults.standard
-        userDefault.set(topCityName, forKey: "savedTopCityName")
-    }
     
     func convertDateFromUnix(unixTime: Int, abbreviation: String) -> String {
         let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
