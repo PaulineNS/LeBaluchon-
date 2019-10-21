@@ -10,10 +10,14 @@ import UIKit
 
 final class WeatherViewController: UIViewController {
     
+    //MARK: OUTLETS
     @IBOutlet private weak var topCityView: WeatherGrid!
     @IBOutlet private weak var bottomCityGrid: WeatherGrid!
     
+    // instance
     let weatherService = WeatherService()
+    
+    //MARK: VARIABLES
     let citiesDictionnary = ["Paris": 6455259, "Marseille": 2995469, "Lyon": 6454573, "Toulouse": 6453974, "Nice": 2990440, "Nantes": 6434483, "Montpellier": 6454034, "Strasbourg": 2973783, "Bordeaux": 6455058, "Lille": 6454414, "New York": 5128638, "Los Angeles": 5368361, "Chicago": 4887398, "Houston": 4391354, "Philadelphia": 4440906, "San Diego": 4726311, "Dallas": 4684888, "Phoenix": 4905873, "San Antonio": 4726206]
     var topCityName = "Paris"
     var bottomCityName = "New York"
@@ -25,11 +29,13 @@ extension WeatherViewController {
         displayWeatherData(nameTopCity: topCityName, nameBottomCity: bottomCityName)
     }
     
+    //Button to change the fench city
     @IBAction private func didTapFrenchCitiesButton(_ sender: Any) {
         UserDefaults.standard.set(bottomCityName, forKey: "savedBottomCityName")
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
     }
     
+    //Button to change the american city
     @IBAction private func didTapUsCitiesButton(_ sender: Any) {
         UserDefaults.standard.set(topCityName, forKey: "savedTopCityName")
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
@@ -37,6 +43,7 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController {
+    // Segue to CitiesTableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromWeatherVcToTableViewVc" {
             if let button = sender as? UIButton {
@@ -54,6 +61,7 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController {
+    // Manage the weather display
     private func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
         guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
             return
@@ -83,6 +91,7 @@ extension WeatherViewController {
 
 extension WeatherViewController{
     
+    // Convert the unix from API to obtain date and time 
     private func convertDateFromUnix(unixTime: Int, abbreviation: String) -> String {
         let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
         

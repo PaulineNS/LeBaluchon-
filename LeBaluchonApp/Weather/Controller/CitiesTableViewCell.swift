@@ -10,6 +10,7 @@ import UIKit
 
 class CitiesTableViewCell: UITableViewCell {
 
+    //MARK: OUTLETS
     @IBOutlet weak var whiteView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -18,6 +19,7 @@ class CitiesTableViewCell: UITableViewCell {
         addShadow()
     }
     
+    // Add shadow to my tableView Cells
     private func addShadow() {
         whiteView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
         whiteView.layer.shadowRadius = 2.0

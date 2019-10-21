@@ -8,6 +8,8 @@
 
 import Foundation
 
+// API Struct
+// MARK: - Currency
 struct Currrency: Decodable {
     
     var rates: [String: Double]
@@ -15,14 +17,17 @@ struct Currrency: Decodable {
 
 extension Currrency {
     
+    // Conversion from euro to another device
     private func convertFromEuro(value: Double, rate: Double) -> Double {
         return value * rate
     }
     
+    // Conversion from a device to euro
     private func convertToEuro(value: Double, rate: Double) -> Double {
         return value / rate
     }
-    
+
+    // Manage the conversion
     func convert(value: Double, from: String, to: String) -> Double {
         if from != "EUR" {
             var rate = Double((self.rates[from] ?? 0.0))

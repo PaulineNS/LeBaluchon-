@@ -10,6 +10,7 @@ import UIKit
 
 class WeatherGrid: UIView {
     
+    //MARK: OUTLETS
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -28,6 +29,7 @@ class WeatherGrid: UIView {
         setup()
     }
     
+    // Adapt the xib to the view
     private func setup() {
         Bundle.main.loadNibNamed("WeatherGrid", owner: self, options: nil)
             addSubview(contentView)

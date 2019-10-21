@@ -10,10 +10,12 @@ import UIKit
 
 final class LangagesViewController: UIViewController {
     
+    //MARK: VARIABLES
     var labelTitle: String? = ""
     var index = 0
     var selectedLangage: String?
     
+    //MARK: OUTLETS
     @IBOutlet private var selector: [UILabel]!
     @IBOutlet private var langages: [UIButton]!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -33,10 +35,12 @@ extension LangagesViewController {
 
 extension LangagesViewController {
     
+    // Unselect all the langages button
     private func unselectedButton() {
         selector.forEach({ $0.isHidden = true })
     }
     
+    // Select just the button user selected
     private func selectedButton(index: Int) {
         self.index = index
         unselectedButton()

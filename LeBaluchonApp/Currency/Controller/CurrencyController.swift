@@ -10,11 +10,15 @@ import UIKit
 
 final class CurrencyController: UIViewController {
     
+    //MARK: VARIABLES
     let symbolsDictionnary = ["EUR": "€", "USD": "$", "GBP": "£"]
     var fromSymbol = "EUR"
     var toSymbol = "EUR"
+    
+    // instance
     let currencyService = CurrencyService()
     
+    // Outlets
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var resultSymbolsPickerView: UIPickerView!
     @IBOutlet private weak var requestPickerView: UIPickerView!
@@ -32,6 +36,8 @@ extension CurrencyController {
         resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
     }
     
+    // Actions
+    // Launch conversion
     @IBAction private func tappingCurrency(_ sender: Any) {
         if requestTextField.text == "" {
             resultLabel.text = ""
@@ -39,13 +45,15 @@ extension CurrencyController {
         convert()
     }
     
+    //Manage the disapperance of the keyboard
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         requestTextField.resignFirstResponder()
     }
 }
 
+/// Creating The PickerView
 extension CurrencyController: UIPickerViewDelegate, UIPickerViewDataSource {
-    /// Creating Picker view
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -71,6 +79,7 @@ extension CurrencyController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension CurrencyController {
+    // Manage the conversion
     func convert() {
         guard let text = requestTextField.text, let value = Double(text) else {
             return

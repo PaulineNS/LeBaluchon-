@@ -10,9 +10,13 @@ import UIKit
 
 final class TranslationController: UIViewController {
     
+    // instance
     let translationService = TranslationService()
+    
+    //MARK: VARIABLES
     let languagesDictionnary = ["Allemand": "de", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     
+    //MARK: OUTLETS
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var sourceText: UITextView!
     @IBOutlet weak var targetText: UITextView!
@@ -32,10 +36,13 @@ extension TranslationController {
         }
     }
     
+    // Actions
+    //Manage the disapperance of the keyboard
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sourceText.resignFirstResponder()
     }
     
+    // clear source and target texts
     @IBAction func didTapClearButton(_ sender: Any) {
         errorLabel.isHidden = true
         sourceText.text = "Saisissez du texte"
@@ -43,6 +50,7 @@ extension TranslationController {
         targetText.text = ""
     }
     
+    // to reverse languages
     @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
         let sourceTitle = sourceLangageButton.currentTitle
         sourceLangageButton.setTitle(targetLangageButton.currentTitle, for: .normal)
@@ -53,10 +61,12 @@ extension TranslationController {
         }
     }
     
+    //To change the source langage
     @IBAction func didTapSourceLangageButton(_ sender: UIButton) {
         performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
     }
     
+    //To change the target langage
     @IBAction func didTapTargetLangageButton(_ sender: UIButton) {
         performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
     }
@@ -66,6 +76,7 @@ extension TranslationController{
     
     @IBAction func unwindToTranslator(_ sender: UIStoryboardSegue){}
     
+    // Segue to LangagesViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromTraductorToLangagesController" {
             if let button = sender as? UIButton {
@@ -85,10 +96,12 @@ extension TranslationController{
 }
 
 extension TranslationController: UITextViewDelegate {
+    // Translate each time the textField change
     func textViewDidChange(_ textView: UITextView) {
         translate()
     }
     
+    // Translate when user start editin
     func textViewDidBeginEditing(_ textView: UITextView) {
         if sourceText.text == "Saisissez du texte" {
             sourceText.text = ""
@@ -97,6 +110,7 @@ extension TranslationController: UITextViewDelegate {
 }
 
 extension TranslationController {
+    // Manage the translation
     func translate() {
         guard let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? ""),
             let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "") else {

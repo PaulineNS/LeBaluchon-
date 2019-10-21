@@ -10,6 +10,7 @@ import Foundation
 
 final class WeatherService {
     
+    //MARK: VARIABLES
     private var task: URLSessionDataTask?
     private var weatherSession: URLSession
     
@@ -17,12 +18,14 @@ final class WeatherService {
         self.weatherSession = weatherSession
     }
     
+    // compose url endpoint with cities ids and options
     private func createWeatherRequest(topCityId: Int, bottomCityId: Int) -> URLRequest? {
         guard let apiKey = ApiKeyExtractor().apiKey, let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/group?id=\(topCityId),\(bottomCityId)&units=metric&lang=fr&APPID=\(apiKey.openWeatherMap)") else { return nil }
         let request = URLRequest(url: weatherUrl)
         return request
     }
     
+    // request service weather
     func getWeather(topCityId: Int, bottomCityId: Int, callback: @escaping (Result <WeatherStruc, Error>) -> Void) {
         guard let request = createWeatherRequest(topCityId: topCityId, bottomCityId: bottomCityId) else { return }
         task?.cancel()
@@ -41,6 +44,7 @@ final class WeatherService {
                     return
                 }
                 
+                // lecture JSON
                 guard let responseJSON = try? JSONDecoder().decode(WeatherStruc.self, from: data) else {
                     callback(.failure(NSError(domain: "Invalid Data", code: 0, userInfo: nil)))
                     print ("pas de json")
@@ -51,30 +55,8 @@ final class WeatherService {
         }
         task?.resume()
     }
-}
+} // end class
 
-//extension WeatherService {
-//    private struct Keys {
-//        static let topCityName = "savedTopCityName"
-//        static let bottomCityName = "savedBottomCityName"
-//    }
-//    
-//    static var savedTopCityName: String {
-//        get {
-//            return UserDefaults.standard.string(forKey: Keys.topCityName) ?? "Paris"
-//        }
-//        set {
-//            UserDefaults.standard.set(savedTopCityName, forKey: Keys.topCityName)
-//        }
-//    }
-//    
-//    static var savedBottomCityName: String {
-//        get {
-//            return UserDefaults.standard.string(forKey: Keys.bottomCityName) ?? "New York"
-//        }
-//        set {
-//            UserDefaults.standard.set(savedBottomCityName, forKey: Keys.bottomCityName)
-//        }
-//    }
-//}
+
+
 

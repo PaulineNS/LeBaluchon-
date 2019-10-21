@@ -10,12 +10,14 @@ import UIKit
 
 final class CitiesTableViewController: UIViewController {
     
+    //MARK: VARIABLES
     var labelTitle: String? = ""
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var citiesTableView: UITableView!
-    
     let frenchCitiesArray = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille"]
     let americanCitiesArray = ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "San Diego", "Dallas", "Phoenix", "San Antonio"]
+    
+    //MARK: OUTLETS
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var citiesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ final class CitiesTableViewController: UIViewController {
     }
 }
 
+/// Creating The TableView
 extension CitiesTableViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

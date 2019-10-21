@@ -10,6 +10,7 @@
 //
 //   let weatherStruc = try? newJSONDecoder().decode(WeatherStruc.self, from: jsonData)
 
+// API Struct
 import Foundation
 
 // MARK: - WeatherStruc
@@ -40,7 +41,30 @@ struct Weather: Decodable {
     }
 }
 
-
+//extension WeatherStruc{
+//    private struct Keys {
+//        static let topCityName = "savedTopCityName"
+//        static let bottomCityName = "savedBottomCityName"
+//    }
+//
+//    static var savedTopCityName: String {
+//        get {
+//            return UserDefaults.standard.string(forKey: Keys.topCityName) ?? "Paris"
+//        }
+//        set {
+//            UserDefaults.standard.set(savedTopCityName, forKey: Keys.topCityName)
+//        }
+//    }
+//
+//    static var savedBottomCityName: String {
+//        get {
+//            return UserDefaults.standard.string(forKey: Keys.bottomCityName) ?? "New York"
+//        }
+//        set {
+//            UserDefaults.standard.set(savedBottomCityName, forKey: Keys.bottomCityName)
+//        }
+//    }
+//}
 
 
 

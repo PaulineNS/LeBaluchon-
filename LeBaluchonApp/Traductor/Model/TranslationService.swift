@@ -10,6 +10,7 @@ import Foundation
 
 class TranslationService {
     
+    //MARK: VARIABLES
     private var task: URLSessionDataTask?
     private var translationSession: URLSession
     
@@ -17,13 +18,15 @@ class TranslationService {
         self.translationSession = translationSession
     }
     
+    // compose url endpoint with text and languages in/out
     private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest? {
         let textwithAllowedCharacters = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         guard let apiKey = ApiKeyExtractor().apiKey, let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(apiKey.google)&source=\(source)&target=\(target)&q=\(textwithAllowedCharacters ?? "")&format=text".replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespaces)) else { return nil }
         let request = URLRequest(url: translationUrl)
         return request
     }
-    
+
+    // request service translation
     func getTranslation(text: String, source: String, target: String, callback: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let request = createTranslationRequest(text: text, source: source, target: target) else { return }
         
@@ -40,6 +43,7 @@ class TranslationService {
                     return
                 }
                 
+                // lecture JSON
                 guard let responseJSON = try? JSONDecoder().decode(Data.self, from: data) else {
                     callback(.failure(.invalidData))
                     return
@@ -50,4 +54,5 @@ class TranslationService {
         }
         task?.resume()
     }
-}
+} // end class
+
