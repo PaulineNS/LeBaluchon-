@@ -28,7 +28,7 @@ class WeatherGrid: UIView {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         Bundle.main.loadNibNamed("WeatherGrid", owner: self, options: nil)
             addSubview(contentView)
             contentView.frame = self.bounds

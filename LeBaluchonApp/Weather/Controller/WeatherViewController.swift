@@ -54,7 +54,7 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController {
-    func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
+    private func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
         guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
             return
         }
@@ -70,7 +70,7 @@ extension WeatherViewController {
         }
     }
     
-    func updateWeather(data: WeatherStruc, cityView: WeatherGrid, cityIndex: Int, abbreviation: String) {
+    private func updateWeather(data: WeatherStruc, cityView: WeatherGrid, cityIndex: Int, abbreviation: String) {
         if let cityTemperature = data.list[cityIndex].main.temp, let cityIcon = data.list[cityIndex].weather[0].icon {
             cityView.temperatureLabel.text = String(cityTemperature) + "°C"
             cityView.weatherImageView.image = UIImage(named: cityIcon)
@@ -83,7 +83,7 @@ extension WeatherViewController {
 
 extension WeatherViewController{
     
-    func convertDateFromUnix(unixTime: Int, abbreviation: String) -> String {
+    private func convertDateFromUnix(unixTime: Int, abbreviation: String) -> String {
         let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
         
         let dateFormatter = DateFormatter()

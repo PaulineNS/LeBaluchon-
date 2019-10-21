@@ -33,17 +33,17 @@ extension LangagesViewController {
 
 extension LangagesViewController {
     
-    func selectedButton(index: Int) {
+    private func unselectedButton() {
+        selector.forEach({ $0.isHidden = true })
+    }
+    
+    private func selectedButton(index: Int) {
         self.index = index
         unselectedButton()
         selector[index].isHidden = false
     }
     
-    private func unselectedButton() {
-        selector.forEach({ $0.isHidden = true })
-    }
-    
-    func selectTheLangage() {
+    private func selectTheLangage() {
         switch selectedLangage {
         case "Anglais":
             selectedButton(index: 1)
