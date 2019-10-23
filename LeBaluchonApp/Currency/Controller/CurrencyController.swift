@@ -11,9 +11,9 @@ import UIKit
 final class CurrencyController: UIViewController {
     
     //MARK: VARIABLES
-    let symbolsDictionnary = ["EUR": "€", "USD": "$", "GBP": "£"]
+    let symbolsDevices = [("USD", "$"), ("GBP", "£"), ("EUR", "€")]
     var fromSymbol = "EUR"
-    var toSymbol = "EUR"
+    var toSymbol = "USD"
     
     // instance
     let currencyService = CurrencyService()
@@ -32,8 +32,8 @@ extension CurrencyController {
         requestPickerView.dataSource = self
         resultSymbolsPickerView.delegate = self
         resultSymbolsPickerView.dataSource = self
-        requestPickerView.selectRow(1, inComponent: 0, animated: true)
-        resultSymbolsPickerView.selectRow(1, inComponent: 0, animated: true)
+        requestPickerView.selectRow(2, inComponent: 0, animated: true)
+        resultSymbolsPickerView.selectRow(0, inComponent: 0, animated: true)
     }
     
     // Actions
@@ -59,19 +59,19 @@ extension CurrencyController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return symbolsDictionnary.count
+        return symbolsDevices.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Array(symbolsDictionnary.values).sorted()[row]
+        return symbolsDevices[row].1
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == requestPickerView {
-            fromSymbol = Array(symbolsDictionnary.keys)[row]
+            fromSymbol = symbolsDevices[row].0
         } else if pickerView == resultSymbolsPickerView {
-            toSymbol = Array(symbolsDictionnary.keys)[row]
+            toSymbol = symbolsDevices[row].0
         }
         
         convert()
