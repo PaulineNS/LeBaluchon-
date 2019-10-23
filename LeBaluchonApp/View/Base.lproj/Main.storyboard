@@ -409,8 +409,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lW9-zD-aAz">
-                                <rect key="frame" x="20" y="128" width="374" height="669.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lW9-zD-aAz">
+                                <rect key="frame" x="20" y="113.5" width="374" height="669.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Langue Source" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4l-cL-6eV">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
@@ -495,7 +495,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s55-hY-Cq1" userLabel="EspagnolView">
                                         <rect key="frame" x="0.0" y="303" width="374" height="88"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="left" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5OL-kO-Hq3" userLabel="Espagnol">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5OL-kO-Hq3" userLabel="Espagnol">
                                                 <rect key="frame" x="15" y="0.0" width="344" height="88"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3M-UF-MNE">
@@ -536,7 +536,7 @@
                                                 <rect key="frame" x="15" y="0.0" width="344" height="88.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGX-sw-hqw">
-                                                        <rect key="frame" x="0.0" y="23.5" width="306" height="42"/>
+                                                        <rect key="frame" x="0.0" y="23" width="306" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <state key="normal" title="Français">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -546,7 +546,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAK-Q6-i7h" userLabel="FrançaisSelected">
-                                                        <rect key="frame" x="316" y="29.5" width="28" height="30"/>
+                                                        <rect key="frame" x="316" y="29" width="28" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -608,9 +608,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.83738118410110474" green="0.90114361047744751" blue="0.94918650388717651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lW9-zD-aAz" firstAttribute="leading" secondItem="krb-98-wzJ" secondAttribute="leading" constant="20" id="AZJ-Ra-Aii"/>
-                            <constraint firstItem="lW9-zD-aAz" firstAttribute="top" secondItem="krb-98-wzJ" secondAttribute="top" constant="40" id="GS4-CS-Y59"/>
-                            <constraint firstItem="krb-98-wzJ" firstAttribute="trailing" secondItem="lW9-zD-aAz" secondAttribute="trailing" constant="20" id="KBH-BR-uTA"/>
+                            <constraint firstItem="lW9-zD-aAz" firstAttribute="centerY" secondItem="Dxg-mw-KxJ" secondAttribute="centerY" id="9be-Bx-XNp"/>
+                            <constraint firstItem="lW9-zD-aAz" firstAttribute="centerX" secondItem="Dxg-mw-KxJ" secondAttribute="centerX" id="ddh-f2-JxJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="krb-98-wzJ"/>
                     </view>

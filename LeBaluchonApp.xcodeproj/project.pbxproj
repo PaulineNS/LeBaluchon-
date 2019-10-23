@@ -183,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				565503B923045EDC00FDDD23 /* Main.storyboard */,
-				565503BE23045EE600FDDD23 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +190,7 @@
 		565503CA23045F0500FDDD23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				565503BE23045EE600FDDD23 /* LaunchScreen.storyboard */,
 				565503B523045EDC00FDDD23 /* AppDelegate.swift */,
 				565503BC23045EE600FDDD23 /* Assets.xcassets */,
 				565503C123045EE600FDDD23 /* Info.plist */,
