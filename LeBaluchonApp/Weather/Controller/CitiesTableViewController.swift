@@ -49,10 +49,8 @@ extension CitiesTableViewController: UITableViewDataSource, UITableViewDelegate 
         
         if titleLabel.text == "Villes Françaises" {
             cell.configure(title: frenchCitiesArray[indexPath.row])
-            //cell.textLabel?.text = frenchCitiesArray[indexPath.row]
         } else if titleLabel.text == "Villes Américaines" {
             cell.configure(title: americanCitiesArray[indexPath.row])
-            //cell.textLabel?.text = americanCitiesArray[indexPath.row]
         }
         return cell
     }
