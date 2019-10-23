@@ -97,7 +97,7 @@ extension WeatherViewController{
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: abbreviation)
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         
         return dateFormatter.string(from: weatherDate as Date)
     }
