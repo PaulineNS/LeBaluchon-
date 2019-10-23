@@ -17,7 +17,6 @@ final class LanguagesViewController: UIViewController {
     
     //MARK: OUTLETS
     @IBOutlet private var selector: [UILabel]!
-    @IBOutlet private var languages: [UIButton]!
     @IBOutlet private weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
@@ -28,7 +27,15 @@ final class LanguagesViewController: UIViewController {
 }
 
 extension LanguagesViewController {
-    // Unselect all the langages button
+    
+    //MARK: ACTION
+    @IBAction func didTapOnLanguageButton(_ sender: UIButton) {
+        selectedLanguage = sender.title(for: .normal)
+    }
+}
+
+extension LanguagesViewController {
+    // Unselect all the languages button
     private func unselectedButton() {
         selector.forEach({ $0.isHidden = true })
     }
@@ -53,22 +60,6 @@ extension LanguagesViewController {
         case "Français":
             selectedButton(index: 3)
         default: break
-        }
-    }
-}
-
-extension LanguagesViewController {
-    
-    // Changing sourceLanguage and targetLanguage in TranslationController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let button = sender as? UIButton {
-            if let translationVC = segue.destination as? TranslationController {
-                if titleLabel.text == "Langue Source" {
-                    translationVC.sourceLanguageButton.setTitle(button.currentTitle, for: .normal)
-                } else if titleLabel.text == "Langue Cible" {
-                    translationVC.targetLanguageButton.setTitle(button.currentTitle, for: .normal)
-                }
-            }
         }
     }
 }

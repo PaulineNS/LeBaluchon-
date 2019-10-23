@@ -61,20 +61,26 @@ extension TranslationController {
         }
     }
     
-    //To change the source langage
-    @IBAction func didTapSourceLanguageButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
-    }
-    
-    //To change the target langage
-    @IBAction func didTapTargetLanguageButton(_ sender: UIButton) {
+    //To choose another language
+    @IBAction func didTapLanguageButton(_ sender: UIButton) {
+        languagesButtons = sender.tag == 1 ? .source : .target
         performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
     }
 }
 
 extension TranslationController{
     
-    @IBAction func unwindToTranslator(_ sender: UIStoryboardSegue){}
+    //Action to do after the unwindSegue from LanguagesViewController
+    @IBAction func didUnwindFromLanguagesViewController(_ sender: UIStoryboardSegue){
+    guard let languagesViewController = sender.source as? LanguagesViewController else { return }
+        guard let selectedLanguage = languagesViewController.selectedLanguage else { return }
+        switch languagesButtons {
+        case .source:
+            sourceLanguageButton.setTitle(selectedLanguage, for: .normal)
+        case .target:
+            targetLanguageButton.setTitle(selectedLanguage, for: .normal)
+        }
+    }
     
     // Segue to LangagesViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
