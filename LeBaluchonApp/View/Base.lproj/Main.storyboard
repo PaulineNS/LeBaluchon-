@@ -200,7 +200,7 @@
                                                     <color key="titleColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapFrenchCitiesButton:" destination="BCP-eF-vk0" eventType="touchUpInside" id="4Zo-vX-piz"/>
+                                                    <action selector="didTapCitiesButton:" destination="BCP-eF-vk0" eventType="touchUpInside" id="OQD-Dh-szR"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -223,7 +223,7 @@
                                                     <color key="titleColor" red="0.37030965089797974" green="0.49928468465805054" blue="0.64378422498703003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapUsCitiesButton:" destination="BCP-eF-vk0" eventType="touchUpInside" id="aNn-mA-zOn"/>
+                                                    <action selector="didTapCitiesButton:" destination="BCP-eF-vk0" eventType="touchUpInside" id="aNn-mA-zOn"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
@@ -298,7 +298,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="didTapLanguageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="928-z8-apx"/>
+                                                    <action selector="didTapSourceLanguageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="928-z8-apx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -324,7 +324,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="didTapLanguageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="MUq-B6-Nmh"/>
+                                                    <action selector="didTapTargetLanguageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="5jT-l2-bmY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -431,8 +431,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapOnLanguageButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="cOf-6q-EkZ"/>
-                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="didUnwindFromLanguagesViewController:" id="2uI-v2-esz"/>
+                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="LlI-ws-jvt"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgu-cd-uAF" userLabel="AllemandSelected">
@@ -469,8 +468,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapOnLanguageButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="X9O-zh-kDs"/>
-                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="didUnwindFromLanguagesViewController:" id="Q2N-QL-lYm"/>
+                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="zBK-6h-cFa"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-ql-zrM" userLabel="AnglaisSelected">
@@ -507,8 +505,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapOnLanguageButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="onW-aG-qgk"/>
-                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="didUnwindFromLanguagesViewController:" id="ESY-0o-DTl"/>
+                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="X4w-qN-C8q"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTr-cO-goY" userLabel="EspagnolSelected">
@@ -545,8 +542,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapOnLanguageButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="HRr-bM-dfy"/>
-                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="didUnwindFromLanguagesViewController:" id="Vd5-ZM-qhM"/>
+                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="Fix-U8-KTw"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAK-Q6-i7h" userLabel="FrançaisSelected">
@@ -583,8 +579,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapOnLanguageButton:" destination="gB4-hZ-Jpx" eventType="touchUpInside" id="X7O-tu-Y1d"/>
-                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="didUnwindFromLanguagesViewController:" id="YMs-Xc-yjr"/>
+                                                            <segue destination="emV-qT-JVe" kind="unwind" unwindAction="unwindToTranslator:" id="8Gl-CJ-AWA"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hn3-jO-yg7" userLabel="ItalienSelected">
@@ -620,6 +615,11 @@
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="J4l-cL-6eV" id="4uP-xX-BSe"/>
+                        <outletCollection property="languages" destination="LBd-Ey-QN1" collectionClass="NSMutableArray" id="hPX-gi-OR0"/>
+                        <outletCollection property="languages" destination="6bn-6e-c7f" collectionClass="NSMutableArray" id="F9A-qI-Ff3"/>
+                        <outletCollection property="languages" destination="Q3M-UF-MNE" collectionClass="NSMutableArray" id="Hum-AV-vNA"/>
+                        <outletCollection property="languages" destination="mGX-sw-hqw" collectionClass="NSMutableArray" id="O1L-ws-vhI"/>
+                        <outletCollection property="languages" destination="T1n-03-toZ" collectionClass="NSMutableArray" id="6RU-SL-wA1"/>
                         <outletCollection property="selector" destination="Vgu-cd-uAF" collectionClass="NSMutableArray" id="uYK-36-e0W"/>
                         <outletCollection property="selector" destination="CpL-ql-zrM" collectionClass="NSMutableArray" id="lKE-Le-w87"/>
                         <outletCollection property="selector" destination="FTr-cO-goY" collectionClass="NSMutableArray" id="gk4-sm-aJc"/>

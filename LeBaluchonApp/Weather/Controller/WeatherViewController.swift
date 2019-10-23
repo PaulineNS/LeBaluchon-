@@ -29,15 +29,13 @@ extension WeatherViewController {
         displayWeatherData(nameTopCity: topCityName, nameBottomCity: bottomCityName)
     }
     
-    //Button to change the fench city
-    @IBAction private func didTapFrenchCitiesButton(_ sender: Any) {
-        UserDefaults.standard.set(bottomCityName, forKey: "savedBottomCityName")
-        performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
-    }
-    
     //Button to change the american city
-    @IBAction private func didTapUsCitiesButton(_ sender: Any) {
-        UserDefaults.standard.set(topCityName, forKey: "savedTopCityName")
+    @IBAction private func didTapCitiesButton(_ sender: UIButton) {
+        if sender.tag == 1 {
+            UserDefaults.standard.set(bottomCityName, forKey: "savedBottomCityName")
+        } else if sender.tag == 2 {
+            UserDefaults.standard.set(topCityName, forKey: "savedTopCityName")
+        }
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
     }
 }
