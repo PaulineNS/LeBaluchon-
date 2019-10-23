@@ -298,7 +298,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="didTapSourceLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="W7j-7H-jlL"/>
+                                                    <action selector="didTapSourceLanguageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="928-z8-apx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-1p-xwY">
@@ -308,7 +308,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapExchangeLangagesButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="pr2-Fc-u4g"/>
+                                                    <action selector="didTapExchangeLanguagesButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="pr2-Fc-u4g"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoQ-ys-9B1">
@@ -324,7 +324,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="didTapTargetLangageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="5jT-l2-bmY"/>
+                                                    <action selector="didTapTargetLanguageButton:" destination="p7W-Id-uIM" eventType="touchUpInside" id="5jT-l2-bmY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -385,9 +385,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="errorLabel" destination="abC-Qk-d6u" id="dqT-tj-vvH"/>
-                        <outlet property="sourceLangageButton" destination="hBo-zp-gRQ" id="4SU-TY-ZdZ"/>
+                        <outlet property="sourceLanguageButton" destination="hBo-zp-gRQ" id="4SU-TY-ZdZ"/>
                         <outlet property="sourceText" destination="Hy0-ab-wOq" id="i8B-cK-cjW"/>
-                        <outlet property="targetLangageButton" destination="LoQ-ys-9B1" id="1jl-J0-dGd"/>
+                        <outlet property="targetLanguageButton" destination="LoQ-ys-9B1" id="1jl-J0-dGd"/>
                         <outlet property="targetText" destination="PoV-3A-0sl" id="Vcf-q2-dvd"/>
                         <segue destination="gB4-hZ-Jpx" kind="show" identifier="fromTraductorToLangagesController" id="ENb-CJ-O3s"/>
                     </connections>
@@ -401,10 +401,10 @@
             </objects>
             <point key="canvasLocation" x="868" y="113"/>
         </scene>
-        <!--Langages View Controller-->
+        <!--Languages View Controller-->
         <scene sceneID="NH9-pu-U8R">
             <objects>
-                <viewController id="gB4-hZ-Jpx" customClass="LangagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gB4-hZ-Jpx" customClass="LanguagesViewController" customModule="LeBaluchonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dxg-mw-KxJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,17 +614,17 @@
                         <viewLayoutGuide key="safeArea" id="krb-98-wzJ"/>
                     </view>
                     <connections>
-                        <outlet property="titleLabel" destination="J4l-cL-6eV" id="4KO-ys-iyf"/>
-                        <outletCollection property="selector" destination="Vgu-cd-uAF" collectionClass="NSMutableArray" id="lY6-Vb-R9A"/>
-                        <outletCollection property="langages" destination="LBd-Ey-QN1" collectionClass="NSMutableArray" id="gB8-k7-Imx"/>
-                        <outletCollection property="selector" destination="CpL-ql-zrM" collectionClass="NSMutableArray" id="I8X-wM-NFK"/>
-                        <outletCollection property="langages" destination="6bn-6e-c7f" collectionClass="NSMutableArray" id="2sj-Li-1xB"/>
-                        <outletCollection property="selector" destination="FTr-cO-goY" collectionClass="NSMutableArray" id="rsm-it-Gub"/>
-                        <outletCollection property="langages" destination="Q3M-UF-MNE" collectionClass="NSMutableArray" id="kZ1-iC-fnj"/>
-                        <outletCollection property="selector" destination="WAK-Q6-i7h" collectionClass="NSMutableArray" id="eX5-kC-VKX"/>
-                        <outletCollection property="langages" destination="mGX-sw-hqw" collectionClass="NSMutableArray" id="bqn-6B-87s"/>
-                        <outletCollection property="selector" destination="Hn3-jO-yg7" collectionClass="NSMutableArray" id="drk-0O-c1W"/>
-                        <outletCollection property="langages" destination="T1n-03-toZ" collectionClass="NSMutableArray" id="GTQ-BG-T2Z"/>
+                        <outlet property="titleLabel" destination="J4l-cL-6eV" id="4uP-xX-BSe"/>
+                        <outletCollection property="languages" destination="LBd-Ey-QN1" collectionClass="NSMutableArray" id="hPX-gi-OR0"/>
+                        <outletCollection property="languages" destination="6bn-6e-c7f" collectionClass="NSMutableArray" id="F9A-qI-Ff3"/>
+                        <outletCollection property="languages" destination="Q3M-UF-MNE" collectionClass="NSMutableArray" id="Hum-AV-vNA"/>
+                        <outletCollection property="languages" destination="mGX-sw-hqw" collectionClass="NSMutableArray" id="O1L-ws-vhI"/>
+                        <outletCollection property="languages" destination="T1n-03-toZ" collectionClass="NSMutableArray" id="6RU-SL-wA1"/>
+                        <outletCollection property="selector" destination="Vgu-cd-uAF" collectionClass="NSMutableArray" id="uYK-36-e0W"/>
+                        <outletCollection property="selector" destination="CpL-ql-zrM" collectionClass="NSMutableArray" id="lKE-Le-w87"/>
+                        <outletCollection property="selector" destination="FTr-cO-goY" collectionClass="NSMutableArray" id="gk4-sm-aJc"/>
+                        <outletCollection property="selector" destination="WAK-Q6-i7h" collectionClass="NSMutableArray" id="Irg-1J-dUz"/>
+                        <outletCollection property="selector" destination="Hn3-jO-yg7" collectionClass="NSMutableArray" id="lyY-zG-rGz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tZ-Nd-mjG" userLabel="First Responder" sceneMemberID="firstResponder"/>

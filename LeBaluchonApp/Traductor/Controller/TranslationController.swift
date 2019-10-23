@@ -14,18 +14,16 @@ final class TranslationController: UIViewController {
     let translationService = TranslationService()
     
     //MARK: VARIABLES
+    var languagesButtons: LanguagesButtonsEnum = .source
     let languagesDictionnary = ["Allemand": "de", "Anglais": "en","Espagnol": "es","Français": "fr", "Italien": "it"]
     
     //MARK: OUTLETS
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var sourceText: UITextView!
     @IBOutlet weak var targetText: UITextView!
-    @IBOutlet weak var sourceLangageButton: UIButton!
-    @IBOutlet weak var targetLangageButton: UIButton!
-}
+    @IBOutlet weak var sourceLanguageButton: UIButton!
+    @IBOutlet weak var targetLanguageButton: UIButton!
 
-extension TranslationController {
-    
     override func viewDidLoad() {
         errorLabel.isHidden = true
         sourceText.delegate = self
@@ -35,7 +33,9 @@ extension TranslationController {
             translate()
         }
     }
-    
+}
+
+extension TranslationController {
     // Actions
     //Manage the disapperance of the keyboard
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -51,10 +51,10 @@ extension TranslationController {
     }
     
     // to reverse languages
-    @IBAction func didTapExchangeLangagesButton(_ sender: Any) {
-        let sourceTitle = sourceLangageButton.currentTitle
-        sourceLangageButton.setTitle(targetLangageButton.currentTitle, for: .normal)
-        targetLangageButton.setTitle(sourceTitle, for: .normal)
+    @IBAction func didTapExchangeLanguagesButton(_ sender: Any) {
+        let sourceTitle = sourceLanguageButton.currentTitle
+        sourceLanguageButton.setTitle(targetLanguageButton.currentTitle, for: .normal)
+        targetLanguageButton.setTitle(sourceTitle, for: .normal)
         
         if sourceText.text != "Saisissez du texte"{
             translate()
@@ -62,12 +62,12 @@ extension TranslationController {
     }
     
     //To change the source langage
-    @IBAction func didTapSourceLangageButton(_ sender: UIButton) {
+    @IBAction func didTapSourceLanguageButton(_ sender: UIButton) {
         performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
     }
     
     //To change the target langage
-    @IBAction func didTapTargetLangageButton(_ sender: UIButton) {
+    @IBAction func didTapTargetLanguageButton(_ sender: UIButton) {
         performSegue(withIdentifier: "fromTraductorToLangagesController", sender: sender)
     }
 }
@@ -80,12 +80,12 @@ extension TranslationController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromTraductorToLangagesController" {
             if let button = sender as? UIButton {
-                let vcDestination = segue.destination as? LangagesViewController
+                let vcDestination = segue.destination as? LanguagesViewController
                 if button.tag == 1 {
-                    vcDestination?.selectedLangage = button.currentTitle
+                    vcDestination?.selectedLanguage = button.currentTitle
                     vcDestination?.labelTitle = "Langue Source"
                 } else if button.tag == 2 {
-                    vcDestination?.selectedLangage = button.currentTitle
+                    vcDestination?.selectedLanguage = button.currentTitle
                     vcDestination?.labelTitle = "Langue Cible"
                 }
             } else {
@@ -112,8 +112,8 @@ extension TranslationController: UITextViewDelegate {
 extension TranslationController {
     // Manage the translation
     func translate() {
-        guard let sourceIndex = languagesDictionnary.index(forKey: sourceLangageButton.currentTitle ?? ""),
-            let targetIndex = languagesDictionnary.index(forKey: targetLangageButton.currentTitle ?? "") else {
+        guard let sourceIndex = languagesDictionnary.index(forKey: sourceLanguageButton.currentTitle ?? ""),
+            let targetIndex = languagesDictionnary.index(forKey: targetLanguageButton.currentTitle ?? "") else {
                 return
         }
         
