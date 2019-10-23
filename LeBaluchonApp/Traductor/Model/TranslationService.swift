@@ -21,7 +21,7 @@ class TranslationService {
     // compose url endpoint with text and languages in/out
     private func createTranslationRequest(text: String, source: String, target: String) -> URLRequest? {
         let textwithAllowedCharacters = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        guard let apiKey = ApiKeyExtractor().apiKey, let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(apiKey.google)&source=\(source)&target=\(target)&q=\(textwithAllowedCharacters ?? "")&format=text".replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespaces)) else { return nil }
+        guard let apiKey = ApiKeyExtractor().apiKey, let translationUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=\(apiKey.google)&source=\(source)&target=\(target)&q=\(textwithAllowedCharacters ?? "")&format=text") else { return nil }
         let request = URLRequest(url: translationUrl)
         return request
     }
