@@ -33,6 +33,8 @@
 		565503F92314050F00FDDD23 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F82314050F00FDDD23 /* Translation.swift */; };
 		565503FB23142AED00FDDD23 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503FA23142AED00FDDD23 /* LanguagesViewController.swift */; };
 		566D481923291D3700612DA7 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D481823291D3700612DA7 /* CitiesTableViewController.swift */; };
+		56C093982360E2750030D85E /* GridPositionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C093972360E2750030D85E /* GridPositionEnum.swift */; };
+		56C0939A2360E3A50030D85E /* DidSelectCityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C093992360E3A50030D85E /* DidSelectCityDelegate.swift */; };
 		56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29CF231561B900BE92BC /* ControllerExtension.swift */; };
 		56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29DA23181B0600BE92BC /* WeatherViewController.swift */; };
 		56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29DD23181B3600BE92BC /* WeatherService.swift */; };
@@ -82,6 +84,8 @@
 		565503F82314050F00FDDD23 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		565503FA23142AED00FDDD23 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
 		566D481823291D3700612DA7 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		56C093972360E2750030D85E /* GridPositionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPositionEnum.swift; sourceTree = "<group>"; };
+		56C093992360E3A50030D85E /* DidSelectCityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidSelectCityDelegate.swift; sourceTree = "<group>"; };
 		56FA29CF231561B900BE92BC /* ControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
 		56FA29DA23181B0600BE92BC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		56FA29DD23181B3600BE92BC /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 			children = (
 				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
 				56FA2A3B231FA16200BE92BC /* Weather.swift */,
+				56C093972360E2750030D85E /* GridPositionEnum.swift */,
+				56C093992360E3A50030D85E /* DidSelectCityDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */,
 				56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */,
 				56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */,
+				56C093982360E2750030D85E /* GridPositionEnum.swift in Sources */,
 				56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */,
 				56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */,
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
@@ -434,6 +441,7 @@
 				5608F3DA235DD1B4008A8BA4 /* Languages.swift in Sources */,
 				561185762327D133005222F1 /* ErrorCases.swift in Sources */,
 				565503FB23142AED00FDDD23 /* LanguagesViewController.swift in Sources */,
+				56C0939A2360E3A50030D85E /* DidSelectCityDelegate.swift in Sources */,
 				5608F3D12358B895008A8BA4 /* CitiesTableViewCell.swift in Sources */,
 				565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */,
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,

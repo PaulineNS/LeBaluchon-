@@ -32,9 +32,9 @@ extension WeatherViewController {
     //Button to change the american city
     @IBAction private func didTapCitiesButton(_ sender: UIButton) {
         if sender.tag == 1 {
-            UserDefaults.standard.set(bottomCityName, forKey: "savedBottomCityName")
+            UserDefaults.standard.set(bottomCityGrid.cityNameLabel.text, forKey: "savedBottomCityName")
         } else if sender.tag == 2 {
-            UserDefaults.standard.set(topCityName, forKey: "savedTopCityName")
+            UserDefaults.standard.set(topCityView.cityNameLabel.text, forKey: "savedTopCityName")
         }
         performSegue(withIdentifier: "fromWeatherVcToTableViewVc", sender: sender)
     }
@@ -48,8 +48,10 @@ extension WeatherViewController {
                 let vcDestination = segue.destination as? CitiesTableViewController
                 if button.tag == 1 {
                     vcDestination?.labelTitle = "Villes Françaises"
+                    vcDestination?.didSelectCityDelegate = self
                 } else if button.tag == 2 {
                     vcDestination?.labelTitle = "Villes Américaines"
+                    vcDestination?.didSelectCityDelegate = self
                 }
             } else {
                 print("Error")
@@ -98,6 +100,19 @@ extension WeatherViewController{
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
         return dateFormatter.string(from: weatherDate as Date)
+    }
+}
+
+extension WeatherViewController : DidSelectCityDelegate {
+    func rowTapped(with city: String, grid: GridPositionEnum) {
+        switch grid {
+        case .bottom:
+            let userDefault = UserDefaults.standard.string(forKey: "savedTopCityName") ?? "Paris"
+            displayWeatherData(nameTopCity: userDefault, nameBottomCity: city)
+        case .top:
+            let userDefault = UserDefaults.standard.string(forKey: "savedBottomCityName") ?? "New York"
+            displayWeatherData(nameTopCity: city, nameBottomCity: userDefault)
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 final class CitiesTableViewController: UIViewController {
     
     //MARK: VARIABLES
+    var didSelectCityDelegate: DidSelectCityDelegate?
     var labelTitle: String? = ""
     let frenchCitiesArray = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille"]
     let americanCitiesArray = ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "San Diego", "Dallas", "Phoenix", "San Antonio"]
@@ -56,19 +57,14 @@ extension CitiesTableViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController {
-            if titleLabel.text == "Villes Françaises", let userDefaults = UserDefaults.standard.value(forKey: "savedBottomCityName") as? String {
-                vc.topCityName = frenchCitiesArray[indexPath.row]
-                vc.bottomCityName = userDefaults
-            } else if titleLabel.text == "Villes Américaines", let userDefault = UserDefaults.standard.value(forKey: "savedTopCityName") as? String  {
-                vc.bottomCityName = americanCitiesArray[indexPath.row]
-                vc.topCityName = userDefault
-            }
-            self.navigationController?.pushViewController(vc, animated: true)
+        
+        if titleLabel.text == "Villes Françaises" {
+            didSelectCityDelegate?.rowTapped(with: frenchCitiesArray[indexPath.row], grid: .top)
+            
+        } else if titleLabel.text == "Villes Américaines" {
+            didSelectCityDelegate?.rowTapped(with: americanCitiesArray[indexPath.row], grid: .bottom)
         }
+        
+        navigationController?.popViewController(animated: true)
     }
-    
-
 }
-    
