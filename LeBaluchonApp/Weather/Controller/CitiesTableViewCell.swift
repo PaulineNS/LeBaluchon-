@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CitiesTableViewCell: UITableViewCell {
+final class CitiesTableViewCell: UITableViewCell {
 
     //MARK: OUTLETS
     @IBOutlet weak var whiteView: UIView!

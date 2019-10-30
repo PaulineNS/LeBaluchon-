@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TranslationService {
+final class TranslationService {
     
     //MARK: VARIABLES
     private var task: URLSessionDataTask?

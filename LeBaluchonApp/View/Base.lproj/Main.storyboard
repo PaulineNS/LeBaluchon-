@@ -65,6 +65,10 @@
                                                     </textField>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-cj-c7u">
                                                         <rect key="frame" x="177" y="0.0" width="177" height="216"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Kzk-a8-6Ah"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="heU-RM-R6r"/>
+                                                        </connections>
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
@@ -96,6 +100,10 @@
                                                     </label>
                                                     <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiR-bL-1ld">
                                                         <rect key="frame" x="181" y="0.0" width="173" height="216"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="8fl-8Y-R4m"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="T2V-qV-a0t"/>
+                                                        </connections>
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
@@ -195,7 +203,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="350"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-qx-qSq">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="29.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
                                                 <state key="normal" title="France 🔍 ">
                                                     <color key="titleColor" red="0.4609571099281311" green="0.62224793434143066" blue="0.80282467603683472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -204,7 +212,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-Hp-gHL" userLabel="Top City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="31.5" width="394" height="318.5"/>
+                                                <rect key="frame" x="0.0" y="32" width="394" height="318"/>
                                                 <color key="backgroundColor" red="0.46095710989999999" green="0.62224793430000003" blue="0.80282467599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -218,7 +226,7 @@
                                         <rect key="frame" x="0.0" y="355" width="394" height="350"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-2b-Qry">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="29.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
                                                 <state key="normal" title="Etats Unis 🔍 ">
                                                     <color key="titleColor" red="0.37030965089797974" green="0.49928468465805054" blue="0.64378422498703003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -227,7 +235,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uC-ek-KOE" userLabel="Bottom City View" customClass="WeatherGrid" customModule="LeBaluchonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="31.5" width="394" height="318.5"/>
+                                                <rect key="frame" x="0.0" y="32" width="394" height="318"/>
                                                 <color key="backgroundColor" red="0.72646123169999999" green="0.84451949599999998" blue="0.91568887229999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -347,6 +355,9 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="p7W-Id-uIM" id="Cfg-yy-xdW"/>
+                                                </connections>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PoV-3A-0sl">
                                                 <rect key="frame" x="0.0" y="110" width="384" height="40"/>
@@ -708,6 +719,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9vD-nk-Nfp" id="5LF-gz-Dwo"/>
+                                    <outlet property="delegate" destination="9vD-nk-Nfp" id="tiv-Gk-DfX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

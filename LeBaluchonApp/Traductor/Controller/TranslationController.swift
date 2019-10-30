@@ -8,6 +8,12 @@
 
 import UIKit
 
+//Enumeration of the different languages buttons
+enum LanguagesButtonsEnum {
+    case source
+    case target
+}
+
 final class TranslationController: UIViewController {
     
     // instance
@@ -26,7 +32,6 @@ final class TranslationController: UIViewController {
 
     override func viewDidLoad() {
         errorLabel.isHidden = true
-        sourceText.delegate = self
         targetText.isEditable = false
         
         if sourceText.text != "Saisissez du texte" {
@@ -94,12 +99,10 @@ extension TranslationController{
                     vcDestination?.selectedLanguage = button.currentTitle
                     vcDestination?.labelTitle = "Langue Cible"
                 }
-            } else {
-                print("Error")
+            }
             }
         }
     }
-}
 
 extension TranslationController: UITextViewDelegate {
     // Translate each time the textField change
@@ -117,7 +120,7 @@ extension TranslationController: UITextViewDelegate {
 
 extension TranslationController {
     // Manage the translation
-    func translate() {
+    private func translate() {
         guard let sourceIndex = languagesDictionnary.index(forKey: sourceLanguageButton.currentTitle ?? ""),
             let targetIndex = languagesDictionnary.index(forKey: targetLanguageButton.currentTitle ?? "") else {
                 return
@@ -134,7 +137,7 @@ extension TranslationController {
         }
     }
     
-    func update(data: Data) {
+    private func update(data: Data) {
         sourceText.textColor = UIColor.black
         targetText.text = data.data.translations[0].translatedText
     }

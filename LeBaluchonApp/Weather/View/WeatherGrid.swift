@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherGrid: UIView {
+final class WeatherGrid: UIView {
     
     //MARK: OUTLETS
     @IBOutlet weak var cityNameLabel: UILabel!

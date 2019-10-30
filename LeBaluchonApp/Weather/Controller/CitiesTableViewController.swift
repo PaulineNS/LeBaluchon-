@@ -8,6 +8,11 @@
 
 import UIKit
 
+// Enumeration of the differents grid position
+enum GridPositionEnum {
+    case top, bottom
+}
+
 final class CitiesTableViewController: UIViewController {
     
     //MARK: VARIABLES
@@ -23,8 +28,6 @@ final class CitiesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = labelTitle
-        citiesTableView.delegate = self
-        citiesTableView.dataSource = self
     }
 }
 

@@ -16,8 +16,6 @@
 		5608F3C923576015008A8BA4 /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608F3C823576015008A8BA4 /* Currency.json */; };
 		5608F3CB2357602F008A8BA4 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608F3CA2357602F008A8BA4 /* Weather.json */; };
 		5608F3D12358B895008A8BA4 /* CitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */; };
-		5608F3DA235DD1B4008A8BA4 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608F3D9235DD1B3008A8BA4 /* Languages.swift */; };
-		5608F402236071BF008A8BA4 /* LanguagesButtonEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608F401236071BF008A8BA4 /* LanguagesButtonEnum.swift */; };
 		561185762327D133005222F1 /* ErrorCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561185752327D133005222F1 /* ErrorCases.swift */; };
 		5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611857B2328E1F2005222F1 /* WeatherGrid.swift */; };
 		5611857E2328E2ED005222F1 /* WeatherGrid.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611857D2328E2ED005222F1 /* WeatherGrid.xib */; };
@@ -33,9 +31,7 @@
 		565503F92314050F00FDDD23 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503F82314050F00FDDD23 /* Translation.swift */; };
 		565503FB23142AED00FDDD23 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565503FA23142AED00FDDD23 /* LanguagesViewController.swift */; };
 		566D481923291D3700612DA7 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D481823291D3700612DA7 /* CitiesTableViewController.swift */; };
-		56C093982360E2750030D85E /* GridPositionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C093972360E2750030D85E /* GridPositionEnum.swift */; };
-		56C0939A2360E3A50030D85E /* DidSelectCityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C093992360E3A50030D85E /* DidSelectCityDelegate.swift */; };
-		56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29CF231561B900BE92BC /* ControllerExtension.swift */; };
+		56FA29D0231561B900BE92BC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29CF231561B900BE92BC /* UIViewControllerExtension.swift */; };
 		56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29DA23181B0600BE92BC /* WeatherViewController.swift */; };
 		56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA29DD23181B3600BE92BC /* WeatherService.swift */; };
 		56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA2A3B231FA16200BE92BC /* Weather.swift */; };
@@ -65,8 +61,6 @@
 		5608F3C823576015008A8BA4 /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
 		5608F3CA2357602F008A8BA4 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewCell.swift; sourceTree = "<group>"; };
-		5608F3D9235DD1B3008A8BA4 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
-		5608F401236071BF008A8BA4 /* LanguagesButtonEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesButtonEnum.swift; sourceTree = "<group>"; };
 		561185752327D133005222F1 /* ErrorCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCases.swift; sourceTree = "<group>"; };
 		5611857B2328E1F2005222F1 /* WeatherGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGrid.swift; sourceTree = "<group>"; };
 		5611857D2328E2ED005222F1 /* WeatherGrid.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherGrid.xib; sourceTree = "<group>"; };
@@ -84,9 +78,7 @@
 		565503F82314050F00FDDD23 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		565503FA23142AED00FDDD23 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
 		566D481823291D3700612DA7 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
-		56C093972360E2750030D85E /* GridPositionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPositionEnum.swift; sourceTree = "<group>"; };
-		56C093992360E3A50030D85E /* DidSelectCityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidSelectCityDelegate.swift; sourceTree = "<group>"; };
-		56FA29CF231561B900BE92BC /* ControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
+		56FA29CF231561B900BE92BC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		56FA29DA23181B0600BE92BC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		56FA29DD23181B3600BE92BC /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		56FA2A3B231FA16200BE92BC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -248,8 +240,6 @@
 			children = (
 				56FA29DD23181B3600BE92BC /* WeatherService.swift */,
 				56FA2A3B231FA16200BE92BC /* Weather.swift */,
-				56C093972360E2750030D85E /* GridPositionEnum.swift */,
-				56C093992360E3A50030D85E /* DidSelectCityDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,8 +258,6 @@
 			children = (
 				565503F42313DFF700FDDD23 /* TranslationService.swift */,
 				565503F82314050F00FDDD23 /* Translation.swift */,
-				5608F3D9235DD1B3008A8BA4 /* Languages.swift */,
-				5608F401236071BF008A8BA4 /* LanguagesButtonEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,7 +291,7 @@
 		56FA29CE2315602300BE92BC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				56FA29CF231561B900BE92BC /* ControllerExtension.swift */,
+				56FA29CF231561B900BE92BC /* UIViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -428,20 +416,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				565503B823045EDC00FDDD23 /* CurrencyController.swift in Sources */,
-				5608F402236071BF008A8BA4 /* LanguagesButtonEnum.swift in Sources */,
 				565503B623045EDC00FDDD23 /* AppDelegate.swift in Sources */,
 				5611857C2328E1F2005222F1 /* WeatherGrid.swift in Sources */,
-				56FA29D0231561B900BE92BC /* ControllerExtension.swift in Sources */,
+				56FA29D0231561B900BE92BC /* UIViewControllerExtension.swift in Sources */,
 				56FA2A3C231FA16200BE92BC /* Weather.swift in Sources */,
-				56C093982360E2750030D85E /* GridPositionEnum.swift in Sources */,
 				56FA29DB23181B0600BE92BC /* WeatherViewController.swift in Sources */,
 				56FA29DE23181B3600BE92BC /* WeatherService.swift in Sources */,
 				565503CC2305333A00FDDD23 /* CurrencyService.swift in Sources */,
 				566D481923291D3700612DA7 /* CitiesTableViewController.swift in Sources */,
-				5608F3DA235DD1B4008A8BA4 /* Languages.swift in Sources */,
 				561185762327D133005222F1 /* ErrorCases.swift in Sources */,
 				565503FB23142AED00FDDD23 /* LanguagesViewController.swift in Sources */,
-				56C0939A2360E3A50030D85E /* DidSelectCityDelegate.swift in Sources */,
 				5608F3D12358B895008A8BA4 /* CitiesTableViewCell.swift in Sources */,
 				565503F52313DFF700FDDD23 /* TranslationService.swift in Sources */,
 				565503DF2307EE1000FDDD23 /* Currency.swift in Sources */,

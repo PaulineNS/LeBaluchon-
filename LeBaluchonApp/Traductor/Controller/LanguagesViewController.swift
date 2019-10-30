@@ -27,7 +27,6 @@ final class LanguagesViewController: UIViewController {
 }
 
 extension LanguagesViewController {
-    
     //MARK: ACTION
     @IBAction func didTapOnLanguageButton(_ sender: UIButton) {
         selectedLanguage = sender.title(for: .normal)

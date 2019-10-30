@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DidSelectCityDelegate {
+    func rowTapped(with city: String, grid: GridPositionEnum)
+}
+
 final class WeatherViewController: UIViewController {
     
     //MARK: OUTLETS
@@ -21,14 +25,16 @@ final class WeatherViewController: UIViewController {
     let citiesDictionnary = ["Paris": 6455259, "Marseille": 2995469, "Lyon": 6454573, "Toulouse": 6453974, "Nice": 2990440, "Nantes": 6434483, "Montpellier": 6454034, "Strasbourg": 2973783, "Bordeaux": 6455058, "Lille": 6454414, "New York": 5128638, "Los Angeles": 5368361, "Chicago": 4887398, "Houston": 4391354, "Philadelphia": 4440906, "San Diego": 4726311, "Dallas": 4684888, "Phoenix": 4905873, "San Antonio": 4726206]
     var topCityName = "Paris"
     var bottomCityName = "New York"
-}
-
-extension WeatherViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayWeatherData(nameTopCity: topCityName, nameBottomCity: bottomCityName)
     }
-    
+}
+
+// Actions
+extension WeatherViewController {
+
     //Button to change the american city
     @IBAction private func didTapCitiesButton(_ sender: UIButton) {
         if sender.tag == 1 {
@@ -40,6 +46,7 @@ extension WeatherViewController {
     }
 }
 
+// Segues
 extension WeatherViewController {
     // Segue to CitiesTableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,8 +67,8 @@ extension WeatherViewController {
     }
 }
 
+// Functions which manage the weather display
 extension WeatherViewController {
-    // Manage the weather display
     private func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
         guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
             return
@@ -89,20 +96,7 @@ extension WeatherViewController {
     }
 }
 
-extension WeatherViewController{
-    
-    // Convert the unix from API to obtain date and time 
-    private func convertDateFromUnix(unixTime: Int, abbreviation: String) -> String {
-        let weatherDate = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: abbreviation)
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        
-        return dateFormatter.string(from: weatherDate as Date)
-    }
-}
-
+// Protocol implementation
 extension WeatherViewController : DidSelectCityDelegate {
     func rowTapped(with city: String, grid: GridPositionEnum) {
         switch grid {

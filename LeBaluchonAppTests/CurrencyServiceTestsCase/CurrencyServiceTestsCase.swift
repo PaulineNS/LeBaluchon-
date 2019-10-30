@@ -108,4 +108,72 @@ class CurrencyServiceTestsCase: XCTestCase {
         }
         wait(for: [expectation], timeout: 0.01)
     }
+    
+    func testGiven1USD_WhenConvertToEUR_ThenTheGoodValueReturn(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { result in
+            guard case .success(let currencyResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
+            
+            XCTAssertEqual(currencyResult.convert(value: 1.0, from: "USD", to: "EUR"), 0.9061508614323164)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGiven1USD_WhenConvertToGBP_ThenTheGoodValueReturn(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { result in
+            guard case .success(let currencyResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
+            
+            XCTAssertEqual(currencyResult.convert(value: 1.0, from: "USD", to: "GBP"), 0.8215254324831524)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGiven1GBP_WhenConvertToGBP_ThenTheValueShoulbBeZero(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { result in
+            guard case .success(let currencyResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
+            
+            XCTAssertEqual(currencyResult.convert(value: 1.0, from: "GBP", to: "€"), 0.0)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGiven1EUR_WhenConvertTo$_ThenTheValueShouldBeZero(){
+        //Given
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        currencyService.getCurrency { result in
+            guard case .success(let currencyResult) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
+            
+            XCTAssertEqual(currencyResult.convert(value: 1.0, from: "EUR", to: "$"), 0.0)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
 }

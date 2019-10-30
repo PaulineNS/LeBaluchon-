@@ -28,10 +28,6 @@ final class CurrencyController: UIViewController {
 
 extension CurrencyController {
     override func viewDidLoad() {
-        requestPickerView.delegate = self
-        requestPickerView.dataSource = self
-        resultSymbolsPickerView.delegate = self
-        resultSymbolsPickerView.dataSource = self
         requestPickerView.selectRow(2, inComponent: 0, animated: true)
         resultSymbolsPickerView.selectRow(0, inComponent: 0, animated: true)
     }
@@ -80,7 +76,7 @@ extension CurrencyController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension CurrencyController {
     // Manage the conversion
-    func convert() {
+    private func convert() {
         guard let text = requestTextField.text, let value = Double(text) else {
             return
         }
@@ -97,7 +93,7 @@ extension CurrencyController {
     
     /// Checking if the result in Int is eaqul to the result in Double. Remove the decimal if yes.
     /// Replace the first index of the operation by the result.
-    func checkingDecimalNumber(result: Double){
+    private func checkingDecimalNumber(result: Double) {
         let integerValue = floor(result)
         
         if integerValue == result {
