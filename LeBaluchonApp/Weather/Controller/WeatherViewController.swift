@@ -32,6 +32,35 @@ final class WeatherViewController: UIViewController {
     }
 }
 
+// Functions which manage the weather display
+extension WeatherViewController {
+    private func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
+        guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
+            return
+        }
+        
+        weatherService.getWeather(topCityId: citiesDictionnary[topCityIndex].value, bottomCityId: citiesDictionnary[bottomCityIndex].value) { result in
+            switch result {
+            case .success(let weatherData):
+                self.updateWeather(data: weatherData, cityView: self.topCityView, cityIndex: 0, abbreviation: "CET")
+                self.updateWeather(data: weatherData, cityView: self.bottomCityGrid, cityIndex: 1, abbreviation: "EDT")
+            case .failure:
+                self.presentAlert(message: "La météo n'a pas aboutit")
+            }
+        }
+    }
+    
+    private func updateWeather(data: WeatherStruc, cityView: WeatherGrid, cityIndex: Int, abbreviation: String) {
+        if let cityTemperature = data.list[cityIndex].main.temp, let cityIcon = data.list[cityIndex].weather[0].icon {
+            cityView.temperatureLabel.text = String(cityTemperature) + "°C"
+            cityView.weatherImageView.image = UIImage(named: cityIcon)
+        }
+        cityView.cityNameLabel.text = data.list[cityIndex].name
+        cityView.conditionLabel.text = data.list[cityIndex].weather[0].weatherDescription
+        cityView.dateLabel.text = convertDateFromUnix(unixTime: data.list[cityIndex].dt, abbreviation: abbreviation)
+    }
+}
+
 // Actions
 extension WeatherViewController {
 
@@ -64,35 +93,6 @@ extension WeatherViewController {
                 print("Error")
             }
         }
-    }
-}
-
-// Functions which manage the weather display
-extension WeatherViewController {
-    private func displayWeatherData(nameTopCity: String, nameBottomCity: String) {
-        guard let topCityIndex = citiesDictionnary.index(forKey: nameTopCity), let bottomCityIndex = citiesDictionnary.index(forKey: nameBottomCity) else {
-            return
-        }
-        
-        weatherService.getWeather(topCityId: citiesDictionnary[topCityIndex].value, bottomCityId: citiesDictionnary[bottomCityIndex].value) { result in
-            switch result {
-            case .success(let weatherData):
-                self.updateWeather(data: weatherData, cityView: self.topCityView, cityIndex: 0, abbreviation: "CET")
-                self.updateWeather(data: weatherData, cityView: self.bottomCityGrid, cityIndex: 1, abbreviation: "EDT")
-            case .failure:
-                self.presentAlert(message: "La météo n'a pas aboutit")
-            }
-        }
-    }
-    
-    private func updateWeather(data: WeatherStruc, cityView: WeatherGrid, cityIndex: Int, abbreviation: String) {
-        if let cityTemperature = data.list[cityIndex].main.temp, let cityIcon = data.list[cityIndex].weather[0].icon {
-            cityView.temperatureLabel.text = String(cityTemperature) + "°C"
-            cityView.weatherImageView.image = UIImage(named: cityIcon)
-        }
-        cityView.cityNameLabel.text = data.list[cityIndex].name
-        cityView.conditionLabel.text = data.list[cityIndex].weather[0].weatherDescription
-        cityView.dateLabel.text = convertDateFromUnix(unixTime: data.list[cityIndex].dt, abbreviation: abbreviation)
     }
 }
 

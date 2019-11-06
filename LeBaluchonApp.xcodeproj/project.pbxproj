@@ -200,8 +200,8 @@
 		56B26BA4234C7B3000091F5E /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				56B26BAC234C7BF900091F5E /* Model */,
 				56B26BAB234C7BF700091F5E /* Controller */,
+				56B26BAC234C7BF900091F5E /* Model */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -219,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				56B26BA8234C7BDF00091F5E /* Model */,
-				56B26BAD234C7D4300091F5E /* View */,
 				56B26BA7234C7BDC00091F5E /* Controller */,
+				56B26BAD234C7D4300091F5E /* View */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -228,9 +228,9 @@
 		56B26BA7234C7BDC00091F5E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */,
 				56FA29DA23181B0600BE92BC /* WeatherViewController.swift */,
 				566D481823291D3700612DA7 /* CitiesTableViewController.swift */,
+				5608F3D02358B895008A8BA4 /* CitiesTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

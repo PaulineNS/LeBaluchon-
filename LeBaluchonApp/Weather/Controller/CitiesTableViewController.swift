@@ -33,6 +33,7 @@ final class CitiesTableViewController: UIViewController {
 
 /// Creating The TableView
 extension CitiesTableViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
